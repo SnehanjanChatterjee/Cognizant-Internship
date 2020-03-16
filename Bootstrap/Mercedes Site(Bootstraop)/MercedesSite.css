@@ -31,3 +31,15 @@ button:hover {
     color: white;
     box-shadow: 0 0 30px red;
 }
+.footer-links { 
+    color: gray; 
+}
+.footer-links:hover { 
+    color: red; 
+}
+.footer-links-2 { 
+    color: white; 
+}
+.footer-links-2:hover { 
+    color: red; 
+}
