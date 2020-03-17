@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script>
+        function CheckName() {
+            var val = document.getElementById('Name').value;
+            var matches = val.match(/\d+/g);
+            if (matches != null) {
+                alert('Name should not contain any number');
+            }
+        }
+        // function CheckAge() {
+        //     var x = document.getElementById('dob').value;
+        //     dob = new Date(x);
+        //     //document.getElementById('banner').innerHTML = document.getElementById('Name').value + ", your age is " + dob;
+        //     var diff_ms = Date.now() - dob.getTime();
+        //     var age_dt = new Date(diff_ms);
+
+        //     var out = Math.abs(age_dt.getUTCFullYear() - 1970);
+        //     document.getElementById('banner').innerHTML = document.getElementById('Name').value + ", your age is " + out;
+        // }
+        function ageCalculate() {
+            var birthDate = document.getElementById('dob').value;
+            var d = new Date(birthDate);
+            var mdate = birthDate.toString();
+            var yearThen = parseInt(mdate.substring(0, 4), 10);
+            var monthThen = parseInt(mdate.substring(5, 7), 10);
+            var dayThen = parseInt(mdate.substring(8, 10), 10);
+
+            var today = new Date();
+            var birthday = new Date(yearThen, monthThen - 1, dayThen);
+
+            var differenceInMilisecond = today.valueOf() - birthday.valueOf();
+
+
+            var year_age = Math.floor(differenceInMilisecond / 31536000000);
+            var day_age = Math.floor((differenceInMilisecond % 31536000000) / 86400000);
+
+            if ((today.getMonth() == birthday.getMonth()) && (today.getDate() == birthday.getDate())) {
+                alert("Happy B'day!!!");
+            }
+
+            var month_age = Math.floor(day_age / 30);
+
+            day_age = day_age % 30;
+
+            var tMnt = (month_age + (year_age * 12));
+            var tDays = (tMnt * 30) + day_age;
+
+            if (isNaN(year_age) || isNaN(month_age) || isNaN(day_age)) {
+                document.getElementById("banner").innerHTML = ("Invalid birthday - Please try again!");
+            }
+            else {
+                var age = year_age + " years " + month_age + " months " + day_age + " days";
+                document.getElementById("banner").innerHTML = age;
+                console.log(age);
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="width: 50%; margin: auto;">
+            <form>
+                <div class="form-group">
+                    <label for="Name" style="display: block;">NAME</label>
+                    <input type="text" id="Name" name="Name" onblur="CheckName()" class="form-control">
+
+                </div>
+                <div class="form-group">
+                    <label for="dob" style="display: block;">DATE OF BIRTH</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="ageCalculate()">Calculate Age</button>
+                <br>
+                <div id="banner"></div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
