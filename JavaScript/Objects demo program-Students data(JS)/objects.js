@@ -8,6 +8,8 @@ function checkNum() {
         alert("Please enter only numbers in ID field");
     else if (num.length != 6)
         alert("ID should be of 6 digits");
+    else
+        return true;
 }
 //Validate first-name field
 function checkFirstName() {
@@ -17,6 +19,8 @@ function checkFirstName() {
     //     alert("First Name field should not be empty!");
     if (matches != null)
         alert("Please enter only alphabets in First Name field");
+    else
+        return true;
 }
 //Validate last-name field
 function checkLastName() {
@@ -26,12 +30,16 @@ function checkLastName() {
     //     alert("Last Name field should not be empty!");
     if (matches != null)
         alert("Please enter only alphabets in Last Name field");
+    else
+        return true;
 }
 
 //Validate email field
 function checkEmail() {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value) != true)
         alert("Email format is wrong");
+    else
+        return true;
 }
 
 //Constructor Function
@@ -49,41 +57,43 @@ Student.prototype.name = function () {
 var students = []
 
 function addStudent() {
-    let student = new Student(
-        document.getElementById('stuid').value,
-        document.getElementById('firstname').value,
-        document.getElementById('lastname').value,
-        document.getElementById('email').value
-    )
+    if (checkNum() && checkFirstName() && checkLastName() && checkEmail()) {
+        let student = new Student(
+            document.getElementById('stuid').value,
+            document.getElementById('firstname').value,
+            document.getElementById('lastname').value,
+            document.getElementById('email').value
+        )
 
-    console.log("student object");
-    console.log(student);
+        console.log("student object");
+        console.log(student);
 
-    students.push(student)
+        students.push(student)
 
-    console.log("students array")
-    console.log(students)
+        console.log("students array")
+        console.log(students)
 
-    students.forEach(element => {
-        console.log(element.name())
-    });
+        students.forEach(element => {
+            console.log(element.name())
+        });
 
-    var table = document.getElementById("studentsTable").getElementsByTagName('tbody')[0];
-    var row = table.insertRow(table.rows.length);
+        var table = document.getElementById("studentsTable").getElementsByTagName('tbody')[0];
+        var row = table.insertRow(table.rows.length);
 
-    var stuidCell = row.insertCell(0);
-    var firstNameCell = row.insertCell(1);
-    var lastNameCell = row.insertCell(2);
-    var emailCell = row.insertCell(3);
-    var editDataCell = row.insertCell(4);
-    var deleteDataCell = row.insertCell(5);
+        var stuidCell = row.insertCell(0);
+        var firstNameCell = row.insertCell(1);
+        var lastNameCell = row.insertCell(2);
+        var emailCell = row.insertCell(3);
+        var editDataCell = row.insertCell(4);
+        var deleteDataCell = row.insertCell(5);
 
-    stuidCell.innerHTML = "<span style='color: green;'>" + students[students.length - 1].stuid + "</span>";
-    firstNameCell.innerText = students[students.length - 1].firstname;
-    lastNameCell.innerText = students[students.length - 1].lastname;
-    emailCell.innerText = students[students.length - 1].email;
-    editDataCell.innerHTML = "<button type='button' class='btn btn-primary' onclick='updateStudentForm(this)'>EDIT</button>"
-    deleteDataCell.innerHTML = "<button type='button' class='btn btn-primary' onclick='deleteStudent(this)'>DELETE</button>"
+        stuidCell.innerHTML = "<span style='color: green;'>" + students[students.length - 1].stuid + "</span>";
+        firstNameCell.innerText = students[students.length - 1].firstname;
+        lastNameCell.innerText = students[students.length - 1].lastname;
+        emailCell.innerText = students[students.length - 1].email;
+        editDataCell.innerHTML = "<button type='button' class='btn btn-primary' onclick='updateStudentForm(this)'>EDIT</button>"
+        deleteDataCell.innerHTML = "<button type='button' class='btn btn-primary' onclick='deleteStudent(this)'>DELETE</button>"
+    }
 }
 
 function updateStudentForm(td) {
@@ -166,17 +176,33 @@ function searchStudent() {
     table = document.getElementById("studentsTable");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];  //all datas
+        td = tr[i].getElementsByTagName("td")[0];//all datas
         tdd = tr[i].getElementsByTagName("td")[1];
         if (td) {
             txtValue = td.textContent || td.innerText;
             txtValue2 = tdd.textContent || tdd.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
+                //alert("User not found")
+                document.getElementById('message').style.display = 'none'
+
             } else {
-                //tr[i].style.display = "none";
-                alert("Searched user was not found");
+                tr[i].style.display = "none";
+                setWarning('User Not Found');
             }
         }
     }
+}
+function setWarning(text) {
+
+    var alertWarningHTML = ''
+    alertWarningHTML += '<div class="alert alert-dismissible alert-danger">'
+    alertWarningHTML += '<button type="button" class="close" data-dismiss="alert">&times;</button>'
+    alertWarningHTML += '<h4 class="alert-heading">Warning!</h4>'
+    alertWarningHTML += '<p class="mb-0">' + text + '</p>'
+    alertWarningHTML += '</div>'
+
+    document.getElementById('message').style.display = 'block'
+    document.getElementById('message').innerHTML = alertWarningHTML;
+
 }
