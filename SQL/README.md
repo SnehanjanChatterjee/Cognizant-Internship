@@ -8,11 +8,11 @@ Go to cmd prompt
 # Few Commands
 
 ```SQL
-show databases:
+show databases;
 ```
 
 ```SQL
-use database-name
+use database-name;
 ```
 
 ```SQL
