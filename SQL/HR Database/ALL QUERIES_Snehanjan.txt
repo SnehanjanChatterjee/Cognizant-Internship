@@ -1,0 +1,991 @@
+MariaDB [(none)]> create database hr;
+Query OK, 1 row affected (0.109 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| classicmodels      |
+| hr                 |
+| information_schema |
+| irctc              |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| project            |
+| sakila             |
+| test               |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [(none)]> use hr;
+Database changed
+MariaDB [hr]> create table regions regions(
+    -> region_id int(6),
+    -> create table regions regions(;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(
+region_id int(6),
+create table regions regions(' at line 2
+MariaDB [hr]> create table regions regions(
+    -> region_id int,
+    -> region_name varchar(25),
+    -> constraint pk_regions primary key(region_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(
+region_id int,
+region_name varchar(25),
+constraint pk_regions primary key(regi' at line 2
+MariaDB [hr]> create table regions regions(
+    -> region_id INT,
+    -> region_name varchar(25),
+    -> constraint pk_regions primary key(region_id));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(
+region_id INT,
+region_name varchar(25),
+constraint pk_regions primary key(regi' at line 2
+MariaDB [hr]> create table regions( region_id INT, region_name varchar(25), constraint pk_regions primary key(region_id));
+Query OK, 0 rows affected, 1 warning (0.379 sec)
+
+MariaDB [hr]> desc regions;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| region_id   | int(11)     | NO   | PRI | NULL    |       |
+| region_name | varchar(25) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0.018 sec)
+
+MariaDB [hr]> insert into regions values (107,'Nairobi'),(101,'Rio'),(302,'Tokyo'),(406,'Moscow'),(504,'Oslo');
+Query OK, 5 rows affected (0.284 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> select * from regions;
++-----------+-------------+
+| region_id | region_name |
++-----------+-------------+
+|       101 | Rio         |
+|       107 | Nairobi     |
+|       302 | Tokyo       |
+|       406 | Moscow      |
+|       504 | Oslo        |
++-----------+-------------+
+5 rows in set (0.003 sec)
+
+MariaDB [hr]> create table countries (
+    -> country_id INT,
+    -> country_name varchar(40),
+    -> region_id INT,
+    -> constraint pk_countires primary key(country_id),
+    -> constraint fk_countires_region_id foreign key(country_id) references regions(country_id),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 7
+MariaDB [hr]> create table countries (
+    -> country_id INT,
+    -> country_name varchar(40),
+    -> region_id INT,
+    -> constraint pk_countires primary key(country_id),
+    -> constraint fk_countires_region_id foreign key(country_id) references regions(country_id)
+    -> );
+ERROR 1005 (HY000): Can't create table `hr`.`countries` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [hr]> create table countries (
+    -> country_id INT,
+    -> country_name varchar(40),
+    -> region_id INT,
+    -> constraint pk_countires primary key(country_id),
+    -> constraint fk_countires_region_id foreign key(region_id) references regions(region_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.298 sec)
+
+MariaDB [hr]> desc countries;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| country_id   | int(11)     | NO   | PRI | NULL    |       |
+| country_name | varchar(40) | YES  |     | NULL    |       |
+| region_id    | int(11)     | YES  | MUL | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.015 sec)
+
+MariaDB [hr]> drop table countries;
+Query OK, 0 rows affected (0.228 sec)
+
+MariaDB [hr]> desc countries;
+ERROR 1146 (42S02): Table 'hr.countries' doesn't exist
+MariaDB [hr]> create table countries (
+    -> country_id char(2),
+    -> country_name varchar(40),
+    -> region_id INT,
+    -> constraint pk_countires primary key(country_id),
+    -> constraint fk_countires_region_id foreign key(region_id) references regions(region_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.367 sec)
+
+MariaDB [hr]> desc countries;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| country_id   | char(2)     | NO   | PRI | NULL    |       |
+| country_name | varchar(40) | YES  |     | NULL    |       |
+| region_id    | int(11)     | YES  | MUL | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.018 sec)
+
+MariaDB [hr]> update regions set region_id=201 where region_name like 'Rio';
+Query OK, 1 row affected (0.178 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from regions;
++-----------+-------------+
+| region_id | region_name |
++-----------+-------------+
+|       107 | Nairobi     |
+|       201 | Rio         |
+|       302 | Tokyo       |
+|       406 | Moscow      |
+|       504 | Oslo        |
++-----------+-------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> insert into countries values (
+    -> ('01','Kenya',107),('02','Rio',201),('03','Tokyo',302),('04','Moscow',406),('05','Oslo',504)
+    -> );
+ERROR 1241 (21000): Operand should contain 1 column(s)
+MariaDB [hr]> insert into countries values ('01','Kenya',107),('02','Rio',201),('03','Tokyo',302),('04','Moscow',406),('05','Oslo',504);
+Query OK, 5 rows affected (0.053 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> select * from countries; 
++------------+--------------+-----------+
+| country_id | country_name | region_id |
++------------+--------------+-----------+
+| 01         | Kenya        |       107 |
+| 02         | Rio          |       201 |
+| 03         | Tokyo        |       302 |
+| 04         | Moscow       |       406 |
+| 05         | Oslo         |       504 |
++------------+--------------+-----------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> create table locations (
+    -> location_id INT(4),
+    -> street_address varchar(40),
+    -> postal_code varchar(12),
+    -> city varchar(30),
+    -> state_province varchar(25),
+    -> country_id char(2),
+    -> constraint pk_locations primary key(location_id),
+    -> constraint fk_locations_region_id foreign key(country_id) references countries(country_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.265 sec)
+
+MariaDB [hr]> desc location;
+ERROR 1146 (42S02): Table 'hr.location' doesn't exist
+MariaDB [hr]> desc locations;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| location_id    | int(4)      | NO   | PRI | NULL    |       |
+| street_address | varchar(40) | YES  |     | NULL    |       |
+| postal_code    | varchar(12) | YES  |     | NULL    |       |
+| city           | varchar(30) | YES  |     | NULL    |       |
+| state_province | varchar(25) | YES  |     | NULL    |       |
+| country_id     | char(2)     | YES  | MUL | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.015 sec)
+
+MariaDB [hr]> update countries set country_name='Brazil' where country_id='02';
+Query OK, 1 row affected (0.153 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from countries;
++------------+--------------+-----------+
+| country_id | country_name | region_id |
++------------+--------------+-----------+
+| 01         | Kenya        |       107 |
+| 02         | Brazil       |       201 |
+| 03         | Tokyo        |       302 |
+| 04         | Moscow       |       406 |
+| 05         | Oslo         |       504 |
++------------+--------------+-----------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> update countries set country_name='Japan' where country_id='03';
+Query OK, 1 row affected (0.131 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> update countries set country_name='Russia' where country_id='04';
+Query OK, 1 row affected (0.040 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> update countries set country_name='Norway' where country_id='05';
+Query OK, 1 row affected (0.075 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from countries;
++------------+--------------+-----------+
+| country_id | country_name | region_id |
++------------+--------------+-----------+
+| 01         | Kenya        |       107 |
+| 02         | Brazil       |       201 |
+| 03         | Japan        |       302 |
+| 04         | Russia       |       406 |
+| 05         | Norway       |       504 |
++------------+--------------+-----------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> insert into locations values (1001, '5th Floor NHIF Building Ragati Road', '34670', 'Nairobi', 'Nairobi', '01'),
+    -> (1002, '17, R. Greenalgh', '20251-28', 'Catumbi', 'Rio', '02'),
+    -> (1003, '3 Chome-4-4??17? Shirokanedai', '108-0071', 'Kanto', 'Tokyo', '03'),
+    -> (1004, 'Presnenskaya Naberezhnaya, 10', '123317', 'Central', 'Moscow', '04'),
+    -> (1005, 'Karoline Kristiansens vei 1', '0661', 'Ostlandet', 'Oslo', '05');
+Query OK, 5 rows affected (0.152 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> select * from locations;
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+| location_id | street_address                      | postal_code | city      | state_province | country_id |
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+|        1001 | 5th Floor NHIF Building Ragati Road | 34670       | Nairobi   | Nairobi        | 01         |
+|        1002 | 17, R. Greenalgh                    | 20251-28    | Catumbi   | Rio            | 02         |
+|        1003 | 3 Chome-4-4??17? Shirokanedai       | 108-0071    | Kanto     | Tokyo          | 03         |
+|        1004 | Presnenskaya Naberezhnaya, 10       | 123317      | Central   | Moscow         | 04         |
+|        1005 | Karoline Kristiansens vei 1         | 0661        | Ostlandet | Oslo           | 05         |
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> update countries set street_address='3 Chome-4-417 Shirokanedai' where location_id=1003;
+ERROR 1054 (42S22): Unknown column 'location_id' in 'where clause'
+MariaDB [hr]> update locations set street_address='3 Chome-4-417 Shirokanedai' where location_id=1003;
+Query OK, 1 row affected (0.134 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from locations;
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+| location_id | street_address                      | postal_code | city      | state_province | country_id |
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+|        1001 | 5th Floor NHIF Building Ragati Road | 34670       | Nairobi   | Nairobi        | 01         |
+|        1002 | 17, R. Greenalgh                    | 20251-28    | Catumbi   | Rio            | 02         |
+|        1003 | 3 Chome-4-417 Shirokanedai          | 108-0071    | Kanto     | Tokyo          | 03         |
+|        1004 | Presnenskaya Naberezhnaya, 10       | 123317      | Central   | Moscow         | 04         |
+|        1005 | Karoline Kristiansens vei 1         | 0661        | Ostlandet | Oslo           | 05         |
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> alter table locations modify city varchar(30) NOT NULL;
+Query OK, 0 rows affected (0.874 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> desc locations;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| location_id    | int(4)      | NO   | PRI | NULL    |       |
+| street_address | varchar(40) | YES  |     | NULL    |       |
+| postal_code    | varchar(12) | YES  |     | NULL    |       |
+| city           | varchar(30) | NO   |     | NULL    |       |
+| state_province | varchar(25) | YES  |     | NULL    |       |
+| country_id     | char(2)     | YES  | MUL | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.015 sec)
+
+MariaDB [hr]> select * from locations;
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+| location_id | street_address                      | postal_code | city      | state_province | country_id |
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+|        1001 | 5th Floor NHIF Building Ragati Road | 34670       | Nairobi   | Nairobi        | 01         |
+|        1002 | 17, R. Greenalgh                    | 20251-28    | Catumbi   | Rio            | 02         |
+|        1003 | 3 Chome-4-417 Shirokanedai          | 108-0071    | Kanto     | Tokyo          | 03         |
+|        1004 | Presnenskaya Naberezhnaya, 10       | 123317      | Central   | Moscow         | 04         |
+|        1005 | Karoline Kristiansens vei 1         | 0661        | Ostlandet | Oslo           | 05         |
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> create table jobs (
+    -> job_id varchar(10),
+    -> job_title varchar(35) NOT NULL,
+    -> min_salary INT(6),
+    -> max_salary INT(6),
+    -> constraint pk_jobs primary key(job_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.300 sec)
+
+MariaDB [hr]> desc jobs;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| job_id     | varchar(10) | NO   | PRI | NULL    |       |
+| job_title  | varchar(35) | NO   |     | NULL    |       |
+| min_salary | int(6)      | YES  |     | NULL    |       |
+| max_salary | int(6)      | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.038 sec)
+
+MariaDB [hr]> insert into jobs values ('100','Developer','20000','30000'),('101','Senior Developer','50000','80000'),('102','Team Manager','100000','150000'),
+    -> ('103','Accountant','80000','120000'),('104','President','320000','520000');
+Query OK, 5 rows affected (0.058 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> select * from jobs;
++--------+------------------+------------+------------+
+| job_id | job_title        | min_salary | max_salary |
++--------+------------------+------------+------------+
+| 100    | Developer        |      20000 |      30000 |
+| 101    | Senior Developer |      50000 |      80000 |
+| 102    | Team Manager     |     100000 |     150000 |
+| 103    | Accountant       |      80000 |     120000 |
+| 104    | President        |     320000 |     520000 |
++--------+------------------+------------+------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> create table departments (
+    -> department_id INT(4),
+    -> department_name varchar(30) NOT NULL,
+    -> manager_id INT(6),
+    -> location_id INT(4),
+    -> constraint pk_departments primary key(department_id),
+    -> constraint fk_departments_location_id foreign key(location_id) references countries(location_id)
+    -> );
+ERROR 1005 (HY000): Can't create table `hr`.`departments` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [hr]> create table departments (
+    -> department_id INT(4),
+    -> department_name varchar(30) NOT NULL,
+    -> manager_id INT(6),
+    -> location_id INT(4),
+    -> constraint pk_departments primary key(department_id),
+    -> constraint fk_departments_location_id foreign key(location_id) references locations(location_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.225 sec)
+
+MariaDB [hr]> create table job_history (
+    -> employee_id INT(6) NOT NULL,
+    -> start_date date NOT NULL,
+    -> end_date date NOT NULL,
+    -> job_id varchar(10) NOT NULL,
+    -> department_id INT(4),
+    -> constraint pk_job_history primary key(employee_id, start_date),
+    -> constraint fk_job_history_department_id foreign key(department_id) references departments(department_id),
+    -> constraint check_startlessthanend check ( start_date < end_date )
+    -> );
+Query OK, 0 rows affected, 1 warning (0.312 sec)
+
+MariaDB [hr]> create table employees (
+    -> employee_id INT(6),
+    -> first_name varchar(20),
+    -> last_name varchar(25) NOT NULL,
+    -> email varchar(20) NOT NULL,
+    -> phone_number varchar(20),
+    -> hire_date date NOT NULL,
+    -> job_id varchar(10) NOT NULL,
+    -> salary INT(8,2),
+    -> commission_pct INT(2,2),
+    -> manager_id INT(6),
+    -> department_id INT(4),
+    -> constraint pk_employees_employee_id primary key(employee_id),
+    -> constraint fk_employees_manager_id foreign key(manager_id) references employees(employee_id),
+    -> constraint fk_employees_department_id foreign key(department_id) references departments(department_id),
+    -> constraint emp_salary_min check (salary > 0)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '2),
+commission_pct INT(2,2),
+manager_id INT(6),
+department_id INT(4),
+constraint' at line 9
+MariaDB [hr]> create table employees (
+    -> employee_id INT(6),
+    -> first_name varchar(20),
+    -> last_name varchar(25) NOT NULL,
+    -> email varchar(20) NOT NULL,
+    -> phone_number varchar(20),
+    -> hire_date date NOT NULL,
+    -> job_id varchar(10) NOT NULL,
+    -> salary DECIMAL(8,2),
+    -> commission_pct DECIMAL(2,2),
+    -> manager_id INT(6),
+    -> department_id INT(4),
+    -> constraint pk_employees_employee_id primary key(employee_id),
+    -> constraint fk_employees_manager_id foreign key(manager_id) references employees(employee_id),
+    -> constraint fk_employees_department_id foreign key(department_id) references departments(department_id),
+    -> constraint emp_salary_min check (salary > 0)
+    -> );
+Query OK, 0 rows affected, 1 warning (2.320 sec)
+
+MariaDB [hr]> 
+MariaDB [hr]> Alter TABLE DEPT
+    ->      add constraint PK_Dept primary key(deptno);
+ERROR 1146 (42S02): Table 'hr.dept' doesn't exist
+MariaDB [hr]> alter table job_hostory add constraint fk_job_history_job_id foreign key(job_id) references jobs(job_id);
+ERROR 1146 (42S02): Table 'hr.job_hostory' doesn't exist
+MariaDB [hr]> alter table job_history add constraint fk_job_history_job_id foreign key(job_id) references jobs(job_id);
+Query OK, 0 rows affected (0.888 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> desc job_history;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| employee_id   | int(6)      | NO   | PRI | NULL    |       |
+| start_date    | date        | NO   | PRI | NULL    |       |
+| end_date      | date        | NO   |     | NULL    |       |
+| job_id        | varchar(10) | NO   | MUL | NULL    |       |
+| department_id | int(4)      | YES  | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+5 rows in set (0.077 sec)
+
+MariaDB [hr]> alter table departments add constraint fk_departments_manager_id foreign key(manager_id) references employees(employee_id);
+Query OK, 0 rows affected (1.042 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> desc departments;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| department_id   | int(4)      | NO   | PRI | NULL    |       |
+| department_name | varchar(30) | NO   |     | NULL    |       |
+| manager_id      | int(6)      | YES  | MUL | NULL    |       |
+| location_id     | int(4)      | YES  | MUL | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.016 sec)
+
+MariaDB [hr]> insert into departments values (5000,'SALES',100679,1001);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`hr`.`departments`, CONSTRAINT `fk_departments_manager_id` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`))
+MariaDB [hr]> drop table departments;
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`hr`.`departments`, CONSTRAINT `fk_departments_manager_id` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`))
+MariaDB [hr]> alter table departments drop fk_departments_manager_id;
+ERROR 1091 (42000): Can't DROP COLUMN `fk_departments_manager_id`; check that it exists
+MariaDB [hr]> alter table departments drop contraint fk_departments_manager_id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'fk_departments_manager_id' at line 1
+MariaDB [hr]> alter table drop constraint fk_departments_manager_id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'drop constraint fk_departments_manager_id' at line 1
+MariaDB [hr]> alter table drop foreign key fk_departments_manager_id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'drop foreign key fk_departments_manager_id' at line 1
+MariaDB [hr]> alter table departments drop foreign key fk_departments_manager_id;
+Query OK, 0 rows affected (0.092 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> alter table departments drop column manager_id;
+Query OK, 0 rows affected (0.245 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> alter table job_history add constraint fk_job_history_employee_id foreign key(employee_id) references employees(employee_id);
+Query OK, 0 rows affected (0.877 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> insert into departments values (5000,'SALES',1001),(6000,'ACCOUNTING',1003),(6000,'OPERATIONS',1002),(7000,'DESIGN',1004),
+    -> (8000,'RESEARCH',1005);
+ERROR 1062 (23000): Duplicate entry '6000' for key 'PRIMARY'
+MariaDB [hr]> insert into departments values (5000,'SALES',1001),(6000,'ACCOUNTING',1003),(7000,'OPERATIONS',1002),(8000,'DESIGN',1004),
+    -> (9000,'RESEARCH',1005);
+Query OK, 5 rows affected (0.417 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> desc employees;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| employee_id    | int(6)       | NO   | PRI | NULL    |       |
+| first_name     | varchar(20)  | YES  |     | NULL    |       |
+| last_name      | varchar(25)  | NO   |     | NULL    |       |
+| email          | varchar(20)  | NO   |     | NULL    |       |
+| phone_number   | varchar(20)  | YES  |     | NULL    |       |
+| hire_date      | date         | NO   |     | NULL    |       |
+| job_id         | varchar(10)  | NO   |     | NULL    |       |
+| salary         | decimal(8,2) | YES  |     | NULL    |       |
+| commission_pct | decimal(2,2) | YES  |     | NULL    |       |
+| manager_id     | int(6)       | YES  | MUL | NULL    |       |
+| department_id  | int(4)       | YES  | MUL | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+11 rows in set (0.016 sec)
+
+MariaDB [hr]> alter table employees add constraint fk_employees_job_id foreign key(job_id) references jobs(job_id);
+Query OK, 0 rows affected (0.900 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> insert into employees values 
+    -> (856101,'Rahul', 'Shaw', 'rahul.shaw@gmail.com', '7896541230', '2018/09/13',100,25000,NULL,NULL,6000),
+    -> (856102,'Anindita', 'Ghosh', 'anindita.ghosh@gmail.com', '9896215478', '2015/03/24',101,58000,NULL,856103,7000),
+    -> (856103,'Tridib', 'Santra', 'tridib.santra@gmail.com', '9574197230', '2008/05/18',102,00,NULL,NULL,5000),
+    -> (856104,'Somdutta', 'Deb', 'somdutta.deb@gmail.com', '8951741230', '2019/08/15',100,25000,NULL,NULL,9000),
+    -> (856105,'Soham', 'Samanta', 'soham.samanta@gmail.com', '8568951225', '2018/08/12',100,1200,500,NULL,8000);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`hr`.`employees`, CONSTRAINT `fk_employees_manager_id` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`))
+MariaDB [hr]> insert into employees values 
+    -> (856101,'Rahul', 'Shaw', 'rahul.shaw@gmail.com', '7896541230', '2018/09/13',100,25000,NULL,NULL,6000),
+    -> (856102,'Anindita', 'Ghosh', 'anindita.ghosh@gmail.com', '9896215478', '2015/03/24',101,58000,NULL,856103,7000),
+    -> (856103,'Tridib', 'Santra', 'tridib.santra@gmail.com', '9574197230', '2008/05/18',102,120000,NULL,NULL,5000),
+    -> (856104,'Somdutta', 'Deb', 'somdutta.deb@gmail.com', '8951741230', '2019/08/15',100,25000,NULL,NULL,9000),
+    -> (856105,'Soham', 'Samanta', 'soham.samanta@gmail.com', '8568951225', '2018/08/12',100,1200,500,NULL,8000);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`hr`.`employees`, CONSTRAINT `fk_employees_manager_id` FOREIGN KEY (`manager_id`) REFERENCES `employees` (`employee_id`))
+MariaDB [hr]> alter table employees drop foreign key fk_employees_manager_id;
+Query OK, 0 rows affected (0.103 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> desc employees;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| employee_id    | int(6)       | NO   | PRI | NULL    |       |
+| first_name     | varchar(20)  | YES  |     | NULL    |       |
+| last_name      | varchar(25)  | NO   |     | NULL    |       |
+| email          | varchar(20)  | NO   |     | NULL    |       |
+| phone_number   | varchar(20)  | YES  |     | NULL    |       |
+| hire_date      | date         | NO   |     | NULL    |       |
+| job_id         | varchar(10)  | NO   | MUL | NULL    |       |
+| salary         | decimal(8,2) | YES  |     | NULL    |       |
+| commission_pct | decimal(2,2) | YES  |     | NULL    |       |
+| manager_id     | int(6)       | YES  | MUL | NULL    |       |
+| department_id  | int(4)       | YES  | MUL | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+11 rows in set (0.015 sec)
+
+MariaDB [hr]> 
+MariaDB [hr]> insert into employees values 
+    -> (856101,'Rahul', 'Shaw', 'rahul.shaw@gmail.com', '7896541230', '2018/09/13',100,25000,NULL,NULL,6000),
+    -> (856102,'Anindita', 'Ghosh', 'anindita.ghosh@gmail.com', '9896215478', '2015/03/24',101,58000,NULL,856103,7000),
+    -> (856103,'Tridib', 'Santra', 'tridib.santra@gmail.com', '9574197230', '2008/05/18',102,120000,NULL,NULL,5000),
+    -> (856104,'Somdutta', 'Deb', 'somdutta.deb@gmail.com', '8951741230', '2019/08/15',100,25000,NULL,NULL,9000),
+    -> (856105,'Soham', 'Samanta', 'soham.samanta@gmail.com', '8568951225', '2018/08/12',100,1200,500,NULL,8000);
+Query OK, 5 rows affected, 5 warnings (0.032 sec)
+Records: 5  Duplicates: 0  Warnings: 5
+
+MariaDB [hr]> alter table employees add constraint fk_employees_manager_id foreign key(manager_id) references employees(employee_id);
+Query OK, 5 rows affected (1.608 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> desc employees;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| employee_id    | int(6)       | NO   | PRI | NULL    |       |
+| first_name     | varchar(20)  | YES  |     | NULL    |       |
+| last_name      | varchar(25)  | NO   |     | NULL    |       |
+| email          | varchar(20)  | NO   |     | NULL    |       |
+| phone_number   | varchar(20)  | YES  |     | NULL    |       |
+| hire_date      | date         | NO   |     | NULL    |       |
+| job_id         | varchar(10)  | NO   | MUL | NULL    |       |
+| salary         | decimal(8,2) | YES  |     | NULL    |       |
+| commission_pct | decimal(2,2) | YES  |     | NULL    |       |
+| manager_id     | int(6)       | YES  | MUL | NULL    |       |
+| department_id  | int(4)       | YES  | MUL | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+11 rows in set (0.016 sec)
+
+MariaDB [hr]> select * from employees;
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+| employee_id | first_name | last_name | email                | phone_number | hire_date  | job_id | salary    | commission_pct | manager_id | department_id |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+|      856101 | Rahul      | Shaw      | rahul.shaw@gmail.com | 7896541230   | 2018-09-13 | 100    |  25000.00 |           NULL |       NULL |          6000 |
+|      856102 | Anindita   | Ghosh     | anindita.ghosh@gmail | 9896215478   | 2015-03-24 | 101    |  58000.00 |           NULL |     856103 |          7000 |
+|      856103 | Tridib     | Santra    | tridib.santra@gmail. | 9574197230   | 2008-05-18 | 102    | 120000.00 |           NULL |       NULL |          5000 |
+|      856104 | Somdutta   | Deb       | somdutta.deb@gmail.c | 8951741230   | 2019-08-15 | 100    |  25000.00 |           NULL |       NULL |          9000 |
+|      856105 | Soham      | Samanta   | soham.samanta@gmail. | 8568951225   | 2018-08-12 | 100    |   1200.00 |           0.99 |       NULL |          8000 |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> alter table departments add manager_id INT(6) after department_name;
+Query OK, 0 rows affected (0.071 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> desc deprtments;
+ERROR 1146 (42S02): Table 'hr.deprtments' doesn't exist
+MariaDB [hr]> desc departments;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| department_id   | int(4)      | NO   | PRI | NULL    |       |
+| department_name | varchar(30) | NO   |     | NULL    |       |
+| manager_id      | int(6)      | YES  |     | NULL    |       |
+| location_id     | int(4)      | YES  | MUL | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.154 sec)
+
+MariaDB [hr]> alter table departments add constraint fk_departments_manager_id foreign key(manager_id) references employees(employee_id);
+Query OK, 5 rows affected (1.236 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> select * from departments;
++---------------+-----------------+------------+-------------+
+| department_id | department_name | manager_id | location_id |
++---------------+-----------------+------------+-------------+
+|          5000 | SALES           |       NULL |        1001 |
+|          6000 | ACCOUNTING      |       NULL |        1003 |
+|          7000 | OPERATIONS      |       NULL |        1002 |
+|          8000 | DESIGN          |       NULL |        1004 |
+|          9000 | RESEARCH        |       NULL |        1005 |
++---------------+-----------------+------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [hr]> update department set manager_id = 856101 where department_id = 5000;
+ERROR 1146 (42S02): Table 'hr.department' doesn't exist
+MariaDB [hr]> update departments set manager_id = 856101 where department_id = 5000;
+Query OK, 1 row affected (0.073 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from departments;
++---------------+-----------------+------------+-------------+
+| department_id | department_name | manager_id | location_id |
++---------------+-----------------+------------+-------------+
+|          5000 | SALES           |     856101 |        1001 |
+|          6000 | ACCOUNTING      |       NULL |        1003 |
+|          7000 | OPERATIONS      |       NULL |        1002 |
+|          8000 | DESIGN          |       NULL |        1004 |
+|          9000 | RESEARCH        |       NULL |        1005 |
++---------------+-----------------+------------+-------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> update departments set manager_id = 856103 where department_id = 7000;
+Query OK, 1 row affected (0.051 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from departments;
++---------------+-----------------+------------+-------------+
+| department_id | department_name | manager_id | location_id |
++---------------+-----------------+------------+-------------+
+|          5000 | SALES           |     856101 |        1001 |
+|          6000 | ACCOUNTING      |       NULL |        1003 |
+|          7000 | OPERATIONS      |     856103 |        1002 |
+|          8000 | DESIGN          |       NULL |        1004 |
+|          9000 | RESEARCH        |       NULL |        1005 |
++---------------+-----------------+------------+-------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> update departments set manager_id = 856103 where department_id = 6000;
+Query OK, 1 row affected (0.146 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from departments;
++---------------+-----------------+------------+-------------+
+| department_id | department_name | manager_id | location_id |
++---------------+-----------------+------------+-------------+
+|          5000 | SALES           |     856101 |        1001 |
+|          6000 | ACCOUNTING      |     856103 |        1003 |
+|          7000 | OPERATIONS      |     856103 |        1002 |
+|          8000 | DESIGN          |       NULL |        1004 |
+|          9000 | RESEARCH        |       NULL |        1005 |
++---------------+-----------------+------------+-------------+
+5 rows in set (0.001 sec)
+
+MariaDB [hr]> update departments set manager_id = 856102 where department_id = 8000;
+Query OK, 1 row affected (0.033 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> update departments set manager_id = 856104 where department_id = 9000;
+Query OK, 1 row affected (0.132 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from departments;
++---------------+-----------------+------------+-------------+
+| department_id | department_name | manager_id | location_id |
++---------------+-----------------+------------+-------------+
+|          5000 | SALES           |     856101 |        1001 |
+|          6000 | ACCOUNTING      |     856103 |        1003 |
+|          7000 | OPERATIONS      |     856103 |        1002 |
+|          8000 | DESIGN          |     856102 |        1004 |
+|          9000 | RESEARCH        |     856104 |        1005 |
++---------------+-----------------+------------+-------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> desc job_history;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| employee_id   | int(6)      | NO   | PRI | NULL    |       |
+| start_date    | date        | NO   | PRI | NULL    |       |
+| end_date      | date        | NO   |     | NULL    |       |
+| job_id        | varchar(10) | NO   | MUL | NULL    |       |
+| department_id | int(4)      | YES  | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+5 rows in set (0.016 sec)
+
+MariaDB [hr]> 
+MariaDB [hr]> insert into job_history values 
+    -> (856101,'2018/09/13',NULL,100,6000);
+ERROR 1048 (23000): Column 'end_date' cannot be null
+MariaDB [hr]> select * from employees;
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+| employee_id | first_name | last_name | email                | phone_number | hire_date  | job_id | salary    | commission_pct | manager_id | department_id |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+|      856101 | Rahul      | Shaw      | rahul.shaw@gmail.com | 7896541230   | 2018-09-13 | 100    |  25000.00 |           NULL |       NULL |          6000 |
+|      856102 | Anindita   | Ghosh     | anindita.ghosh@gmail | 9896215478   | 2015-03-24 | 101    |  58000.00 |           NULL |     856103 |          7000 |
+|      856103 | Tridib     | Santra    | tridib.santra@gmail. | 9574197230   | 2008-05-18 | 102    | 120000.00 |           NULL |       NULL |          5000 |
+|      856104 | Somdutta   | Deb       | somdutta.deb@gmail.c | 8951741230   | 2019-08-15 | 100    |  25000.00 |           NULL |       NULL |          9000 |
+|      856105 | Soham      | Samanta   | soham.samanta@gmail. | 8568951225   | 2018-08-12 | 100    |   1200.00 |           0.99 |       NULL |          8000 |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> update employees set salary=120000 where employee_id=856105;
+Query OK, 1 row affected (0.044 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from employees;
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+| employee_id | first_name | last_name | email                | phone_number | hire_date  | job_id | salary    | commission_pct | manager_id | department_id |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+|      856101 | Rahul      | Shaw      | rahul.shaw@gmail.com | 7896541230   | 2018-09-13 | 100    |  25000.00 |           NULL |       NULL |          6000 |
+|      856102 | Anindita   | Ghosh     | anindita.ghosh@gmail | 9896215478   | 2015-03-24 | 101    |  58000.00 |           NULL |     856103 |          7000 |
+|      856103 | Tridib     | Santra    | tridib.santra@gmail. | 9574197230   | 2008-05-18 | 102    | 120000.00 |           NULL |       NULL |          5000 |
+|      856104 | Somdutta   | Deb       | somdutta.deb@gmail.c | 8951741230   | 2019-08-15 | 100    |  25000.00 |           NULL |       NULL |          9000 |
+|      856105 | Soham      | Samanta   | soham.samanta@gmail. | 8568951225   | 2018-08-12 | 100    | 120000.00 |           0.99 |       NULL |          8000 |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> update employees set salary=25000 where employee_id=856105;
+Query OK, 1 row affected (0.053 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [hr]> select * from employees;
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+| employee_id | first_name | last_name | email                | phone_number | hire_date  | job_id | salary    | commission_pct | manager_id | department_id |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+|      856101 | Rahul      | Shaw      | rahul.shaw@gmail.com | 7896541230   | 2018-09-13 | 100    |  25000.00 |           NULL |       NULL |          6000 |
+|      856102 | Anindita   | Ghosh     | anindita.ghosh@gmail | 9896215478   | 2015-03-24 | 101    |  58000.00 |           NULL |     856103 |          7000 |
+|      856103 | Tridib     | Santra    | tridib.santra@gmail. | 9574197230   | 2008-05-18 | 102    | 120000.00 |           NULL |       NULL |          5000 |
+|      856104 | Somdutta   | Deb       | somdutta.deb@gmail.c | 8951741230   | 2019-08-15 | 100    |  25000.00 |           NULL |       NULL |          9000 |
+|      856105 | Soham      | Samanta   | soham.samanta@gmail. | 8568951225   | 2018-08-12 | 100    |  25000.00 |           0.99 |       NULL |          8000 |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> insert into employees values (856106,'Raj', 'Majumdar', 'raj.majumdar@gmail.com', '8568955685', '2001/05/22',104,150000,0.80,NULL,7000),
+    -> (856107,'Soham', 'Samanta', 'soham.samanta2@gmail.com', '7868955865', '2005/05/02',102,160000,0.78,NULL,6000),
+    -> (856108,'Abhilash', 'Guha', 'abhilash.guha@gmail.com', '7088958025', '2004/08/12',104,450000,0.64,NULL,5000),
+    -> (856109,'Suparna', 'Mukherjee', 'suparna.mukherjee@gmail.com', '8568950421', '2006/07/22',102,130000,NULL,NULL,4000),
+    -> (856110,'Sudipta', 'Das', 'sudipta.das@gmail.com', '8568951225', '2002/03/22',102,160000,NULL,NULL,7000);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`hr`.`employees`, CONSTRAINT `fk_employees_department_id` FOREIGN KEY (`department_id`) REFERENCES `departments` (`department_id`))
+MariaDB [hr]> insert into employees values (856106,'Raj', 'Majumdar', 'raj.majumdar@gmail.com', '8568955685', '2001/05/22',104,150000,0.80,NULL,7000),
+    -> (856107,'Soham', 'Samanta', 'soham.samanta2@gmail.com', '7868955865', '2005/05/02',102,160000,0.78,NULL,6000),
+    -> (856108,'Abhilash', 'Guha', 'abhilash.guha@gmail.com', '7088958025', '2004/08/12',104,450000,0.64,NULL,5000),
+    -> (856109,'Suparna', 'Mukherjee', 'suparna.mukherjee@gmail.com', '8568950421', '2006/07/22',102,130000,NULL,NULL,6000),
+    -> (856110,'Sudipta', 'Das', 'sudipta.das@gmail.com', '8568951225', '2002/03/22',102,160000,NULL,NULL,7000);
+Query OK, 5 rows affected, 5 warnings (0.778 sec)
+Records: 5  Duplicates: 0  Warnings: 5
+
+MariaDB [hr]> select * from employees;
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+| employee_id | first_name | last_name | email                | phone_number | hire_date  | job_id | salary    | commission_pct | manager_id | department_id |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+|      856101 | Rahul      | Shaw      | rahul.shaw@gmail.com | 7896541230   | 2018-09-13 | 100    |  25000.00 |           NULL |       NULL |          6000 |
+|      856102 | Anindita   | Ghosh     | anindita.ghosh@gmail | 9896215478   | 2015-03-24 | 101    |  58000.00 |           NULL |     856103 |          7000 |
+|      856103 | Tridib     | Santra    | tridib.santra@gmail. | 9574197230   | 2008-05-18 | 102    | 120000.00 |           NULL |       NULL |          5000 |
+|      856104 | Somdutta   | Deb       | somdutta.deb@gmail.c | 8951741230   | 2019-08-15 | 100    |  25000.00 |           NULL |       NULL |          9000 |
+|      856105 | Soham      | Samanta   | soham.samanta@gmail. | 8568951225   | 2018-08-12 | 100    |  25000.00 |           0.99 |       NULL |          8000 |
+|      856106 | Raj        | Majumdar  | raj.majumdar@gmail.c | 8568955685   | 2001-05-22 | 104    | 150000.00 |           0.80 |       NULL |          7000 |
+|      856107 | Soham      | Samanta   | soham.samanta2@gmail | 7868955865   | 2005-05-02 | 102    | 160000.00 |           0.78 |       NULL |          6000 |
+|      856108 | Abhilash   | Guha      | abhilash.guha@gmail. | 7088958025   | 2004-08-12 | 104    | 450000.00 |           0.64 |       NULL |          5000 |
+|      856109 | Suparna    | Mukherjee | suparna.mukherjee@gm | 8568950421   | 2006-07-22 | 102    | 130000.00 |           NULL |       NULL |          6000 |
+|      856110 | Sudipta    | Das       | sudipta.das@gmail.co | 8568951225   | 2002-03-22 | 102    | 160000.00 |           NULL |       NULL |          7000 |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+10 rows in set (0.000 sec)
+
+MariaDB [hr]> insert into job_history values 
+    -> (856106,'2001/05/22','2016/06/21',104,7000);
+Query OK, 1 row affected (0.065 sec)
+
+MariaDB [hr]> select * from job_history;
++-------------+------------+------------+--------+---------------+
+| employee_id | start_date | end_date   | job_id | department_id |
++-------------+------------+------------+--------+---------------+
+|      856106 | 2001-05-22 | 2016-06-21 | 104    |          7000 |
++-------------+------------+------------+--------+---------------+
+1 row in set (0.000 sec)
+
+MariaDB [hr]> insert into job_history values (856107,'2005/05/02','2018/05/22',102,6000),
+    -> (856108,'2004/08/12','2017/06/30',104,5000),
+    -> (856109,'2006/07/22','2016/03/11',102,6000),
+    -> (856110,'2002/03/22','2011/07/31',102,7000),;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 4
+MariaDB [hr]> (856107,'2005/05/02','2018/05/22',102,6000),
+    -> (856108,'2004/08/12','2017/06/30',104,5000),
+    -> (856109,'2006/07/22','2016/03/11',102,6000),
+    -> (856110,'2002/03/22','2011/07/31',102,7000);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '856107,'2005/05/02','2018/05/22',102,6000),
+(856108,'2004/08/12','2017/06/30',10' at line 1
+MariaDB [hr]> insert into job_history values (856107,'2005/05/02','2018/05/22',102,6000),
+    -> (856108,'2004/08/12','2017/06/30',104,5000),
+    -> (856109,'2006/07/22','2016/03/11',102,6000),
+    -> (856110,'2002/03/22','2011/07/31',102,7000);
+Query OK, 4 rows affected (0.075 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [hr]> select * from job_history;
++-------------+------------+------------+--------+---------------+
+| employee_id | start_date | end_date   | job_id | department_id |
++-------------+------------+------------+--------+---------------+
+|      856106 | 2001-05-22 | 2016-06-21 | 104    |          7000 |
+|      856107 | 2005-05-02 | 2018-05-22 | 102    |          6000 |
+|      856108 | 2004-08-12 | 2017-06-30 | 104    |          5000 |
+|      856109 | 2006-07-22 | 2016-03-11 | 102    |          6000 |
+|      856110 | 2002-03-22 | 2011-07-31 | 102    |          7000 |
++-------------+------------+------------+--------+---------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> select * from regions;
++-----------+-------------+
+| region_id | region_name |
++-----------+-------------+
+|       107 | Nairobi     |
+|       201 | Rio         |
+|       302 | Tokyo       |
+|       406 | Moscow      |
+|       504 | Oslo        |
++-----------+-------------+
+5 rows in set (0.111 sec)
+
+MariaDB [hr]> select * from countries;
++------------+--------------+-----------+
+| country_id | country_name | region_id |
++------------+--------------+-----------+
+| 01         | Kenya        |       107 |
+| 02         | Brazil       |       201 |
+| 03         | Japan        |       302 |
+| 04         | Russia       |       406 |
+| 05         | Norway       |       504 |
++------------+--------------+-----------+
+5 rows in set (0.152 sec)
+
+MariaDB [hr]> select * from locations;
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+| location_id | street_address                      | postal_code | city      | state_province | country_id |
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+|        1001 | 5th Floor NHIF Building Ragati Road | 34670       | Nairobi   | Nairobi        | 01         |
+|        1002 | 17, R. Greenalgh                    | 20251-28    | Catumbi   | Rio            | 02         |
+|        1003 | 3 Chome-4-417 Shirokanedai          | 108-0071    | Kanto     | Tokyo          | 03         |
+|        1004 | Presnenskaya Naberezhnaya, 10       | 123317      | Central   | Moscow         | 04         |
+|        1005 | Karoline Kristiansens vei 1         | 0661        | Ostlandet | Oslo           | 05         |
++-------------+-------------------------------------+-------------+-----------+----------------+------------+
+5 rows in set (0.015 sec)
+
+MariaDB [hr]> select * from departments;
++---------------+-----------------+------------+-------------+
+| department_id | department_name | manager_id | location_id |
++---------------+-----------------+------------+-------------+
+|          5000 | SALES           |     856101 |        1001 |
+|          6000 | ACCOUNTING      |     856103 |        1003 |
+|          7000 | OPERATIONS      |     856103 |        1002 |
+|          8000 | DESIGN          |     856102 |        1004 |
+|          9000 | RESEARCH        |     856104 |        1005 |
++---------------+-----------------+------------+-------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> select * from employees;
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+| employee_id | first_name | last_name | email                | phone_number | hire_date  | job_id | salary    | commission_pct | manager_id | department_id |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+|      856101 | Rahul      | Shaw      | rahul.shaw@gmail.com | 7896541230   | 2018-09-13 | 100    |  25000.00 |           NULL |       NULL |          6000 |
+|      856102 | Anindita   | Ghosh     | anindita.ghosh@gmail | 9896215478   | 2015-03-24 | 101    |  58000.00 |           NULL |     856103 |          7000 |
+|      856103 | Tridib     | Santra    | tridib.santra@gmail. | 9574197230   | 2008-05-18 | 102    | 120000.00 |           NULL |       NULL |          5000 |
+|      856104 | Somdutta   | Deb       | somdutta.deb@gmail.c | 8951741230   | 2019-08-15 | 100    |  25000.00 |           NULL |       NULL |          9000 |
+|      856105 | Soham      | Samanta   | soham.samanta@gmail. | 8568951225   | 2018-08-12 | 100    |  25000.00 |           0.99 |       NULL |          8000 |
+|      856106 | Raj        | Majumdar  | raj.majumdar@gmail.c | 8568955685   | 2001-05-22 | 104    | 150000.00 |           0.80 |       NULL |          7000 |
+|      856107 | Soham      | Samanta   | soham.samanta2@gmail | 7868955865   | 2005-05-02 | 102    | 160000.00 |           0.78 |       NULL |          6000 |
+|      856108 | Abhilash   | Guha      | abhilash.guha@gmail. | 7088958025   | 2004-08-12 | 104    | 450000.00 |           0.64 |       NULL |          5000 |
+|      856109 | Suparna    | Mukherjee | suparna.mukherjee@gm | 8568950421   | 2006-07-22 | 102    | 130000.00 |           NULL |       NULL |          6000 |
+|      856110 | Sudipta    | Das       | sudipta.das@gmail.co | 8568951225   | 2002-03-22 | 102    | 160000.00 |           NULL |       NULL |          7000 |
++-------------+------------+-----------+----------------------+--------------+------------+--------+-----------+----------------+------------+---------------+
+10 rows in set (0.000 sec)
+
+MariaDB [hr]> select * from jobs;
++--------+------------------+------------+------------+
+| job_id | job_title        | min_salary | max_salary |
++--------+------------------+------------+------------+
+| 100    | Developer        |      20000 |      30000 |
+| 101    | Senior Developer |      50000 |      80000 |
+| 102    | Team Manager     |     100000 |     150000 |
+| 103    | Accountant       |      80000 |     120000 |
+| 104    | President        |     320000 |     520000 |
++--------+------------------+------------+------------+
+5 rows in set (0.001 sec)
+
+MariaDB [hr]> select * from job_history;
++-------------+------------+------------+--------+---------------+
+| employee_id | start_date | end_date   | job_id | department_id |
++-------------+------------+------------+--------+---------------+
+|      856106 | 2001-05-22 | 2016-06-21 | 104    |          7000 |
+|      856107 | 2005-05-02 | 2018-05-22 | 102    |          6000 |
+|      856108 | 2004-08-12 | 2017-06-30 | 104    |          5000 |
+|      856109 | 2006-07-22 | 2016-03-11 | 102    |          6000 |
+|      856110 | 2002-03-22 | 2011-07-31 | 102    |          7000 |
++-------------+------------+------------+--------+---------------+
+5 rows in set (0.000 sec)
+
+MariaDB [hr]> desc regions;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| region_id   | int(11)     | NO   | PRI | NULL    |       |
+| region_name | varchar(25) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+2 rows in set (0.143 sec)
+
+MariaDB [hr]> desc countries;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| country_id   | char(2)     | NO   | PRI | NULL    |       |
+| country_name | varchar(40) | YES  |     | NULL    |       |
+| region_id    | int(11)     | YES  | MUL | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.015 sec)
+
+MariaDB [hr]> desc locations;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| location_id    | int(4)      | NO   | PRI | NULL    |       |
+| street_address | varchar(40) | YES  |     | NULL    |       |
+| postal_code    | varchar(12) | YES  |     | NULL    |       |
+| city           | varchar(30) | NO   |     | NULL    |       |
+| state_province | varchar(25) | YES  |     | NULL    |       |
+| country_id     | char(2)     | YES  | MUL | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+6 rows in set (0.015 sec)
+
+MariaDB [hr]> desc departments;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| department_id   | int(4)      | NO   | PRI | NULL    |       |
+| department_name | varchar(30) | NO   |     | NULL    |       |
+| manager_id      | int(6)      | YES  | MUL | NULL    |       |
+| location_id     | int(4)      | YES  | MUL | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.054 sec)
+
+MariaDB [hr]> desc employees;
++----------------+--------------+------+-----+---------+-------+
+| Field          | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| employee_id    | int(6)       | NO   | PRI | NULL    |       |
+| first_name     | varchar(20)  | YES  |     | NULL    |       |
+| last_name      | varchar(25)  | NO   |     | NULL    |       |
+| email          | varchar(20)  | NO   |     | NULL    |       |
+| phone_number   | varchar(20)  | YES  |     | NULL    |       |
+| hire_date      | date         | NO   |     | NULL    |       |
+| job_id         | varchar(10)  | NO   | MUL | NULL    |       |
+| salary         | decimal(8,2) | YES  |     | NULL    |       |
+| commission_pct | decimal(2,2) | YES  |     | NULL    |       |
+| manager_id     | int(6)       | YES  | MUL | NULL    |       |
+| department_id  | int(4)       | YES  | MUL | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+11 rows in set (0.014 sec)
+
+MariaDB [hr]> desc job_history;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| employee_id   | int(6)      | NO   | PRI | NULL    |       |
+| start_date    | date        | NO   | PRI | NULL    |       |
+| end_date      | date        | NO   |     | NULL    |       |
+| job_id        | varchar(10) | NO   | MUL | NULL    |       |
+| department_id | int(4)      | YES  | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+5 rows in set (0.121 sec)
+
+MariaDB [hr]> desc jobs;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| job_id     | varchar(10) | NO   | PRI | NULL    |       |
+| job_title  | varchar(35) | NO   |     | NULL    |       |
+| min_salary | int(6)      | YES  |     | NULL    |       |
+| max_salary | int(6)      | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.015 sec)
+
+MariaDB [hr]> notee;
