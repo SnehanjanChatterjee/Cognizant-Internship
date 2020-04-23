@@ -47,3 +47,7 @@
 [23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: address in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 44
 [23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: mobileNo in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 45
 [23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: password in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 46
+[23-Apr-2020 17:55:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_num_rows() in F:\CTS Internship\PHP\Assignments\Student Management System\login.php:20
+Stack trace:
+#0 {main}
+  thrown in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 20

@@ -56,3 +56,7 @@ insert into class_section(class_id,class_no,section)  values
 (10,10,'A'),(10,10,'B'),(10,10,'C'),(10,10,'D'),(10,10,'E'),
 (11,11,'A'),(11,11,'B'),(11,11,'C'),
 (12,12,'A'),(12,12,'B'),(12,12,'C');
+
+alter table users add passwordWithoutEncryption varchar(100) after password;
+
+alter table user_values add passwordWithoutEncryption varchar(100) after password;

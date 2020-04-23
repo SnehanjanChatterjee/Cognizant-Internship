@@ -23,12 +23,11 @@
 </head>
 
 <body>
-
     <div class="container jumbotron my-login-form">
         <div class="row">
             <!-- Student Form col -->
             <div class="col-12">
-                <form class="studentLoginForm" action="dashboard.php" method="post" autocomplete="off">
+                <form class="studentLoginForm" action="login.php" method="post" autocomplete="off">
                     <h1 style="text-align: center;">Student Login</h1>
                     <!-- Username -->
                     <div class="form-group">
