@@ -1,0 +1,9 @@
+* {
+    font-family: 'Fira Sans', sans-serif;
+}
+.my-login-form{
+    width: 30%;
+    margin: auto;
+    margin-top: 200px;
+    border-radius: 10px;
+}
