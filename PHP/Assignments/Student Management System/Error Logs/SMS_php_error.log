@@ -51,3 +51,16 @@
 Stack trace:
 #0 {main}
   thrown in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 20
+[23-Apr-2020 20:47:43 Europe/Berlin] PHP Notice:  Undefined variable: _SESSION in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 36
+[23-Apr-2020 20:47:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 36
+[23-Apr-2020 20:48:34 Europe/Berlin] PHP Notice:  Undefined variable: _SESSION in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 36
+[23-Apr-2020 20:48:34 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 36
+[23-Apr-2020 20:59:37 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 29
+[23-Apr-2020 21:23:09 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$_SESSION' (T_VARIABLE) in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 37
+[23-Apr-2020 21:26:04 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'print_r' (T_STRING) in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 36
+[23-Apr-2020 21:27:20 Europe/Berlin] PHP Parse error:  syntax error, unexpected '}' in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 36
+[23-Apr-2020 21:29:16 Europe/Berlin] PHP Notice:  Undefined index: last_logon in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 42
+[23-Apr-2020 21:29:16 Europe/Berlin] PHP Notice:  Undefined index: class in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 44
+[23-Apr-2020 21:29:16 Europe/Berlin] PHP Notice:  Undefined index: section in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 45
+[23-Apr-2020 21:29:16 Europe/Berlin] PHP Notice:  Undefined index: approval_status in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 46
+[23-Apr-2020 21:45:33 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'storing' (T_STRING), expecting '(' in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 30

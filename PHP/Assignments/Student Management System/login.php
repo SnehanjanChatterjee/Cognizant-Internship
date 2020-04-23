@@ -1,4 +1,7 @@
 <?php
+// Start the session
+// Must be before any HTML tag
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -23,14 +26,33 @@ if(isset($username))
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        //$_SESSION['username'] = $username;
+
+        //For storing session variables for dashboard
+
+        $sql1 = "SELECT u.last_login,uv.fname,uv.lname,uv.class,uv.section,u.status,uv.address,uv.mobile_no,uv.email 
+        FROM users u INNER JOIN user_values uv ON u.id=uv.id WHERE u.userid='$username'";
+        $result1 = mysqli_query($conn, $sql1);
+        if (mysqli_num_rows($result1) > 0) {
+            $row = mysqli_fetch_assoc($result1);
+        }
+
+        // Store Session Data
+        $_SESSION['last_logon'] = $row['last_login'];
+        $_SESSION['name'] = $row['fname'] . " " . $row['lname'];
+        $_SESSION['class'] = $row['class'];
+        $_SESSION['section'] = $row['section'];
+        $_SESSION['approval_status'] = $row['status'];
+        $_SESSION['address'] = $row['address'];
+        $_SESSION['mobile_no'] = $row['mobile_no'];
+        $_SESSION['email'] = $row['email'];
+
         echo "Success";
+        mysqli_close($conn);
+        header('Refresh: 2; URL= dashboard.php');
     }
     else{
         echo "Failed to Login";
-    }
-
-    mysqli_close($conn);
-    header('Refresh: 5; URL= dashboard.html');
+        mysqli_close($conn);
+    } 
 }
 ?>

@@ -1,0 +1,840 @@
+MariaDB [student_management_system]> create table users (
+    -> id INT AUTO_INCREMENT,
+    -> userid varchar(13),
+    -> user_role INT,
+    -> password varchar(20),
+    -> last_login TIMESTAMP,
+    -> status INT,
+    -> constraint pk_users primary key(id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.695 sec)
+
+MariaDB [student_management_system]> desc users;
++------------+-------------+------+-----+---------------------+-------------------------------+
+| Field      | Type        | Null | Key | Default             | Extra                         |
++------------+-------------+------+-----+---------------------+-------------------------------+
+| id         | int(11)     | NO   | PRI | NULL                | auto_increment                |
+| userid     | varchar(13) | YES  |     | NULL                |                               |
+| user_role  | int(11)     | YES  |     | NULL                |                               |
+| password   | varchar(20) | YES  |     | NULL                |                               |
+| last_login | timestamp   | NO   |     | current_timestamp() | on update current_timestamp() |
+| status     | int(11)     | YES  |     | NULL                |                               |
++------------+-------------+------+-----+---------------------+-------------------------------+
+6 rows in set (0.022 sec)
+
+MariaDB [student_management_system]> create table user_values (
+    -> field_id INT AUTO_INCREMENT,
+    -> id INT,
+    -> fname varchar(20), 
+    -> lname varchar(20),
+    -> email varchar(20),
+    -> class varchar(10),
+    -> section varchar(10),
+    -> address varchar(100)
+    -> mobile_no INT,
+    -> password varchar(20),
+    -> constraint pk_user_values primary key(email,mobile_no),
+    -> constraint fk_user_values_password foreign key(password) references users(password)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'INT,
+password varchar(20),
+constraint pk_user_values primary key(email,mobile_no' at line 10
+MariaDB [student_management_system]> create table user_values (
+    -> field_id INT AUTO_INCREMENT,
+    -> id INT,
+    -> fname varchar(20), 
+    -> lname varchar(20),
+    -> email varchar(20),
+    -> class varchar(10),
+    -> section varchar(10),
+    -> address varchar(100),
+    -> mobile_no INT,
+    -> password varchar(20),
+    -> constraint pk_user_values primary key(email,mobile_no),
+    -> constraint fk_user_values_password foreign key(password) references users(password)
+    -> );
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+MariaDB [student_management_system]> create table user_values (
+    -> id INT,
+    -> fname varchar(20), 
+    -> lname varchar(20),
+    -> email varchar(20),
+    -> class varchar(10),
+    -> section varchar(10),
+    -> address varchar(100),
+    -> mobile_no INT,
+    -> password varchar(20),
+    -> constraint pk_user_values primary key(email,mobile_no),
+    -> constraint fk_user_values_password foreign key(password) references users(password)
+    -> );
+ERROR 1005 (HY000): Can't create table `student_management_system`.`user_values` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [student_management_system]> create table user_values (
+    -> id INT,
+    -> fname varchar(20), 
+    -> lname varchar(20),
+    -> email varchar(20),
+    -> class varchar(10),
+    -> section varchar(10),
+    -> address varchar(100),
+    -> mobile_no INT,
+    -> password varchar(20),
+    -> constraint pk_user_values primary key(email,mobile_no),
+    -> constraint fk_user_values_id foreign key(id) references users(id),
+    -> constraint fk_user_values_password foreign key(password) references users(password)
+    -> );
+ERROR 1005 (HY000): Can't create table `student_management_system`.`user_values` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [student_management_system]> create table user_values (
+    -> id INT,
+    -> fname varchar(20), 
+    -> lname varchar(20),
+    -> email varchar(20),
+    -> class varchar(10),
+    -> section varchar(10),
+    -> address varchar(100),
+    -> mobile_no INT,
+    -> password varchar(20),
+    -> constraint pk_user_values primary key(email,mobile_no),
+    -> constraint fk_user_values_id foreign key(id) references users(id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.333 sec)
+
+MariaDB [student_management_system]> create table class (
+    -> class_id INT AUTO_INCREMENT,
+    -> class_no varchar(10),
+    -> constraint pk_class primary key(class_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.416 sec)
+
+MariaDB [student_management_system]> create table class_section (
+    -> class_id INT AUTO_INCREMENT,
+    -> class varchar(10),
+    -> section varchar(10),
+    -> constraint pk_class primary key(class_id),
+    -> constraint fk_class_section foreign key(section) references users(section)
+    -> );
+ERROR 1005 (HY000): Can't create table `student_management_system`.`class_section` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [student_management_system]> create table class_section (
+    -> class_id INT AUTO_INCREMENT,
+    -> class varchar(10),
+    -> section varchar(10),
+    -> constraint pk_class primary key(class_id),
+    -> constraint fk_class_section foreign key(class) references class(class_no)
+    -> );
+ERROR 1005 (HY000): Can't create table `student_management_system`.`class_section` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [student_management_system]> create table class_section (
+    -> class_id INT AUTO_INCREMENT,
+    -> class_no varchar(10),
+    -> section varchar(10),
+    -> constraint pk_class primary key(class_id),
+    -> constraint fk_class_section foreign key(class_no) references class(class_no)
+    -> );
+ERROR 1005 (HY000): Can't create table `student_management_system`.`class_section` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [student_management_system]> desc class;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| class_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| class_no | varchar(10) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+2 rows in set (0.019 sec)
+
+MariaDB [student_management_system]> insert into class values (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [student_management_system]> insert into class(class_no) values (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12);
+Query OK, 12 rows affected (0.131 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> select * from class;
++----------+----------+
+| class_id | class_no |
++----------+----------+
+|        1 | 1        |
+|        2 | 2        |
+|        3 | 3        |
+|        4 | 4        |
+|        5 | 5        |
+|        6 | 6        |
+|        7 | 7        |
+|        8 | 8        |
+|        9 | 9        |
+|       10 | 10       |
+|       11 | 11       |
+|       12 | 12       |
++----------+----------+
+12 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> create table class_section (
+    -> class_id INT AUTO_INCREMENT,
+    -> class_no varchar(10),
+    -> section varchar(10),
+    -> constraint pk_class primary key(class_id),
+    -> constraint fk_class_section foreign key(class_no) references class(class_no)
+    -> );
+ERROR 1005 (HY000): Can't create table `student_management_system`.`class_section` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [student_management_system]> drop table class;
+Query OK, 0 rows affected (0.224 sec)
+
+MariaDB [student_management_system]> create table class (
+    -> class_id INT AUTO_INCREMENT,
+    -> class_no INT,
+    -> constraint pk_class primary key(class_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.185 sec)
+
+MariaDB [student_management_system]> insert into class(class_no) values (1),(2),(3),(4),(5),(6),(7),(8),(9),(10),(11),(12);
+Query OK, 12 rows affected (0.031 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> select * from class;
++----------+----------+
+| class_id | class_no |
++----------+----------+
+|        1 |        1 |
+|        2 |        2 |
+|        3 |        3 |
+|        4 |        4 |
+|        5 |        5 |
+|        6 |        6 |
+|        7 |        7 |
+|        8 |        8 |
+|        9 |        9 |
+|       10 |       10 |
+|       11 |       11 |
+|       12 |       12 |
++----------+----------+
+12 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> create table class_section (
+    -> class_id INT AUTO_INCREMENT,
+    -> class_no INT,
+    -> section varchar(10),
+    -> constraint pk_class primary key(class_id),
+    -> constraint fk_class_section foreign key(class_no) references class(class_no)
+    -> );
+ERROR 1005 (HY000): Can't create table `student_management_system`.`class_section` (errno: 150 "Foreign key constraint is incorrectly formed")
+MariaDB [student_management_system]> create table class_section (
+    -> class_id INT,
+    -> class_no INT,
+    -> section varchar(10),
+    -> constraint pk_class primary key(class_id),
+    -> constraint fk_class_section foreign key(class_id) references class(class_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.213 sec)
+
+MariaDB [student_management_system]> insert into class_section values (1,1,A),(1,1,B),(1,1,C),
+    -> (2,2,A),(2,2,B),(2,2,C),(2,2,D),
+    -> (3,3,A),(3,3,B),(3,3,C),
+    -> (4,4,A),(4,4,B),
+    -> (5,5,A),(5,5,B),(5,5,C),(5,5,D),(5,5,E),
+    -> (6,6,A),(6,6,B),
+    -> (7,7,A),(7,7,B),(7,7,C),(7,7,D),
+    -> (8,8,A),(8,8,B),(8,8,C),
+    -> (9,9,A),(9,9,B),(9,9,C),(9,9,D),
+    -> (10,10,A),(10,10,B),(10,10,C),(10,10,D),(10,10,E),
+    -> (11,11,A),(11,11,B),(11,11,C),
+    -> (12,12,A),(12,12,B),(12,12,C);
+ERROR 1054 (42S22): Unknown column 'A' in 'field list'
+MariaDB [student_management_system]> 
+MariaDB [student_management_system]> 
+MariaDB [student_management_system]> insert into class_section values (1,1,'A'),(1,1,'B'),(1,1,'C'),
+    -> (2,2,'A'),(2,2,'B'),(2,2,'C'),(2,2,'D'),
+    -> (3,3,'A'),(3,3,'B'),(3,3,'C'),
+    -> (4,4,'A'),(4,4,'B'),
+    -> (5,5,'A'),(5,5,'B'),(5,5,'C'),(5,5,'D'),(5,5,'E'),
+    -> (6,6,'A'),(6,6,'B'),
+    -> (7,7,'A'),(7,7,'B'),(7,7,'C'),(7,7,'D'),
+    -> (8,8,'A'),(8,8,'B'),(8,8,'C'),
+    -> (9,9,'A'),(9,9,'B'),(9,9,'C'),(9,9,'D'),
+    -> (10,10,'A'),(10,10,'B'),(10,10,'C'),(10,10,'D'),(10,10,'E'),
+    -> (11,11,'A'),(11,11,'B'),(11,11,'C'),
+    -> (12,12,'A'),(12,12,'B'),(12,12,'C');
+ERROR 1062 (23000): Duplicate entry '1' for key 'PRIMARY'
+MariaDB [student_management_system]> drop table class_section;
+Query OK, 0 rows affected (0.522 sec)
+
+MariaDB [student_management_system]> create table class_section (
+    -> class_section_id INT AUTO_INCREMENT,
+    -> class_id INT,
+    -> class_no INT,
+    -> section varchar(10),
+    -> constraint pk_class primary key(class_section_id),
+    -> constraint fk_class_section foreign key(class_id) references class(class_id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.255 sec)
+
+MariaDB [student_management_system]> insert into class_section values(class_id,class_no,section) (1,1,'A'),(1,1,'B'),(1,1,'C'),
+    -> (2,2,'A'),(2,2,'B'),(2,2,'C'),(2,2,'D'),
+    -> (3,3,'A'),(3,3,'B'),(3,3,'C'),
+    -> (4,4,'A'),(4,4,'B'),
+    -> (5,5,'A'),(5,5,'B'),(5,5,'C'),(5,5,'D'),(5,5,'E'),
+    -> (6,6,'A'),(6,6,'B'),
+    -> (7,7,'A'),(7,7,'B'),(7,7,'C'),(7,7,'D'),
+    -> (8,8,'A'),(8,8,'B'),(8,8,'C'),
+    -> (9,9,'A'),(9,9,'B'),(9,9,'C'),(9,9,'D'),
+    -> (10,10,'A'),(10,10,'B'),(10,10,'C'),(10,10,'D'),(10,10,'E'),
+    -> (11,11,'A'),(11,11,'B'),(11,11,'C'),
+    -> (12,12,'A'),(12,12,'B'),(12,12,'C');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(1,1,'A'),(1,1,'B'),(1,1,'C'),
+(2,2,'A'),(2,2,'B'),(2,2,'C'),(2,2,'D'),
+(3,3,'A'' at line 1
+MariaDB [student_management_system]> insert into class_section(class_id,class_no,section)  values (1,1,'A'),(1,1,'B'),(1,1,'C'),
+    -> (2,2,'A'),(2,2,'B'),(2,2,'C'),(2,2,'D'),
+    -> (3,3,'A'),(3,3,'B'),(3,3,'C'),
+    -> (4,4,'A'),(4,4,'B'),
+    -> (5,5,'A'),(5,5,'B'),(5,5,'C'),(5,5,'D'),(5,5,'E'),
+    -> (6,6,'A'),(6,6,'B'),
+    -> (7,7,'A'),(7,7,'B'),(7,7,'C'),(7,7,'D'),
+    -> (8,8,'A'),(8,8,'B'),(8,8,'C'),
+    -> (9,9,'A'),(9,9,'B'),(9,9,'C'),(9,9,'D'),
+    -> (10,10,'A'),(10,10,'B'),(10,10,'C'),(10,10,'D'),(10,10,'E'),
+    -> (11,11,'A'),(11,11,'B'),(11,11,'C'),
+    -> (12,12,'A'),(12,12,'B'),(12,12,'C');
+Query OK, 41 rows affected (0.159 sec)
+Records: 41  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> select * from class_section;
++------------------+----------+----------+---------+
+| class_section_id | class_id | class_no | section |
++------------------+----------+----------+---------+
+|                1 |        1 |        1 | A       |
+|                2 |        1 |        1 | B       |
+|                3 |        1 |        1 | C       |
+|                4 |        2 |        2 | A       |
+|                5 |        2 |        2 | B       |
+|                6 |        2 |        2 | C       |
+|                7 |        2 |        2 | D       |
+|                8 |        3 |        3 | A       |
+|                9 |        3 |        3 | B       |
+|               10 |        3 |        3 | C       |
+|               11 |        4 |        4 | A       |
+|               12 |        4 |        4 | B       |
+|               13 |        5 |        5 | A       |
+|               14 |        5 |        5 | B       |
+|               15 |        5 |        5 | C       |
+|               16 |        5 |        5 | D       |
+|               17 |        5 |        5 | E       |
+|               18 |        6 |        6 | A       |
+|               19 |        6 |        6 | B       |
+|               20 |        7 |        7 | A       |
+|               21 |        7 |        7 | B       |
+|               22 |        7 |        7 | C       |
+|               23 |        7 |        7 | D       |
+|               24 |        8 |        8 | A       |
+|               25 |        8 |        8 | B       |
+|               26 |        8 |        8 | C       |
+|               27 |        9 |        9 | A       |
+|               28 |        9 |        9 | B       |
+|               29 |        9 |        9 | C       |
+|               30 |        9 |        9 | D       |
+|               31 |       10 |       10 | A       |
+|               32 |       10 |       10 | B       |
+|               33 |       10 |       10 | C       |
+|               34 |       10 |       10 | D       |
+|               35 |       10 |       10 | E       |
+|               36 |       11 |       11 | A       |
+|               37 |       11 |       11 | B       |
+|               38 |       11 |       11 | C       |
+|               39 |       12 |       12 | A       |
+|               40 |       12 |       12 | B       |
+|               41 |       12 |       12 | C       |
++------------------+----------+----------+---------+
+41 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> desc users;
++------------+-------------+------+-----+---------------------+-------------------------------+
+| Field      | Type        | Null | Key | Default             | Extra                         |
++------------+-------------+------+-----+---------------------+-------------------------------+
+| id         | int(11)     | NO   | PRI | NULL                | auto_increment                |
+| userid     | varchar(13) | YES  |     | NULL                |                               |
+| user_role  | int(11)     | YES  |     | NULL                |                               |
+| password   | varchar(20) | YES  |     | NULL                |                               |
+| last_login | timestamp   | NO   |     | current_timestamp() | on update current_timestamp() |
+| status     | int(11)     | YES  |     | NULL                |                               |
++------------+-------------+------+-----+---------------------+-------------------------------+
+6 rows in set (0.022 sec)
+
+MariaDB [student_management_system]> desc user_details;
+ERROR 1146 (42S02): Table 'student_management_system.user_details' doesn't exist
+MariaDB [student_management_system]> desc user_values;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| id        | int(11)      | YES  | MUL | NULL    |       |
+| fname     | varchar(20)  | YES  |     | NULL    |       |
+| lname     | varchar(20)  | YES  |     | NULL    |       |
+| email     | varchar(20)  | NO   | PRI | NULL    |       |
+| class     | varchar(10)  | YES  |     | NULL    |       |
+| section   | varchar(10)  | YES  |     | NULL    |       |
+| address   | varchar(100) | YES  |     | NULL    |       |
+| mobile_no | int(11)      | NO   | PRI | NULL    |       |
+| password  | varchar(20)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+9 rows in set (0.027 sec)
+
+MariaDB [student_management_system]> desc class;
++----------+---------+------+-----+---------+----------------+
+| Field    | Type    | Null | Key | Default | Extra          |
++----------+---------+------+-----+---------+----------------+
+| class_id | int(11) | NO   | PRI | NULL    | auto_increment |
+| class_no | int(11) | YES  |     | NULL    |                |
++----------+---------+------+-----+---------+----------------+
+2 rows in set (0.023 sec)
+
+MariaDB [student_management_system]> desc class_section;
++------------------+-------------+------+-----+---------+----------------+
+| Field            | Type        | Null | Key | Default | Extra          |
++------------------+-------------+------+-----+---------+----------------+
+| class_section_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| class_id         | int(11)     | YES  | MUL | NULL    |                |
+| class_no         | int(11)     | YES  |     | NULL    |                |
+| section          | varchar(10) | YES  |     | NULL    |                |
++------------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.024 sec)
+
+MariaDB [student_management_system]> desc class_section;
++------------------+-------------+------+-----+---------+----------------+
+| Field            | Type        | Null | Key | Default | Extra          |
++------------------+-------------+------+-----+---------+----------------+
+| class_section_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| class_id         | int(11)     | YES  | MUL | NULL    |                |
+| class_no         | int(11)     | YES  |     | NULL    |                |
+| section          | varchar(10) | YES  |     | NULL    |                |
++------------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.062 sec)
+
+MariaDB [student_management_system]> show databases;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    8
+Current database: student_management_system
+
++---------------------------+
+| Database                  |
++---------------------------+
+| classicmodels             |
+| hr                        |
+| information_schema        |
+| irctc                     |
+| mydb                      |
+| mysql                     |
+| performance_schema        |
+| phpmyadmin                |
+| project                   |
+| sakila                    |
+| student_management_system |
+| test                      |
++---------------------------+
+12 rows in set (0.098 sec)
+
+MariaDB [student_management_system]> desc class_section;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    8
+Current database: student_management_system
+
++------------------+-------------+------+-----+---------+----------------+
+| Field            | Type        | Null | Key | Default | Extra          |
++------------------+-------------+------+-----+---------+----------------+
+| class_section_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| class_id         | int(11)     | YES  | MUL | NULL    |                |
+| class_no         | int(11)     | YES  |     | NULL    |                |
+| section          | varchar(10) | YES  |     | NULL    |                |
++------------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.021 sec)
+
+MariaDB [student_management_system]> select * from class_section limit 5;
++------------------+----------+----------+---------+
+| class_section_id | class_id | class_no | section |
++------------------+----------+----------+---------+
+|                1 |        1 |        1 | A       |
+|                2 |        1 |        1 | B       |
+|                3 |        1 |        1 | C       |
+|                4 |        2 |        2 | A       |
+|                5 |        2 |        2 | B       |
++------------------+----------+----------+---------+
+5 rows in set (0.002 sec)
+
+MariaDB [student_management_system]> select * from class_section;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    11
+Current database: student_management_system
+
++------------------+----------+----------+---------+
+| class_section_id | class_id | class_no | section |
++------------------+----------+----------+---------+
+|                1 |        1 |        1 | A       |
+|                2 |        1 |        1 | B       |
+|                3 |        1 |        1 | C       |
+|                4 |        2 |        2 | A       |
+|                5 |        2 |        2 | B       |
+|                6 |        2 |        2 | C       |
+|                7 |        2 |        2 | D       |
+|                8 |        3 |        3 | A       |
+|                9 |        3 |        3 | B       |
+|               10 |        3 |        3 | C       |
+|               11 |        4 |        4 | A       |
+|               12 |        4 |        4 | B       |
+|               13 |        5 |        5 | A       |
+|               14 |        5 |        5 | B       |
+|               15 |        5 |        5 | C       |
+|               16 |        5 |        5 | D       |
+|               17 |        5 |        5 | E       |
+|               18 |        6 |        6 | A       |
+|               19 |        6 |        6 | B       |
+|               20 |        7 |        7 | A       |
+|               21 |        7 |        7 | B       |
+|               22 |        7 |        7 | C       |
+|               23 |        7 |        7 | D       |
+|               24 |        8 |        8 | A       |
+|               25 |        8 |        8 | B       |
+|               26 |        8 |        8 | C       |
+|               27 |        9 |        9 | A       |
+|               28 |        9 |        9 | B       |
+|               29 |        9 |        9 | C       |
+|               30 |        9 |        9 | D       |
+|               31 |       10 |       10 | A       |
+|               32 |       10 |       10 | B       |
+|               33 |       10 |       10 | C       |
+|               34 |       10 |       10 | D       |
+|               35 |       10 |       10 | E       |
+|               36 |       11 |       11 | A       |
+|               37 |       11 |       11 | B       |
+|               38 |       11 |       11 | C       |
+|               39 |       12 |       12 | A       |
+|               40 |       12 |       12 | B       |
+|               41 |       12 |       12 | C       |
++------------------+----------+----------+---------+
+41 rows in set (0.008 sec)
+
+MariaDB [student_management_system]> select count(section) from class_section group by class_no;
++----------------+
+| count(section) |
++----------------+
+|              3 |
+|              4 |
+|              3 |
+|              2 |
+|              5 |
+|              2 |
+|              4 |
+|              3 |
+|              4 |
+|              5 |
+|              3 |
+|              3 |
++----------------+
+12 rows in set (0.001 sec)
+
+MariaDB [student_management_system]> select class_no,count(section) from class_section group by class_no;
++----------+----------------+
+| class_no | count(section) |
++----------+----------------+
+|        1 |              3 |
+|        2 |              4 |
+|        3 |              3 |
+|        4 |              2 |
+|        5 |              5 |
+|        6 |              2 |
+|        7 |              4 |
+|        8 |              3 |
+|        9 |              4 |
+|       10 |              5 |
+|       11 |              3 |
+|       12 |              3 |
++----------+----------------+
+12 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> desc class;
++----------+---------+------+-----+---------+----------------+
+| Field    | Type    | Null | Key | Default | Extra          |
++----------+---------+------+-----+---------+----------------+
+| class_id | int(11) | NO   | PRI | NULL    | auto_increment |
+| class_no | int(11) | YES  |     | NULL    |                |
++----------+---------+------+-----+---------+----------------+
+2 rows in set (0.019 sec)
+
+MariaDB [student_management_system]> desc class_section;
++------------------+-------------+------+-----+---------+----------------+
+| Field            | Type        | Null | Key | Default | Extra          |
++------------------+-------------+------+-----+---------+----------------+
+| class_section_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| class_id         | int(11)     | YES  | MUL | NULL    |                |
+| class_no         | int(11)     | YES  |     | NULL    |                |
+| section          | varchar(10) | YES  |     | NULL    |                |
++------------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.017 sec)
+
+MariaDB [student_management_system]> desc users;
++------------+-------------+------+-----+---------------------+-------------------------------+
+| Field      | Type        | Null | Key | Default             | Extra                         |
++------------+-------------+------+-----+---------------------+-------------------------------+
+| id         | int(11)     | NO   | PRI | NULL                | auto_increment                |
+| userid     | varchar(13) | YES  |     | NULL                |                               |
+| user_role  | int(11)     | YES  |     | NULL                |                               |
+| password   | varchar(20) | YES  |     | NULL                |                               |
+| last_login | timestamp   | NO   |     | current_timestamp() | on update current_timestamp() |
+| status     | int(11)     | YES  |     | NULL                |                               |
++------------+-------------+------+-----+---------------------+-------------------------------+
+6 rows in set (0.094 sec)
+
+MariaDB [student_management_system]> desc user_values;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| id        | int(11)      | YES  | MUL | NULL    |       |
+| fname     | varchar(20)  | YES  |     | NULL    |       |
+| lname     | varchar(20)  | YES  |     | NULL    |       |
+| email     | varchar(20)  | NO   | PRI | NULL    |       |
+| class     | varchar(10)  | YES  |     | NULL    |       |
+| section   | varchar(10)  | YES  |     | NULL    |       |
+| address   | varchar(100) | YES  |     | NULL    |       |
+| mobile_no | int(11)      | NO   | PRI | NULL    |       |
+| password  | varchar(20)  | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+9 rows in set (0.020 sec)
+
+MariaDB [student_management_system]> select * from user_values;
+Empty set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    10
+Current database: student_management_system
+
++----+---------------+-----------+-------------+---------------------+--------+
+| id | userid        | user_role | password    | last_login          | status |
++----+---------------+-----------+-------------+---------------------+--------+
+|  1 | STU           |         2 |             | 2020-04-23 20:24:06 |      0 |
+|  2 | STU           |         2 |             | 2020-04-23 20:24:57 |      0 |
+|  3 | STU           |         2 |             | 2020-04-23 20:25:00 |      0 |
+|  4 | STU           |         2 |             | 2020-04-23 20:26:14 |      0 |
+|  5 | STU1234567890 |         2 | 1234Sc@1234 | 2020-04-23 20:33:06 |      0 |
++----+---------------+-----------+-------------+---------------------+--------+
+5 rows in set (0.003 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+-------------+-------+---------+---------+------------+-------------+
+| id   | fname     | lname      | email       | class | section | address | mobile_no  | password    |
++------+-----------+------------+-------------+-------+---------+---------+------------+-------------+
+| NULL |           |            |             |       |         |         |          0 |             |
+| NULL | Snehanjan | Chatterjee | s@gmail.com | 12    | B       | qwer    | 1234567890 | 1234Sc@1234 |
++------+-----------+------------+-------------+-------+---------+---------+------------+-------------+
+2 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+-------------+-------+---------+---------+------------+-------------+
+| id   | fname     | lname      | email       | class | section | address | mobile_no  | password    |
++------+-----------+------------+-------------+-------+---------+---------+------------+-------------+
+| NULL |           |            |             |       |         |         |          0 |             |
+| NULL | Snehanjan | Chatterjee | s@gmail.com | 12    | B       | qwer    | 1234567890 | 1234Sc@1234 |
+| NULL | Sudipta   | Das        | xyz@g.com   | 11    | A       | qww     | 2147483647 | 12345678@Sd |
++------+-----------+------------+-------------+-------+---------+---------+------------+-------------+
+3 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+-------------+---------------------+--------+
+| id | userid        | user_role | password    | last_login          | status |
++----+---------------+-----------+-------------+---------------------+--------+
+|  1 | STU           |         2 |             | 2020-04-23 20:24:06 |      0 |
+|  2 | STU           |         2 |             | 2020-04-23 20:24:57 |      0 |
+|  3 | STU           |         2 |             | 2020-04-23 20:25:00 |      0 |
+|  4 | STU           |         2 |             | 2020-04-23 20:26:14 |      0 |
+|  5 | STU1234567890 |         2 | 1234Sc@1234 | 2020-04-23 20:33:06 |      0 |
+|  6 | STU9874563210 |         2 | 12345678@Sd | 2020-04-23 20:35:37 |      0 |
++----+---------------+-----------+-------------+---------------------+--------+
+6 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> delete from users;
+Query OK, 6 rows affected (0.458 sec)
+
+MariaDB [student_management_system]> select * from users;
+Empty set (0.000 sec)
+
+MariaDB [student_management_system]> delete from user_values;
+Query OK, 3 rows affected (0.020 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+-----------+---------------------+--------+
+| id | userid        | user_role | password  | last_login          | status |
++----+---------------+-----------+-----------+---------------------+--------+
+|  7 | STU1234567890 |         2 | 123456@Sc | 2020-04-23 20:43:52 |      0 |
++----+---------------+-----------+-----------+---------------------+--------+
+1 row in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+------------------------------+------------+-----------+
+| id   | fname     | lname      | email                | class | section | address                      | mobile_no  | password  |
++------+-----------+------------+----------------------+-------+---------+------------------------------+------------+-----------+
+| NULL | Snehanjan | Chatterjee | snehanjan.29@gmail.c | 12    | B       | 123,wsbsjsns,Kolkata-700008. | 1234567890 | 123456@Sc |
++------+-----------+------------+----------------------+-------+---------+------------------------------+------------+-----------+
+1 row in set (0.000 sec)
+
+MariaDB [student_management_system]> truncate table users;
+ERROR 1701 (42000): Cannot truncate a table referenced in a foreign key constraint (`student_management_system`.`user_values`, CONSTRAINT `fk_user_values_id` FOREIGN KEY (`id`) REFERENCES `student_management_system`.`users` (`id`))
+MariaDB [student_management_system]> truncate table user_values;
+Query OK, 0 rows affected (1.393 sec)
+
+MariaDB [student_management_system]> ALTER TABLE users AUTO_INCREMENT = 1;
+Query OK, 0 rows affected (0.915 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+-----------+---------------------+--------+
+| id | userid        | user_role | password  | last_login          | status |
++----+---------------+-----------+-----------+---------------------+--------+
+|  7 | STU1234567890 |         2 | 123456@Sc | 2020-04-23 20:43:52 |      0 |
++----+---------------+-----------+-----------+---------------------+--------+
+1 row in set (0.000 sec)
+
+MariaDB [student_management_system]> delete from users;
+Query OK, 1 row affected (1.384 sec)
+
+MariaDB [student_management_system]> select * from users;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    10
+Current database: student_management_system
+
++----+---------------+-----------+----------+---------------------+--------+
+| id | userid        | user_role | password | last_login          | status |
++----+---------------+-----------+----------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc | 2020-04-23 20:57:51 |      0 |
++----+---------------+-----------+----------+---------------------+--------+
+1 row in set (0.008 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+---------------+-------+---------+---------+------------+----------+
+| id   | fname     | lname      | email         | class | section | address | mobile_no  | password |
++------+-----------+------------+---------------+-------+---------+---------+------------+----------+
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com | 12    | B       | 1234    | 1234567890 | 12345@Sc |
++------+-----------+------------+---------------+-------+---------+---------+------------+----------+
+1 row in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    20
+Current database: student_management_system
+
++----+---------------+-----------+------------+---------------------+--------+
+| id | userid        | user_role | password   | last_login          | status |
++----+---------------+-----------+------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc   | 2020-04-23 20:57:51 |      0 |
+|  9 | STU1234567809 |         2 | Sudipta@12 | 2020-04-23 21:37:10 |      0 |
++----+---------------+-----------+------------+---------------------+--------+
+2 rows in set (0.007 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+
+| id   | fname     | lname      | email                | class | section | address   | mobile_no  | password   |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf | 1234567809 | Sudipta@12 |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234      | 1234567890 | 12345@Sc   |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+
+2 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> alter table users add passwordWithoutEncryption varchar(100) after password;
+Query OK, 0 rows affected (0.116 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password   | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+------------+---------------------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc   | NULL                      | 2020-04-23 20:57:51 |      0 |
+|  9 | STU1234567809 |         2 | Sudipta@12 | NULL                      | 2020-04-23 21:37:10 |      0 |
++----+---------------+-----------+------------+---------------------------+---------------------+--------+
+2 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> alter table user_values add passwordWithoutEncryption varchar(100) after password;
+Query OK, 0 rows affected (0.104 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+---------------------------+
+| id   | fname     | lname      | email                | class | section | address   | mobile_no  | password   | passwordWithoutEncryption |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+---------------------------+
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf | 1234567809 | Sudipta@12 | NULL                      |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234      | 1234567890 | 12345@Sc   | NULL                      |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+---------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    18
+Current database: student_management_system
+
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc             | NULL                      | 2020-04-23 20:57:51 |      0 |
+|  9 | STU1234567809 |         2 | Sudipta@12           | NULL                      | 2020-04-23 21:37:10 |      0 |
+| 10 | STU1234567890 |         2 | 9462834c4b170965bdc9 | Snehanjan@12              | 2020-04-23 22:10:13 |      0 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+3 rows in set (0.003 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+---------------------------+
+| id   | fname     | lname      | email                | class | section | address   | mobile_no  | password   | passwordWithoutEncryption |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+---------------------------+
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf | 1234567809 | Sudipta@12 | NULL                      |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234      | 1234567890 | 12345@Sc   | NULL                      |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+------------+---------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    18
+Current database: student_management_system
+
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc             | NULL                      | 2020-04-23 20:57:51 |      0 |
+|  9 | STU1234567809 |         2 | Sudipta@12           | NULL                      | 2020-04-23 21:37:10 |      0 |
+| 10 | STU1234567890 |         2 | 9462834c4b170965bdc9 | Snehanjan@12              | 2020-04-23 22:10:13 |      0 |
+| 11 | STU1234567670 |         2 | 13da65e1dd5f92f912da | 1234@Dipa                 | 2020-04-23 22:13:47 |      0 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+4 rows in set (0.004 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+| id   | fname     | lname      | email                | class | section | address   | mobile_no  | password             | passwordWithoutEncryption |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+|   11 | Dipan     | Chak       | 123@gmail.com        | 11    | B       | ww        | 1234567670 | 13da65e1dd5f92f912da | 1234@Dipa                 |
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf | 1234567809 | Sudipta@12           | NULL                      |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234      | 1234567890 | 12345@Sc             | NULL                      |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+3 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    16
+Current database: student_management_system
+
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc             | NULL                      | 2020-04-23 20:57:51 |      0 |
+|  9 | STU1234567809 |         2 | Sudipta@12           | NULL                      | 2020-04-23 21:37:10 |      0 |
+| 10 | STU1234567890 |         2 | 9462834c4b170965bdc9 | Snehanjan@12              | 2020-04-23 22:10:13 |      0 |
+| 11 | STU1234567670 |         2 | 13da65e1dd5f92f912da | 1234@Dipa                 | 2020-04-23 22:13:47 |      0 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+4 rows in set (0.006 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+| id   | fname     | lname      | email                | class | section | address   | mobile_no  | password             | passwordWithoutEncryption |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+|   11 | Dipan     | Chak       | 123@gmail.com        | 11    | B       | ww        | 1234567670 | 13da65e1dd5f92f912da | 1234@Dipa                 |
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf | 1234567809 | Sudipta@12           | NULL                      |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234      | 1234567890 | 12345@Sc             | NULL                      |
++------+-----------+------------+----------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [student_management_system]> notee;
