@@ -32,19 +32,19 @@ session_start();
         <div class="row">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-lg-12">
                         <h2 style="text-align: center;">MY PROFILE</h2>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-6">
                         <h5>Name : <span id="name"> <?php echo $_SESSION['name']?></span> </h5>
                         <h5>Address : <span id="address"> <?php echo $_SESSION['address']?> </span> </h5>
                         <h5>Mobile Number : <span id="mobileNo"> <?php echo $_SESSION['mobile_no']?> </span> </h5>
                         <h5>Class : <span id="class"> <?php echo $_SESSION['class']?> </span> </h5>
                         <h5>Section: <span id="section"> <?php echo $_SESSION['section']?> </span> </h5>
                     </div>
-                    <div class="col-6 text-center" style="margin: auto;">
+                    <div class="col-lg-6 text-center" style="margin: auto;">
                         <button type="button" name="myProfileBtn" id="myProfileBtn" class="btn btn-primary">EDIT
                             PROFILE</button>
                     </div>
