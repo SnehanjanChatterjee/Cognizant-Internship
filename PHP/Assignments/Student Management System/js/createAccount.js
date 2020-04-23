@@ -60,7 +60,7 @@ $(document).ready(function () {
                     $("#ssection").append(
                         "<option value='" + val + "'>" + val + "</option>"
                     );
-                    alert(key + "--> " + val);
+                    // alert(key + "--> " + val);
 
                     // Template literal/ ES6  -- ANOTHER WAY
                     /*$('#ssection').append(`<option value="${val}">

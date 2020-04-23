@@ -27,7 +27,7 @@
         <div class="row">
             <!-- Student Form col -->
             <div class="col-12">
-                <form class="studentRegistrationForm" action="index.php" method="post" autocomplete="off">
+                <form class="studentRegistrationForm" action="submitFormData.php" method="post" autocomplete="off">
                     <h1 style="text-align: center;">Create Account</h1>
                     <h6 style="text-align: center;">(Fields marked <span style=" color: red">*</span> are mandatory)
                     </h6>
@@ -44,7 +44,7 @@
                     <!-- Last name -->
                     <div class="form-group">
                         <label for="lastname">LAST NAME<span style="color: red">*</span></label>
-                        <input type="text" id="lastname" placeholder="Last Name" class="form-control" />
+                        <input type="text" name="lastname" id="lastname" placeholder="Last Name" class="form-control" />
                         <div class="pt-2">
                             <h6 id="lnameCheck"></h6>
                         </div>
@@ -60,24 +60,33 @@
                     <!-- Class -->
                     <div class="form-group">
                         <label for="sclass">CLASS<span style="color: red">*</span></label>
-                        <select class="browser-default custom-select" id="sclass">
+                        <select class="browser-default custom-select" name="sclass" id="sclass">
                             <option selected>Select the Class</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
+                            <option value="4">Four</option>
+                            <option value="5">Five</option>
+                            <option value="6">Six</option>
+                            <option value="7">Seven</option>
+                            <option value="8">Eight</option>
+                            <option value="9">Nine</option>
+                            <option value="10">Ten</option>
+                            <option value="11">Eleven</option>
+                            <option value="12">Twelve</option>
                         </select>
                     </div>
                     <!-- Section -->
                     <div class="form-group">
                         <label for="ssection">SECTION<span style="color: red">*</span></label>
-                        <select class="browser-default custom-select" id="ssection" disabled>
+                        <select class="browser-default custom-select" name="ssection" id="ssection" disabled>
                             <option selected>Select the Section</option>
                         </select>
                     </div>
                     <!-- Address -->
                     <div class="form-group">
                         <label for="address">ADDRESS</label>
-                        <textarea class="form-control" id="address" rows="3"></textarea>
+                        <textarea class="form-control" name="address" id="address" rows="3"></textarea>
                     </div>
                     <!-- Mobile No. -->
                     <div class="form-group">
@@ -154,13 +163,13 @@
     </div>
 
     <!-- jQuery GOOGLE CDN-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> -->
 
-
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   
     <!-- jQuery Validation Plugin -->
     <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script> -->
     <!-- <script src="./js/jquery.validate.js"></script> -->
@@ -177,9 +186,6 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>

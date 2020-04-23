@@ -1,0 +1,49 @@
+[23-Apr-2020 16:08:22 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:08:22 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:08:22 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:08:22 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:09:03 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:09:03 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:09:03 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:09:25 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:09:25 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:09:25 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:10:28 Europe/Berlin] PHP Fatal error:  Cannot use [] for reading in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 24
+[23-Apr-2020 16:11:53 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:11:53 Europe/Berlin] PHP Warning:  log() expects parameter 1 to be float, string given in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:11:53 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:11:53 Europe/Berlin] PHP Warning:  log() expects parameter 1 to be float, string given in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:11:53 Europe/Berlin] PHP Warning:  Use of undefined constant console - assumed 'console' (this will throw an Error in a future version of PHP) in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:11:53 Europe/Berlin] PHP Warning:  log() expects parameter 1 to be float, string given in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 23
+[23-Apr-2020 16:54:06 Europe/Berlin] PHP Notice:  Undefined index: firstname in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 39
+[23-Apr-2020 16:54:06 Europe/Berlin] PHP Notice:  Undefined index: lastname in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 40
+[23-Apr-2020 16:54:06 Europe/Berlin] PHP Notice:  Undefined index: email in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 41
+[23-Apr-2020 16:54:06 Europe/Berlin] PHP Notice:  Undefined index: sclass in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 42
+[23-Apr-2020 16:54:06 Europe/Berlin] PHP Notice:  Undefined index: ssection in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 43
+[23-Apr-2020 16:54:06 Europe/Berlin] PHP Notice:  Undefined index: address in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 44
+[23-Apr-2020 16:54:06 Europe/Berlin] PHP Notice:  Undefined index: mobileNo in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 45
+[23-Apr-2020 16:54:06 Europe/Berlin] PHP Notice:  Undefined index: password in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 46
+[23-Apr-2020 16:54:57 Europe/Berlin] PHP Notice:  Undefined index: firstname in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 39
+[23-Apr-2020 16:54:57 Europe/Berlin] PHP Notice:  Undefined index: lastname in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 40
+[23-Apr-2020 16:54:57 Europe/Berlin] PHP Notice:  Undefined index: email in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 41
+[23-Apr-2020 16:54:57 Europe/Berlin] PHP Notice:  Undefined index: sclass in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 42
+[23-Apr-2020 16:54:57 Europe/Berlin] PHP Notice:  Undefined index: ssection in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 43
+[23-Apr-2020 16:54:57 Europe/Berlin] PHP Notice:  Undefined index: address in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 44
+[23-Apr-2020 16:54:57 Europe/Berlin] PHP Notice:  Undefined index: mobileNo in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 45
+[23-Apr-2020 16:54:57 Europe/Berlin] PHP Notice:  Undefined index: password in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 46
+[23-Apr-2020 16:55:00 Europe/Berlin] PHP Notice:  Undefined index: firstname in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 39
+[23-Apr-2020 16:55:00 Europe/Berlin] PHP Notice:  Undefined index: lastname in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 40
+[23-Apr-2020 16:55:00 Europe/Berlin] PHP Notice:  Undefined index: email in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 41
+[23-Apr-2020 16:55:00 Europe/Berlin] PHP Notice:  Undefined index: sclass in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 42
+[23-Apr-2020 16:55:00 Europe/Berlin] PHP Notice:  Undefined index: ssection in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 43
+[23-Apr-2020 16:55:00 Europe/Berlin] PHP Notice:  Undefined index: address in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 44
+[23-Apr-2020 16:55:00 Europe/Berlin] PHP Notice:  Undefined index: mobileNo in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 45
+[23-Apr-2020 16:55:00 Europe/Berlin] PHP Notice:  Undefined index: password in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 46
+[23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: firstname in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 39
+[23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: lastname in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 40
+[23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: email in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 41
+[23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: sclass in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 42
+[23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: ssection in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 43
+[23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: address in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 44
+[23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: mobileNo in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 45
+[23-Apr-2020 16:56:14 Europe/Berlin] PHP Notice:  Undefined index: password in F:\CTS Internship\PHP\Assignments\Student Management System\index.php on line 46

@@ -1,26 +1,33 @@
 <?php
-// error_reporting(E_ALL);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "student_management_system";
 
-// ini_set("display_errors", "On");
-
-// ini_set("error_log", "/var/log/apache2/proj1_error");
-
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 $sclass = $_REQUEST['stu_class'];
 
-// echo $class;
-/*
+$sql = "SELECT section FROM class_section WHERE class_no='$sclass'";
+$result = mysqli_query($conn, $sql);
 
-Connect to your database
-fetch the sections for your class
-
-*/
-
-$section = array('A', 'B', 'C');
+if (mysqli_num_rows($result) > 0) {
+    $section = array();
+    while($row = mysqli_fetch_assoc($result))
+    {
+        $section[] = $row['section'];
+    }
+}
 
 // Converting Array to JSON format
 echo json_encode($section);
-// ["A","B","C"]
+
+mysqli_close($conn);
 
 exit;
 
