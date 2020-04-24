@@ -108,9 +108,11 @@ session_start();
                                     <h6 id="mobileNoCheck"></h6>
                                 </div>
                             </div>
+                            <!-- Buttons -->
                             <div class="row">
                                 <div class="col-lg-12 text-center" style="margin: auto;">
                                     <button type="submit" name="editBtn" id="editBtn" class="btn btn-lg btn-primary">EDIT</button>
+                                    <button type="button" name="cancelBtn" id="cancelBtn" class="btn btn-lg btn-primary">CANCEL</button>
                                 </div>
                             </div>
                         </form>

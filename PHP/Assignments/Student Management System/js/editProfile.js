@@ -11,6 +11,11 @@ $(document).ready(function () {
             x.type = "password";
         }
     }
+
+    $("#cancelBtn").click(function () {
+        window.location.href = "myProfile.php";
+    })
+
     // Add Section
     $("#sclass").change(function () {
         var selectedClass = $(this).children("option:selected").val();

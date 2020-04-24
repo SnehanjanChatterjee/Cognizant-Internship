@@ -27,8 +27,7 @@ if(isset($username))
 
     if (mysqli_num_rows($result) > 0) {
 
-        //For storing session variables for dashboard
-
+        //For storing session variables for dashboard, myprofile
         $sql1 = "SELECT u.id,u.last_login,uv.fname,uv.lname,uv.class,uv.section,u.status,uv.address,uv.mobile_no,uv.email 
         FROM users u INNER JOIN user_values uv ON u.id=uv.id WHERE u.userid='$username'";
         $result1 = mysqli_query($conn, $sql1);
