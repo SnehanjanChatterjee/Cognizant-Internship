@@ -47,16 +47,17 @@
                         </div>
                     </div>
                     <!-- Remember Me -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="rememberMe" value="option1">
                             <label class="form-check-label" for="rememberMe">REMEMBER ME</label>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Buttons -->
                     <div class="row" style="width: 50%; margin: auto;">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">LOGIN</button>
+                            &nbsp;
                             <button type="button" class="btn btn-primary"
                                 onclick="window.location.href = 'createAccount.php'">SIGNUP</button>
                         </div>

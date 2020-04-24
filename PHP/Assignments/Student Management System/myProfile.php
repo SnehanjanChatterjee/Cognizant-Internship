@@ -16,7 +16,7 @@ session_start();
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
     <!-- Fonts -->
-
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
 
     <!-- Custom css -->
     <link rel="stylesheet" href="./css/myProfile.css" />
@@ -45,8 +45,8 @@ session_start();
                         <h5>Section: <span id="section"> <?php echo $_SESSION['section']?> </span> </h5>
                     </div>
                     <div class="col-lg-6 text-center" style="margin: auto;">
-                        <button type="button" name="myProfileBtn" id="myProfileBtn" class="btn btn-primary">EDIT
-                            PROFILE</button>
+                        <button type="button" name="editProfileBtn" id="editProfileBtn" class="btn btn-primary">EDIT PROFILE <i class="fas fa-id-badge"></i></button>
+                        <button type="button" name="SignOutBtn" id="SignOutBtn" class="btn btn-primary">SIGN OUT <i class="fas fa-sign-out-alt"></i></button>
                     </div>
                 </div>
             </div>

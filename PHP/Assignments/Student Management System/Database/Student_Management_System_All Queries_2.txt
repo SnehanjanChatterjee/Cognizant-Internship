@@ -1,0 +1,115 @@
+MariaDB [(none)]> use student_management_system;
+Database changed
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc             | NULL                      | 2020-04-23 20:57:51 |      0 |
+|  9 | STU1234567809 |         2 | Sudipta@12           | NULL                      | 2020-04-23 21:37:10 |      0 |
+| 10 | STU1234567890 |         2 | 9462834c4b170965bdc9 | Snehanjan@12              | 2020-04-23 22:10:13 |      0 |
+| 11 | STU1234567670 |         2 | 13da65e1dd5f92f912da | 1234@Dipa                 | 2020-04-23 22:13:47 |      0 |
+| 12 | STU0123456789 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-24 01:24:23 |      0 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+5 rows in set (0.143 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+| id   | fname     | lname      | email                | class | section | address                | mobile_no  | password             | passwordWithoutEncryption |
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+|   11 | Dipan     | Chak       | 123@gmail.com        | 11    | B       | ww                     | 1234567670 | 13da65e1dd5f92f912da | 1234@Dipa                 |
+|   12 | Snehanjan | Chatterjee | s.chat@cts.com       | 12    | B       | 123,MG Road,Kolkata-08 |  123456789 | c5051037e523a3ec06b7 | Snehanjan@1234            |
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf              | 1234567809 | Sudipta@12           | NULL                      |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234                   | 1234567890 | 12345@Sc             | NULL                      |
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+4 rows in set (0.031 sec)
+
+MariaDB [student_management_system]> update users set status=1;
+Query OK, 5 rows affected (0.030 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+| id   | fname     | lname      | email                | class | section | address                | mobile_no  | password             | passwordWithoutEncryption |
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+|   11 | Dipan     | Chak       | 123@gmail.com        | 11    | B       | ww                     | 1234567670 | 13da65e1dd5f92f912da | 1234@Dipa                 |
+|   12 | Snehanjan | Chatterjee | s.chat@cts.com       | 12    | B       | 123,MG Road,Kolkata-08 |  123456789 | c5051037e523a3ec06b7 | Snehanjan@1234            |
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf              | 1234567809 | Sudipta@12           | NULL                      |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234                   | 1234567890 | 12345@Sc             | NULL                      |
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc             | NULL                      | 2020-04-24 12:17:14 |      1 |
+|  9 | STU1234567809 |         2 | Sudipta@12           | NULL                      | 2020-04-24 12:17:14 |      1 |
+| 10 | STU1234567890 |         2 | 9462834c4b170965bdc9 | Snehanjan@12              | 2020-04-24 12:17:14 |      1 |
+| 11 | STU1234567670 |         2 | 13da65e1dd5f92f912da | 1234@Dipa                 | 2020-04-24 12:17:14 |      1 |
+| 12 | STU0123456789 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-24 12:17:14 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+5 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> update users set userid='STU8274901994' WHERE id=12;
+Query OK, 1 row affected (0.081 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+| id   | fname     | lname      | email                | class | section | address                | mobile_no  | password             | passwordWithoutEncryption |
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+|   11 | Dipan     | Chak       | 123@gmail.com        | 11    | B       | ww                     | 1234567670 | 13da65e1dd5f92f912da | 1234@Dipa                 |
+|   12 | Snehanjan | Chatterjee | s.chat@cts.com       | 12    | B       | 123,MG Road,Kolkata-08 |  123456789 | c5051037e523a3ec06b7 | Snehanjan@1234            |
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf              | 1234567809 | Sudipta@12           | NULL                      |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234                   | 1234567890 | 12345@Sc             | NULL                      |
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc             | NULL                      | 2020-04-24 12:17:14 |      1 |
+|  9 | STU1234567809 |         2 | Sudipta@12           | NULL                      | 2020-04-24 12:17:14 |      1 |
+| 10 | STU1234567890 |         2 | 9462834c4b170965bdc9 | Snehanjan@12              | 2020-04-24 12:17:14 |      1 |
+| 11 | STU1234567670 |         2 | 13da65e1dd5f92f912da | 1234@Dipa                 | 2020-04-24 12:17:14 |      1 |
+| 12 | STU8274901994 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-24 12:18:57 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+5 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> update user_values set mobile_no=8274901994 WHERE id=12;
+Query OK, 1 row affected, 1 warning (0.063 sec)
+Rows matched: 1  Changed: 1  Warnings: 1
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+| id   | fname     | lname      | email                | class | section | address                | mobile_no  | password             | passwordWithoutEncryption |
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+|   11 | Dipan     | Chak       | 123@gmail.com        | 11    | B       | ww                     | 1234567670 | 13da65e1dd5f92f912da | 1234@Dipa                 |
+|   12 | Snehanjan | Chatterjee | s.chat@cts.com       | 12    | B       | 123,MG Road,Kolkata-08 | 2147483647 | c5051037e523a3ec06b7 | Snehanjan@1234            |
+|    9 | Sudipta   | Das        | sudipta.das@gmail.co | 5     | B       | wdwdqwfwf              | 1234567809 | Sudipta@12           | NULL                      |
+|    8 | Snehanjan | Chatterjee | xyz@gmail.com        | 12    | B       | 1234                   | 1234567890 | 12345@Sc             | NULL                      |
++------+-----------+------------+----------------------+-------+---------+------------------------+------------+----------------------+---------------------------+
+4 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> update user_values set mobile_no = 8274901994 WHERE id=12;
+Query OK, 0 rows affected, 1 warning (0.000 sec)
+Rows matched: 1  Changed: 0  Warnings: 1
+
+MariaDB [student_management_system]> update users set userid='STU2147483647' WHERE id=12;
+Query OK, 1 row affected (0.061 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+|  8 | STU1234567890 |         2 | 12345@Sc             | NULL                      | 2020-04-24 12:17:14 |      1 |
+|  9 | STU1234567809 |         2 | Sudipta@12           | NULL                      | 2020-04-24 12:17:14 |      1 |
+| 10 | STU1234567890 |         2 | 9462834c4b170965bdc9 | Snehanjan@12              | 2020-04-24 12:17:14 |      1 |
+| 11 | STU1234567670 |         2 | 13da65e1dd5f92f912da | 1234@Dipa                 | 2020-04-24 12:17:14 |      1 |
+| 12 | STU2147483647 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-24 12:21:13 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+5 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> notee;

@@ -29,7 +29,7 @@ if(isset($username))
 
         //For storing session variables for dashboard
 
-        $sql1 = "SELECT u.last_login,uv.fname,uv.lname,uv.class,uv.section,u.status,uv.address,uv.mobile_no,uv.email 
+        $sql1 = "SELECT u.id,u.last_login,uv.fname,uv.lname,uv.class,uv.section,u.status,uv.address,uv.mobile_no,uv.email 
         FROM users u INNER JOIN user_values uv ON u.id=uv.id WHERE u.userid='$username'";
         $result1 = mysqli_query($conn, $sql1);
         if (mysqli_num_rows($result1) > 0) {
@@ -37,6 +37,7 @@ if(isset($username))
         }
 
         // Store Session Data
+        $_SESSION['id'] = $row['id'];
         $_SESSION['last_logon'] = $row['last_login'];
         $_SESSION['name'] = $row['fname'] . " " . $row['lname'];
         $_SESSION['class'] = $row['class'];

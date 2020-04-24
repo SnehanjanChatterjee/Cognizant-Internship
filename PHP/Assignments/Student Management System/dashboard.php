@@ -46,8 +46,8 @@ session_start();
                         <h5>Approval Status : <span id="approval_status"><?php echo $_SESSION['approval_status']?></span> </h5>
                     </div>
                     <div class="col-lg-6 text-center" style="margin: auto;">
-                        <button type="button" name="myProfileBtn" id="myProfileBtn" class="btn btn-primary">MY
-                            PROFILE</button>
+                        <button type="button" name="myProfileBtn" id="myProfileBtn" class="btn btn-primary">MY PROFILE <i class="fas fa-id-badge"></i></button>
+                        <button type="button" name="SignOutBtn" id="SignOutBtn" class="btn btn-primary">SIGN OUT <i class="fas fa-sign-out-alt"></i></button>
                     </div>
                 </div>
             </div>

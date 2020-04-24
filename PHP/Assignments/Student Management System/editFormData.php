@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -10,6 +11,7 @@
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
+    $id = $_SESSION['id'];
     $fname = $_POST['firstname'];
     $lname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -17,12 +19,11 @@
     $section = $_POST['ssection'];
     $address = $_POST['address'];
     $mobileNo = $_POST['mobileNo'];
-    $password = $_POST['password'];
     $userId = "STU" . $mobileNo;
-    $encryptedPassword = md5($password);
 
-    $sql1 = "INSERT INTO users(userid,user_role,password,passwordWithoutEncryption,last_login,status) VALUES ('$userId',2,'$encryptedPassword','$password',NULL,1)";
-    $sql2 = "INSERT INTO user_values(fname,lname,email,class,section,address,mobile_no,password,passwordWithoutEncryption) VALUES ('$fname','$lname','$email','$class','$section','$address','$mobileNo','$encryptedPassword','$password')";
+    $sql1 = "UPDATE users SET userid='$userId' WHERE id='$id'";
+    $sql2 = "UPDATE user_values SET fname = '$fname',lname='$lname',email='$email',class='$class',section='$section',address='$address',mobile_no='$mobileNo' WHERE id='$id'";
+    
     if ((!mysqli_query($conn, $sql1)) || (!mysqli_query($conn, $sql2))) {
         echo "Error: " . "<br>" . mysqli_error($conn);
     }
@@ -31,5 +32,5 @@
         echo "Error: " . "<br>" . mysqli_error($conn);
     }
     mysqli_close($conn);
-    header('Refresh: 0; URL= index.php');
+    header('Refresh: 2; URL= myProfile.php');
 ?>
