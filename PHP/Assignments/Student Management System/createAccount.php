@@ -52,9 +52,12 @@
                     <!-- Email -->
                     <div class="form-group">
                         <label for="email">EMAIL<span style="color: red">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="xyz@gmail.com" class="form-control" />
+                        <input type="email" id="email" name="email" placeholder="xyz@gmail.com" class="form-control 
+                        <?php if (isset($email_error)){ echo('php-error');} ?>" />
                         <div class="pt-2">
-                            <h6 id="emailCheck"></h6>
+                            <h6 id="emailCheck">
+                                <?php if (isset($email_error)){ echo($email_error . "<br>");} ?>
+                            </h6>
                         </div>
                     </div>
                     <!-- Class -->
@@ -92,9 +95,11 @@
                     <div class="form-group">
                         <label for="mobileNo">MOBILE NO.<span style="color: red">*</span></label>
                         <input type="text" id="mobileNo" name="mobileNo" placeholder="Mobile No."
-                            class="form-control" />
+                            class="form-control <?php if (isset($mobileNo_error)){ echo('php-error');} ?>" />
                         <div class="pt-2">
-                            <h6 id="mobileNoCheck"></h6>
+                            <h6 id="mobileNoCheck">
+                                <?php if (isset($mobileNo_error)){ echo($mobileNo_error . "<br>");} ?>
+                            </h6>
                         </div>
                     </div>
                     <!-- Password -->
@@ -169,7 +174,7 @@
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script> -->
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-   
+
     <!-- jQuery Validation Plugin -->
     <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script> -->
     <!-- <script src="./js/jquery.validate.js"></script> -->

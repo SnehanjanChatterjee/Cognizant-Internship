@@ -27,10 +27,21 @@ if(isset($username))
 
     if (mysqli_num_rows($result) > 0) {
 
+        $sql_id = "SELECT * FROM users WHERE userid='$username'";
+        $result_id = mysqli_query($conn, $sql_id);
+        if (mysqli_num_rows($result_id) > 0) {
+            $row_id = mysqli_fetch_assoc($result_id);
+        }
+        $id = $row_id['id'];
+        $sql_update_last_login = "UPDATE users SET last_login=CURRENT_TIMESTAMP WHERE id='$id'";
+        $result_update_last_login = mysqli_query($conn, $sql_update_last_login);
+
         //For storing session variables for dashboard, myprofile
         $sql1 = "SELECT u.id,u.last_login,uv.fname,uv.lname,uv.class,uv.section,u.status,uv.address,uv.mobile_no,uv.email 
         FROM users u INNER JOIN user_values uv ON u.id=uv.id WHERE u.userid='$username'";
+
         $result1 = mysqli_query($conn, $sql1);
+
         if (mysqli_num_rows($result1) > 0) {
             $row = mysqli_fetch_assoc($result1);
         }
