@@ -30,15 +30,16 @@
       
     if((mysqli_num_rows($res_email) > 0) || (mysqli_num_rows($res_mobile_no) > 0)){
         if(mysqli_num_rows($res_email) > 0) {
-            $email_error = "Sorry... email already taken. <br>";
-            echo $email_error;
-            header('Refresh: 5; URL= editProfile.php');
+            // $email_error = "Sorry... email already taken. <br>";
+            echo "Sorry... email already taken. <br>";
+            // header('Refresh: 5; URL= editProfile.php');
         }
         if(mysqli_num_rows($res_mobile_no) > 0){
-                $mobileNo_error = "Sorry... mobile number already taken. <br>";
-                echo $mobileNo_error;
-                header('Refresh: 5; URL= editProfile.php'); 	
+            // $mobileNo_error = "Sorry... mobile number already taken. <br>";
+            echo "Sorry... mobile number already taken. <br>";
+            // header('Refresh: 5; URL= editProfile.php'); 	
         }
+        header('Refresh: 5; URL= editProfile.php');
     }
     else{
 

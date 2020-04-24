@@ -92,13 +92,22 @@
                         <textarea class="form-control" name="address" id="address" rows="3"></textarea>
                     </div>
                     <!-- Mobile No. -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="mobileNo">MOBILE NO.<span style="color: red">*</span></label>
                         <input type="text" id="mobileNo" name="mobileNo" placeholder="Mobile No."
                             class="form-control <?php if (isset($mobileNo_error)){ echo('php-error');} ?>" />
                         <div class="pt-2">
                             <h6 id="mobileNoCheck">
                                 <?php if (isset($mobileNo_error)){ echo($mobileNo_error . "<br>");} ?>
+                            </h6>
+                        </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="mobileNo">MOBILE NO.<span style="color: red">*</span></label>
+                        <input type="text" id="mobileNo" name="mobileNo" placeholder="Mobile No."
+                            class="form-control" />
+                        <div class="pt-2">
+                            <h6 id="mobileNoCheck">
                             </h6>
                         </div>
                     </div>
