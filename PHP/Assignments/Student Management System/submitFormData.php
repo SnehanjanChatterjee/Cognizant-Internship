@@ -24,7 +24,7 @@
 
     $sql_email = "SELECT * FROM user_values WHERE email = '$email'";
     $sql_mobile_no = "SELECT * FROM user_values WHERE mobile_no = '$mobileNo'";
-    $sql_password = "SELECT * FROM user_values WHERE password = '$password'";
+    $sql_password = "SELECT * FROM user_values WHERE password = '$encryptedPassword'";
       
   	$res_email = mysqli_query($conn, $sql_email);
     $res_mobile_no = mysqli_query($conn, $sql_mobile_no);
@@ -60,7 +60,7 @@
         }
         
         //mysqli_close($conn);
-        header('Refresh: 10; URL= index.php');
+        header('Refresh: 5; URL= index.php');
     }
     mysqli_close($conn);
 ?>

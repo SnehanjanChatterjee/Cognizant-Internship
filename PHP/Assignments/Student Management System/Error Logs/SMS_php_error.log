@@ -105,3 +105,4 @@ Stack trace:
 [24-Apr-2020 20:04:43 Europe/Berlin] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 40
 [24-Apr-2020 21:10:04 Europe/Berlin] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 40
 [24-Apr-2020 21:10:52 Europe/Berlin] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 40
+[24-Apr-2020 21:56:37 Europe/Berlin] PHP Notice:  Undefined variable: encryptedPassword in F:\CTS Internship\PHP\Assignments\Student Management System\editFormData.php on line 27
