@@ -58,12 +58,14 @@ if(isset($username))
         $_SESSION['email'] = $row['email'];
 
         echo "Success";
-        mysqli_close($conn);
+        // mysqli_close($conn);
         header('Refresh: 2; URL= dashboard.php');
     }
     else{
         echo "Failed to Login";
-        mysqli_close($conn);
-    } 
+        header('Refresh: 2; URL= index.php');
+        // mysqli_close($conn);
+    }
+    mysqli_close($conn);
 }
 ?>

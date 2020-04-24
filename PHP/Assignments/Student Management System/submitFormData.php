@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -59,6 +60,9 @@
             echo "Error: " . "<br>" . mysqli_error($conn);
         }
         
+        // $registrationSuccessful = "Successfully Registered!";
+        $_SESSION['registrationSuccessful'] = "Successfully Registered!";
+
         //mysqli_close($conn);
         header('Refresh: 5; URL= index.php');
     }

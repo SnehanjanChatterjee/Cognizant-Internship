@@ -7,3 +7,7 @@
     margin-top: 150px;
     border-radius: 10px;
 }
+.login-success {
+    color: green;
+    font-weight: bolder;
+}

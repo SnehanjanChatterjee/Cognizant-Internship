@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +31,26 @@
             <!-- Student Form col -->
             <div class="col-12">
                 <form class="studentLoginForm" action="login.php" method="post" autocomplete="off">
-                    <h1 style="text-align: center;">Student Login</h1>
+                <div class="row my-login-header">
+                    <div class="col-12">
+                        <h1 style="text-align: center;">Student Login</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h6 style="text-align: center;" class="login-success">
+                            <?php if(isset($_SESSION['registrationSuccessful'])){
+                                echo($_SESSION['registrationSuccessful']);
+                                // remove all session variables
+                                session_unset();
+
+                                // destroy the session
+                                session_destroy();
+                            }?>
+                        </h6>
+                    </div>
+                </div>
+                    
                     <!-- Username -->
                     <div class="form-group">
                         <label for="username">USERNAME</label>
