@@ -60,10 +60,10 @@ if(isset($username))
 
         echo "Success";
         // mysqli_close($conn);
-        header('Refresh: 2; URL= dashboard.php');
+        header('Refresh: 0; URL= dashboard.php');
     }
     else{
-        echo "Failed to Login";
+        echo "Failed to Login <br> Incorrect Username or Password";
         header('Refresh: 2; URL= index.php');
         // mysqli_close($conn);
     }

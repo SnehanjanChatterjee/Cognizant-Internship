@@ -78,6 +78,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="pt-2">
+                                    <h6 id="passwordCheck"></h6>
+                                </div>
                             </div>
                             <!-- Remember Me -->
                             <!-- <div class="form-group">

@@ -75,7 +75,7 @@
         $_SESSION['email'] = $row_all['email'];
 
         // mysqli_close($conn);
-        header('Refresh: 5; URL= myProfile.php');
+        header('Refresh: 0; URL= myProfile.php');
     }
     mysqli_close($conn);
 ?>
