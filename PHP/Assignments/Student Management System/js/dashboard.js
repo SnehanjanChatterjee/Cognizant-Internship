@@ -18,4 +18,7 @@ $(document).ready(function () {
     // $("#pageNo").click(function () {
     //     $("#pageNo").addClass("active");
     // });
+    $('li').click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+    });
 });

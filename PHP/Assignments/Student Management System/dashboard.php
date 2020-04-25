@@ -107,13 +107,8 @@ $Next = $page + 1;
                 <nav aria-label="...">
                     <ul class="pagination justify-content-center">
                         <!-- Previous Button -->
-                        <li class="page-item">
-                            <!-- <a href="dashboard.php?page=<?php //echo($Previous); ?>" aria-label="Previous"> -->
-                            <a class="page-link" href="
-                            <?php if($Previous > 0){
-                                echo('dashboard.php?page='.$Previous);
-                            }else{
-                            echo("#");}?>" aria-label="Previous">
+                        <li class="page-item <?php if($Previous <= 0){echo('disabled');}?>">
+                            <a class="page-link" href="dashboard.php?page=<?php echo($Previous);?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo; Previous</span>
                             </a>
                         </li>

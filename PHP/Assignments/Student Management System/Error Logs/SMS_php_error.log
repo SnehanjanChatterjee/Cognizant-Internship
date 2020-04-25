@@ -191,3 +191,7 @@ Stack trace:
 [25-Apr-2020 16:29:30 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 138
 [25-Apr-2020 16:32:08 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 25
 [25-Apr-2020 16:32:08 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 140
+[25-Apr-2020 17:57:18 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 25
+[25-Apr-2020 17:57:18 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 149
+[25-Apr-2020 17:57:58 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 25
+[25-Apr-2020 17:57:58 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 149
