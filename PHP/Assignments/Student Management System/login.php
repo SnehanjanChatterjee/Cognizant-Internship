@@ -32,6 +32,7 @@ if(isset($username))
         if (mysqli_num_rows($result_id) > 0) {
             $row_id = mysqli_fetch_assoc($result_id);
         }
+        
         $id = $row_id['id'];
         $sql_update_last_login = "UPDATE users SET last_login=CURRENT_TIMESTAMP WHERE id='$id'";
         $result_update_last_login = mysqli_query($conn, $sql_update_last_login);

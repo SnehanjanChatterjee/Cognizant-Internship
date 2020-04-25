@@ -64,7 +64,7 @@
                     <div class="form-group">
                         <label for="sclass">CLASS<span style="color: red">*</span></label>
                         <select class="browser-default custom-select" name="sclass" id="sclass">
-                            <option selected>Select the Class</option>
+                            <option value="Select the Class" selected>Select the Class</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
@@ -78,13 +78,19 @@
                             <option value="11">Eleven</option>
                             <option value="12">Twelve</option>
                         </select>
+                        <div class="pt-2">
+                            <h6 id="classCheck"></h6>
+                        </div>
                     </div>
                     <!-- Section -->
                     <div class="form-group">
                         <label for="ssection">SECTION<span style="color: red">*</span></label>
                         <select class="browser-default custom-select" name="ssection" id="ssection" disabled>
-                            <option selected>Select the Section</option>
+                            <option value="Select the Section" selected>Select the Section</option>
                         </select>
+                        <div class="pt-2">
+                            <h6 id="sectionCheck"></h6>
+                        </div>
                     </div>
                     <!-- Address -->
                     <div class="form-group">

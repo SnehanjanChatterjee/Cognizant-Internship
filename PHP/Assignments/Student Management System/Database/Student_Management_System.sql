@@ -60,3 +60,5 @@ insert into class_section(class_id,class_no,section)  values
 alter table users add passwordWithoutEncryption varchar(100) after password;
 
 alter table user_values add passwordWithoutEncryption varchar(100) after password;
+
+alter table user_values MODIFY mobile_no VARCHAR(10);

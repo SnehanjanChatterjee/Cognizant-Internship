@@ -162,6 +162,8 @@ $(document).ready(function () {
     var mobileNo_err = true;
     var password_err = true;
     var confirmPassword_err = true;
+    var class_err = true;
+    var section_err = true;
 
     // First name validation
     $('#firstname').keyup(function () {
@@ -263,6 +265,50 @@ $(document).ready(function () {
         }
     }
 
+    // Class validation
+    $('#sclass').blur(function () {
+        class_check();
+    });
+
+    function class_check() {
+
+        var class_val = $('#sclass').val();
+
+        if (class_val == 'Select the Class' || class_val == '') {
+            $('#classCheck').show();
+            $('#classCheck').html("**Please enter your class");
+            $('#classCheck').focus();
+            $('#classCheck').css("color", "red");
+            class_err = false;
+            return false;
+        } else {
+            $('#classCheck').hide();
+            return true;
+        }
+    }
+
+    // Section validation
+    $('#ssection').blur(function () {
+        section_check();
+    });
+
+    function section_check() {
+
+        var section_val = $('#ssection').val();
+
+        if (section_val == 'Select the Section' || section_val == '') {
+            $('#sectionCheck').show();
+            $('#sectionCheck').html("**Please enter your section");
+            $('#sectionCheck').focus();
+            $('#sectionCheck').css("color", "red");
+            section_err = false;
+            return false;
+        } else {
+            $('#sectionCheck').hide();
+            return true;
+        }
+    }
+
     // Mobile No validation
     $('#mobileNo').keyup(function () {
         mobileNo_check();
@@ -356,7 +402,7 @@ $(document).ready(function () {
 
     $('#submitBtn').click(function () {
 
-        if (fname_check() && lname_check() && email_check() && mobileNo_check() && password_check() && confirmPasswrd_check()) {
+        if (fname_check() && lname_check() && email_check() && class_check() && section_check() && mobileNo_check() && password_check() && confirmPassword_check()) {
             return true;
         } else {
             return false;

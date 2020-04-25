@@ -109,3 +109,7 @@ Stack trace:
 [24-Apr-2020 23:18:37 Europe/Berlin] PHP Parse error:  syntax error, unexpected ',' in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 18
 [24-Apr-2020 23:23:28 Europe/Berlin] PHP Parse error:  syntax error, unexpected ')' in F:\CTS Internship\PHP\Assignments\Student Management System\login.php on line 26
 [24-Apr-2020 23:52:13 Europe/Berlin] PHP Notice:  Undefined index: ssection in F:\CTS Internship\PHP\Assignments\Student Management System\editFormData.php on line 20
+[25-Apr-2020 12:39:45 Europe/Berlin] PHP Notice:  Undefined variable: section in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 28
+[25-Apr-2020 12:45:52 Europe/Berlin] PHP Notice:  Undefined index: ssection in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 19
+[25-Apr-2020 12:52:10 Europe/Berlin] PHP Notice:  Undefined variable: section in F:\CTS Internship\PHP\Assignments\Student Management System\select.php on line 28
+[25-Apr-2020 13:21:32 Europe/Berlin] PHP Notice:  Undefined index: ssection in F:\CTS Internship\PHP\Assignments\Student Management System\editFormData.php on line 20

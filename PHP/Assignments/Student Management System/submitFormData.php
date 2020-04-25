@@ -56,11 +56,12 @@
         if ((!mysqli_query($conn, $sql1)) || (!mysqli_query($conn, $sql2))) {
             echo "Error: " . "<br>" . mysqli_error($conn);
         }
+
         $sql3 = "UPDATE user_values INNER JOIN users ON user_values.password = users.password SET user_values.id = users.id";
         if (!mysqli_query($conn, $sql3)) {
             echo "Error: " . "<br>" . mysqli_error($conn);
         }
-        
+
         // $registrationSuccessful = "Successfully Registered!";
         $_SESSION['registrationSuccessful'] = "Successfully Registered!";
 

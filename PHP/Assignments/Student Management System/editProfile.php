@@ -85,6 +85,9 @@ session_start();
                                     <option value="11">Eleven</option>
                                     <option value="12">Twelve</option>
                                 </select>
+                                <div class="pt-2">
+                                    <h6 id="classCheck"></h6>
+                                </div>
                             </div>
                             <!-- Section -->
                             <div class="form-group">
@@ -92,6 +95,9 @@ session_start();
                                 <select class="browser-default custom-select" name="ssection" id="ssection" disabled>
                                     <option selected>Select the Section</option>
                                 </select>
+                                <div class="pt-2">
+                                    <h6 id="sectionCheck"></h6>
+                                </div>
                             </div>
                             <!-- Address -->
                             <div class="form-group">
