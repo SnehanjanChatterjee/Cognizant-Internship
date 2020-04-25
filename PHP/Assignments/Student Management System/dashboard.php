@@ -81,8 +81,7 @@ $Next = $page + 1;
                         <h5>Name : <span id="name"><?php echo $_SESSION['name']?></span> </h5>
                         <h5>Class : <span id="class"><?php echo $_SESSION['class']?></span> </h5>
                         <h5>Section : <span id="section"><?php echo $_SESSION['section']?></span> </h5>
-                        <h5>Approval Status : <span
-                                id="approval_status"><?php echo $_SESSION['approval_status']?></span> </h5>
+                        <h5>Approval Status : <span id="approval_status"><?php echo $_SESSION['approval_status']?></span> </h5>
                     </div>
                     <div class="col-lg-6 text-center" style="margin: auto;">
                         <button type="button" name="myProfileBtn" id="myProfileBtn" class="btn btn-primary">MY PROFILE
@@ -119,7 +118,7 @@ $Next = $page + 1;
                             </li>
                         <?php endfor; ?>
                         <!-- Next Button -->
-                        <li class="page-item">
+                        <li class="page-item <?php if($Next > $pages){echo('disabled');}?>">
                             <a class="page-link" href="dashboard.php?page=<?php echo($Next); ?>" aria-label="Next">
                                 <span aria-hidden="true">Next &raquo;</span>
                             </a>
@@ -131,8 +130,8 @@ $Next = $page + 1;
         <!-- Pagination Buttons ends -->
 
         <!-- Table -->
-        <div style="height: 600px; overflow-y: auto;">
-            <table id="" class="table table-striped table-bordered">
+        <div style="max-height: 300px; overflow-y: scroll; overflow-x: auto">
+            <table id="" class="table table-bordered">
                 <thead>
                     <tr>
                         <th class="text-center">ID</th>
@@ -161,6 +160,7 @@ $Next = $page + 1;
         </div>
         <!-- Table ends -->
     </div>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
