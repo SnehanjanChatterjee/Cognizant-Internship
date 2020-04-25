@@ -118,3 +118,76 @@ Stack trace:
 [25-Apr-2020 14:13:26 Europe/Berlin] PHP Notice:  Undefined index: class in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 44
 [25-Apr-2020 14:13:26 Europe/Berlin] PHP Notice:  Undefined index: section in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 45
 [25-Apr-2020 14:13:26 Europe/Berlin] PHP Notice:  Undefined index: approval_status in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 46
+[25-Apr-2020 15:55:49 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 15:55:49 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 15:55:49 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 15:55:49 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 15:55:49 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 15:57:01 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 15:57:01 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 15:57:01 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 15:57:01 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 15:57:01 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 15:58:23 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 15:58:23 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 15:58:23 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 15:58:23 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 15:58:23 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:00:55 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:00:55 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:00:55 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:00:55 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:00:55 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:02:27 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:02:27 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:02:27 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:02:27 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:02:27 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:02:41 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:02:41 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:02:41 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:02:41 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:02:41 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:02:45 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:02:45 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:02:45 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:02:45 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:02:45 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:03:13 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:03:13 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:03:13 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:03:13 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:03:13 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:03:16 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:03:16 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:03:16 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:03:16 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:03:16 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:03:20 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:03:20 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:03:20 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:03:20 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 37
+[25-Apr-2020 16:03:20 Europe/Berlin] PHP Warning:  Division by zero in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 37
+[25-Apr-2020 16:03:20 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:03:20 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:04:18 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:04:18 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:04:18 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:04:18 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:04:18 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:06:46 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:06:46 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:06:46 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:06:46 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:06:46 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:06:51 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 20
+[25-Apr-2020 16:06:51 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 24
+[25-Apr-2020 16:06:51 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 39
+[25-Apr-2020 16:06:51 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 40
+[25-Apr-2020 16:06:51 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 145
+[25-Apr-2020 16:28:43 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 25
+[25-Apr-2020 16:28:43 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 138
+[25-Apr-2020 16:29:30 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 25
+[25-Apr-2020 16:29:30 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 138
+[25-Apr-2020 16:32:08 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 25
+[25-Apr-2020 16:32:08 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 140

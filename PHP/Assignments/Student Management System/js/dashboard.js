@@ -9,5 +9,9 @@ $(document).ready(function () {
         // location.target = "_blank";
         // window.open('signOut.php')
         window.location.href = "signOut.php";
-    })
+    });
+
+    // $("#limit-records").change(function () {
+    //     $('form').submit();
+    // });
 });
