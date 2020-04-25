@@ -2,12 +2,17 @@
     font-family: 'Fira Sans', sans-serif;
 }
 .my-createAccount-form{
-    width: 40%;
+    width: 30%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    padding: 30px 30px 30px 30px;
+    background-color: #9152f8;
+    color: white;
+    padding: 20px;
+}
+.my-Btn {
+    border: 1px solid white;
 }
 .php-error{
     color: red;

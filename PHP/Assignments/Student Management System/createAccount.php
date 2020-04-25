@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <div class="container jumbotron my-createAccount-form">
+    <div class="container my-createAccount-form">
         <div class="row">
             <!-- Student Form col -->
             <div class="col-12">
@@ -163,7 +163,7 @@
                                 <input type="file" id="file" name="file" />
                             </div>
                             <div class="col-xs-12 col-md-12 col-lg-5 text-center" style="padding-bottom: 10px;">
-                                <button type="button" class="btn btn-primary" value="Upload"
+                                <button type="button" class="btn btn-success my-Btn" value="Upload"
                                     id="but_upload">UPLOAD</button>
                             </div>
                         </div>
@@ -172,7 +172,7 @@
                     <div class="row" style="margin: auto;">
                         <!-- Use .text-center class to align button -->
                         <div class="col-xs-12 col-md-12 col-lg-12 text-center">
-                            <button type="submit" id="submitBtn" class="btn btn-lg btn-primary">CREATE
+                            <button type="submit" id="submitBtn" class="btn btn-lg btn-success my-Btn">CREATE
                                 ACCOUNT</button>
                         </div>
                     </div>

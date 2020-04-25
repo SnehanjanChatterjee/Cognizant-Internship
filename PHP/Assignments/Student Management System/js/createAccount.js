@@ -176,9 +176,9 @@ $(document).ready(function () {
 
         if (fname_val.length == '') {
             $('#fnameCheck').show();
-            $('#fnameCheck').html("**Please enter your first name");
+            $('#fnameCheck').html("<span style='color: red;'>**</span> Please enter your first name");
             $('#fnameCheck').focus();
-            $('#fnameCheck').css("color", "red");
+            $('#fnameCheck').css("color", "white");
             fname_err = false;
             return false;
         } else {
@@ -187,9 +187,9 @@ $(document).ready(function () {
         var regex = new RegExp(/^[a-zA-Z\s]+$/);
         if (!regex.test(fname_val)) {
             $('#fnameCheck').show();
-            $('#fnameCheck').html("**First name should have letters only");
+            $('#fnameCheck').html("<span style='color: red;'>**</span> First name should have letters only");
             $('#fnameCheck').focus();
-            $('#fnameCheck').css("color", "red");
+            $('#fnameCheck').css("color", "white");
             fname_err = false;
             return false;
         } else {
@@ -209,9 +209,9 @@ $(document).ready(function () {
 
         if (lname_val.length == '') {
             $('#lnameCheck').show();
-            $('#lnameCheck').html("**Please enter your last name");
+            $('#lnameCheck').html("<span style='color: red;'>**</span> Please enter your last name");
             $('#lnameCheck').focus();
-            $('#lnameCheck').css("color", "red");
+            $('#lnameCheck').css("color", "white");
             lname_err = false;
             return false;
         } else {
@@ -220,9 +220,9 @@ $(document).ready(function () {
         var regex = new RegExp(/^[a-zA-Z\s]+$/);
         if (!regex.test(lname_val)) {
             $('#lnameCheck').show();
-            $('#lnameCheck').html("**Last name should have letters only");
+            $('#lnameCheck').html("<span style='color: red;'>**</span> Last name should have letters only");
             $('#lnameCheck').focus();
-            $('#lnameCheck').css("color", "red");
+            $('#lnameCheck').css("color", "white");
             lname_err = false;
             return false;
         } else {
@@ -242,9 +242,9 @@ $(document).ready(function () {
 
         if (email_val.length == '') {
             $('#emailCheck').show();
-            $('#emailCheck').html("**Please enter your email");
+            $('#emailCheck').html("<span style='color: red;'>**</span> Please enter your email");
             $('#emailCheck').focus();
-            $('#emailCheck').css("color", "red");
+            $('#emailCheck').css("color", "white");
             email_err = false;
             return false;
         } else {
@@ -254,9 +254,9 @@ $(document).ready(function () {
         var regex = new RegExp(/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/);
         if (!regex.test(email_val)) {
             $('#emailCheck').show();
-            $('#emailCheck').html("**Please enter a valid email");
+            $('#emailCheck').html("<span style='color: red;'>**</span> Please enter a valid email");
             $('#emailCheck').focus();
-            $('#emailCheck').css("color", "red");
+            $('#emailCheck').css("color", "white");
             email_err = false;
             return false;
         } else {
@@ -276,9 +276,9 @@ $(document).ready(function () {
 
         if (class_val == 'Select the Class' || class_val == '') {
             $('#classCheck').show();
-            $('#classCheck').html("**Please enter your class");
+            $('#classCheck').html("<span style='color: red;'>**</span> Please enter your class");
             $('#classCheck').focus();
-            $('#classCheck').css("color", "red");
+            $('#classCheck').css("color", "white");
             class_err = false;
             return false;
         } else {
@@ -298,9 +298,9 @@ $(document).ready(function () {
 
         if (section_val == 'Select the Section' || section_val == '') {
             $('#sectionCheck').show();
-            $('#sectionCheck').html("**Please enter your section");
+            $('#sectionCheck').html("<span style='color: red;'>**</span> Please enter your section");
             $('#sectionCheck').focus();
-            $('#sectionCheck').css("color", "red");
+            $('#sectionCheck').css("color", "white");
             section_err = false;
             return false;
         } else {
@@ -320,9 +320,9 @@ $(document).ready(function () {
 
         if (mobileNo_val.length == '') {
             $('#mobileNoCheck').show();
-            $('#mobileNoCheck').html("**Please enter your mobile number");
+            $('#mobileNoCheck').html("<span style='color: red;'>**</span> Please enter your mobile number");
             $('#mobileNoCheck').focus();
-            $('#mobileNoCheck').css("color", "red");
+            $('#mobileNoCheck').css("color", "white");
             mobileNo_err = false;
             return false;
         } else {
@@ -332,9 +332,9 @@ $(document).ready(function () {
         var regex = new RegExp(/^([0-9]{10})+$/);
         if (!regex.test(mobileNo_val)) {
             $('#mobileNoCheck').show();
-            $('#mobileNoCheck').html("**Mobile number should not contain alphabets and be of 10 digits");
+            $('#mobileNoCheck').html("<span style='color: red;'>**</span> Mobile number should not contain alphabets and be of 10 digits");
             $('#mobileNoCheck').focus();
-            $('#mobileNoCheck').css("color", "red");
+            $('#mobileNoCheck').css("color", "white");
             mobileNo_err = false;
             return false;
         } else {
@@ -354,9 +354,9 @@ $(document).ready(function () {
 
         if (password_val.length == '') {
             $('#passwordCheck').show();
-            $('#passwordCheck').html("**Please enter your password");
+            $('#passwordCheck').html("<span style='color: red;'>**</span> Please enter your password");
             $('#passwordCheck').focus();
-            $('#passwordCheck').css("color", "red");
+            $('#passwordCheck').css("color", "white");
             password_err = false;
             return false;
         } else {
@@ -366,9 +366,9 @@ $(document).ready(function () {
         var regex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/);
         if (!regex.test(password_val)) {
             $('#passwordCheck').show();
-            $('#passwordCheck').html("**Password should be between 8 to 15 characters which contains at least one lowercase letter, one uppercase letter, one numeric digit, and one special character");
+            $('#passwordCheck').html("<span style='color: red;'>**</span> Password should be between 8 to 15 characters which contains at least one lowercase letter, one uppercase letter, one numeric digit, and one special character");
             $('#passwordCheck').focus();
-            $('#passwordCheck').css("color", "red");
+            $('#passwordCheck').css("color", "white");
             password_err = false;
             return false;
         } else {
@@ -389,9 +389,9 @@ $(document).ready(function () {
 
         if (password_val != confirmPassword_val) {
             $('#confirmPasswordCheck').show();
-            $('#confirmPasswordCheck').html("**Passwords are not Matching");
+            $('#confirmPasswordCheck').html("<span style='color: red;'>**</span> Passwords are not Matching");
             $('#confirmPasswordCheck').focus();
-            $('#confirmPasswordCheck').css("color", "red");
+            $('#confirmPasswordCheck').css("color", "white");
             confirmPassword_err = false;
             return false;
         } else {
