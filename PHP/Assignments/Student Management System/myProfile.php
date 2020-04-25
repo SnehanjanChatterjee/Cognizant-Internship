@@ -28,25 +28,33 @@ session_start();
 </head>
 
 <body>
-    <div class="container jumbotron my-profile-dashboard">
+    <div class="container my-profile-dashboard">
         <div class="row">
             <div class="col-12">
-                <div class="row">
+                <!-- Header Image -->
+                <div class="row my-img-row">
+                    <div class="col-12 text-center">
+                        <img src="./images/undraw_profile_6l1l.svg" alt="My Profile Image" class="myProfile-img">
+                    </div>
+                </div>
+                <!-- Header -->
+                <div class="row my-profile-header">
                     <div class="col-lg-12">
                         <h2 style="text-align: center;">MY PROFILE</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <h5>Name : <span id="name"> <?php echo $_SESSION['name']?></span> </h5>
-                        <h5>Address : <span id="address"> <?php echo $_SESSION['address']?> </span> </h5>
-                        <h5>Mobile Number : <span id="mobileNo"> <?php echo $_SESSION['mobile_no']?> </span> </h5>
-                        <h5>Class : <span id="class"> <?php echo $_SESSION['class']?> </span> </h5>
-                        <h5>Section: <span id="section"> <?php echo $_SESSION['section']?> </span> </h5>
+                        <h5 style="font-size:1.8rem;">Name : <span id="name"> <?php echo $_SESSION['name']?></span> </h5>
+                        <h5 style="font-size:1.8rem;">Address : <span id="address"> <?php echo $_SESSION['address']?> </span> </h5>
+                        <h5 style="font-size:1.8rem;">Mobile Number : <span id="mobileNo"> <?php echo $_SESSION['mobile_no']?> </span> </h5>
+                        <h5 style="font-size:1.8rem;">Class : <span id="class"> <?php echo $_SESSION['class']?> </span> </h5>
+                        <h5 style="font-size:1.8rem;">Section: <span id="section"> <?php echo $_SESSION['section']?> </span> </h5>
                     </div>
                     <div class="col-lg-6 text-center" style="margin: auto;">
-                        <button type="button" name="editProfileBtn" id="editProfileBtn" class="btn btn-primary">EDIT PROFILE <i class="fas fa-id-badge"></i></button>
-                        <button type="button" name="SignOutBtn" id="SignOutBtn" class="btn btn-primary">SIGN OUT <i class="fas fa-sign-out-alt"></i></button>
+                        <button type="button" name="editProfileBtn" id="editProfileBtn" class="btn btn-success my-Btn">EDIT PROFILE <i class="fas fa-id-badge"></i></button>
+                        &nbsp;
+                        <button type="button" name="SignOutBtn" id="SignOutBtn" class="btn btn-success my-Btn">SIGN OUT <i class="fas fa-sign-out-alt"></i></button>
                     </div>
                 </div>
             </div>
