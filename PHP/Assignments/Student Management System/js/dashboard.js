@@ -14,4 +14,8 @@ $(document).ready(function () {
     // $("#limit-records").change(function () {
     //     $('form').submit();
     // });
+
+    // $("#pageNo").click(function () {
+    //     $("#pageNo").addClass("active");
+    // });
 });

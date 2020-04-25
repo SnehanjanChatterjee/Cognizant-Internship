@@ -120,7 +120,7 @@ $Next = $page + 1;
                         <!-- Page Nos -->
                         <?php for($i = 1; $i<= $pages; $i++) : ?>
                             <li class="page-item">
-                                <a class="page-link" href="dashboard.php?page=<?php echo($i); ?>"><?php echo($i); ?></a>
+                                <a id="pageNo" class="page-link" href="dashboard.php?page=<?php echo($i); ?>"><?php echo($i); ?></a>
                             </li>
                         <?php endfor; ?>
                         <!-- Next Button -->

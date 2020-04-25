@@ -35,6 +35,7 @@ session_start();
                 <div class="row">
                     <div class="col-12">
                         <h2 style="text-align: center;">Edit your profile</h2>
+                        <h6 style="text-align: center;">(Fields marked <span style=" color: red">*</span> are mandatory)</h6>
                     </div>
                 </div>
                 <div class="row">
