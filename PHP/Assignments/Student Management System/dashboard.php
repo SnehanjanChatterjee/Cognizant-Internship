@@ -67,41 +67,50 @@ $Next = $page + 1;
 </head>
 
 <body>
-    <div class="container jumbotron my-dashboard">
+    <div class="container my-dashboard">
         <div class="row">
             <div class="col-12">
-                <div class="row">
+                <!-- Header Image -->
+                <div class="row my-img-row">
+                    <div class="col-12 text-center">
+                        <img src="./images/undraw_dashboard_nklg.svg" alt="Dashboard Image" class="dashboard-img">
+                    </div>
+                </div>
+                <!-- Dashboard Header -->
+                <div class="row my-dashboard-header">
                     <div class="col-12">
                         <h2 style="text-align: center;">STUDENT DASHBOARD</h2>
                     </div>
                 </div>
+                <!-- Dashboard Details -->
                 <div class="row">
                     <div class="col-lg-6">
-                        <h5>Last Logon : <span id="last_logon"><?php echo $_SESSION['last_logon']?></span> </h5>
-                        <h5>Name : <span id="name"><?php echo $_SESSION['name']?></span> </h5>
-                        <h5>Class : <span id="class"><?php echo $_SESSION['class']?></span> </h5>
-                        <h5>Section : <span id="section"><?php echo $_SESSION['section']?></span> </h5>
-                        <h5>Approval Status : <span id="approval_status"><?php echo $_SESSION['approval_status']?></span> </h5>
+                        <h5 style="font-size:2rem;">Last Logon : <span id="last_logon"><?php echo $_SESSION['last_logon']?></span> </h5>
+                        <h5 style="font-size:2rem;">Name : <span id="name"><?php echo $_SESSION['name']?></span> </h5>
+                        <h5 style="font-size:2rem;">Class : <span id="class"><?php echo $_SESSION['class']?></span> </h5>
+                        <h5 style="font-size:2rem;">Section : <span id="section"><?php echo $_SESSION['section']?></span> </h5>
+                        <h5 style="font-size:2rem;">Approval Status : <span id="approval_status"><?php echo $_SESSION['approval_status']?></span> </h5>
                     </div>
                     <div class="col-lg-6 text-center" style="margin: auto;">
-                        <button type="button" name="myProfileBtn" id="myProfileBtn" class="btn btn-primary">MY PROFILE
+                        <button type="button" name="myProfileBtn" id="myProfileBtn" class="btn btn-success my-Btn">MY PROFILE
                             <i class="fas fa-id-badge"></i></button>
-                        <button type="button" name="SignOutBtn" id="SignOutBtn" class="btn btn-primary">SIGN OUT <i
+                        &nbsp;
+                        <button type="button" name="SignOutBtn" id="SignOutBtn" class="btn btn-success my-Btn">SIGN OUT <i
                                 class="fas fa-sign-out-alt"></i></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container jumbotron my-pagination-container">
+    <div class="container my-pagination-container">
         <!-- Pagination header -->
-        <div class="row">
+        <div class="row my-pagination-header">
             <div class="col-12">
-                <h1 class="text-center">ALL STUDENT DETAILS</h1>
+                <h2 class="text-center">SCHOOLMATE DETAILS</h2>
             </div>
         </div>
         <!-- Pagination Buttons -->
-        <div class="row">
+        <div class="row my-pagination-buttons">
             <div class="col-lg-12">
                 <nav aria-label="...">
                     <ul class="pagination justify-content-center">
@@ -131,7 +140,7 @@ $Next = $page + 1;
 
         <!-- Table -->
         <div style="max-height: 300px; overflow-y: scroll; overflow-x: auto">
-            <table id="" class="table table-bordered">
+            <table id="" class="table table-bordered" style="color: white;">
                 <thead>
                     <tr>
                         <th class="text-center">ID</th>
