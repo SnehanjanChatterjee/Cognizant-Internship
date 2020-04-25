@@ -4,10 +4,32 @@
 .my-login-form{
     width: 30%;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 100px;
     border-radius: 10px;
+    background-color: #9152f8;
+    color: white;
+}
+.my-img-row {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: auto;
+    padding-top: 0px;
+}
+.login-img {
+    /* border-radius: 50%; */
+    width: 80px;
+    height: 80px;
+    /* border: 5px solid white; */
+    /* margin-top:-130px; */
+    margin: auto;
+    padding-top: 20px;
 }
 .login-success {
     color: green;
     font-weight: bolder;
+}
+.my-Btn {
+    border: 1px solid white;
 }

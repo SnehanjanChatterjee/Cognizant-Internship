@@ -28,67 +28,83 @@
 <body>
     <div class="container jumbotron my-login-form">
         <div class="row">
-            <!-- Student Form col -->
             <div class="col-12">
-                <form class="studentLoginForm" action="login.php" method="post" autocomplete="off">
-                <div class="row my-login-header">
-                    <div class="col-12">
-                        <h1 style="text-align: center;">Student Login</h1>
+                <!-- Header Image -->
+                <div class="row my-img-row">
+                    <div class="col-12 text-center">
+                        <img src="./images/undraw_Login_v483.svg" alt="Login Image" class="login-img">
                     </div>
                 </div>
+                <!-- Student Form col -->
                 <div class="row">
                     <div class="col-12">
-                        <h6 style="text-align: center;" class="login-success">
-                            <?php if(isset($_SESSION['registrationSuccessful'])){
-                                echo($_SESSION['registrationSuccessful']);
-                                // remove all session variables
-                                session_unset();
+                        <form class="studentLoginForm" action="login.php" method="post" autocomplete="off">
+                            <!-- Login Header -->
+                            <div class="row my-login-header">
+                                <div class="col-12">
+                                    <h1 style="text-align: center;">Student Login</h1>
+                                </div>
+                            </div>
+                            <!-- Sucessful Registration message -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 style="text-align: center;" class="login-success">
+                                        <?php if(isset($_SESSION['registrationSuccessful'])){
+                                            echo($_SESSION['registrationSuccessful']);
+                                            // remove all session variables
+                                            session_unset();
+        
+                                            // destroy the session
+                                            session_destroy();
+                                        }?>
+                                    </h6>
+                                </div>
+                            </div>
 
-                                // destroy the session
-                                session_destroy();
-                            }?>
-                        </h6>
+                            <!-- Username -->
+                            <div class="form-group">
+                                <label for="username"><i class="fas fa-user"></i> USERNAME</label>
+                                <input type="text" name="username" id="username" placeholder="Enter your username"
+                                    class="form-control" required />
+                            </div>
+                            <!-- Password -->
+                            <div class="form-group">
+                                <label for="password"><i class="fas fa-key"></i> PASSWORD</label>
+                                <div class="input-group">
+                                    <input type="password" name="password" id="password" placeholder="Password"
+                                        class="form-control" data-toggle="password" required />
+                                    <div class="input-group-append">
+                                        <div class="input-group-text" id="passwordToggler"><i class="fa fa-eye"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Remember Me -->
+                            <!-- <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe" value="option1">
+                                    <label class="form-check-label" for="rememberMe">REMEMBER ME</label>
+                                </div>
+                            </div> -->
+                            <!-- Buttons -->
+                            <div class="row" style="width: 50%; margin: auto;">
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-success my-Btn">LOGIN</button>
+                                    &nbsp;
+                                    <button type="button" class="btn btn-success my-Btn"
+                                        onclick="window.location.href = 'createAccount.php'">SIGNUP</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                    
-                    <!-- Username -->
-                    <div class="form-group">
-                        <label for="username">USERNAME</label>
-                        <input type="text" name="username" id="username" placeholder="Enter your username"
-                            class="form-control" required />
-                    </div>
-                    <!-- Password -->
-                    <div class="form-group">
-                        <label for="password">PASSWORD</label>
-                        <div class="input-group">
-                            <input type="password" name="password" id="password" placeholder="Password"
-                                class="form-control" data-toggle="password" required />
-                            <div class="input-group-append">
-                                <div class="input-group-text" id="passwordToggler"><i class="fa fa-eye"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Remember Me -->
-                    <!-- <div class="form-group">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="rememberMe" value="option1">
-                            <label class="form-check-label" for="rememberMe">REMEMBER ME</label>
-                        </div>
-                    </div> -->
-                    <!-- Buttons -->
-                    <div class="row" style="width: 50%; margin: auto;">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">LOGIN</button>
-                            &nbsp;
-                            <button type="button" class="btn btn-primary"
-                                onclick="window.location.href = 'createAccount.php'">SIGNUP</button>
-                        </div>
-                    </div>
-                </form>
+                <!-- Student Form col ends -->
             </div>
-            <!-- Student Form col ends -->
+
         </div>
     </div>
+
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 

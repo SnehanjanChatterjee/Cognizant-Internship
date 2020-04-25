@@ -1,0 +1,74 @@
+MariaDB [student_management_system]> select * from user_values;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    21
+Current database: student_management_system
+
++------+-----------+-------------+--------------------+-------+---------+--------------------+------------+----------------------+---------------------------+
+| id   | fname     | lname       | email              | class | section | address            | mobile_no  | password             | passwordWithoutEncryption |
++------+-----------+-------------+--------------------+-------+---------+--------------------+------------+----------------------+---------------------------+
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz           | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd            | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs          | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws            | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt             | 2147483647 | ab5ec5fc94488d617522 | San@4567890               |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws              | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs               | 8564321970 | d1612b86d2563059e990 | Swe@12345                 |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew            | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  |
+|   17 | Snehanjan | Chatterjee  | s@gmail.com        | 12    | B       | 123,MG Road,Kol-96 | 1234567890 | c5051037e523a3ec06b7 | Snehanjan@1234            |
++------+-----------+-------------+--------------------+-------+---------+--------------------+------------+----------------------+---------------------------+
+9 rows in set (0.003 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU1234567890 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-25 01:36:18 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 15:58:28 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+9 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> SELECT * FROM user_values LIMIT 1,2; 
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    34
+Current database: student_management_system
+
++------+----------+------------+------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+| id   | fname    | lname      | email            | class | section | address   | mobile_no  | password             | passwordWithoutEncryption |
++------+----------+------------+------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+|   20 | Nilanjan | Chatterjee | nil.ch@yahoo.com | 11    | A       | wwdwdqd   | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  |
+|   23 | Ranit    | Garai      | r.g@gmail.com    | 12    | C       | qqsqsqsqs | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  |
++------+----------+------------+------------------+-------+---------+-----------+------------+----------------------+---------------------------+
+2 rows in set (0.003 sec)
+
+MariaDB [student_management_system]> SELECT * FROM user_values LIMIT 0,2; 
++------+----------+-------------+--------------------+-------+---------+----------+------------+----------------------+---------------------------+
+| id   | fname    | lname       | email              | class | section | address  | mobile_no  | password             | passwordWithoutEncryption |
++------+----------+-------------+--------------------+-------+---------+----------+------------+----------------------+---------------------------+
+|   21 | Dipan    | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                |
+|   20 | Nilanjan | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd  | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  |
++------+----------+-------------+--------------------+-------+---------+----------+------------+----------------------+---------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> SELECT * FROM user_values LIMIT 0,2 order bi id; 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'order bi id' at line 1
+MariaDB [student_management_system]> SELECT * FROM user_values LIMIT 0,2 order by id; 
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'order by id' at line 1
+MariaDB [student_management_system]> SELECT * FROM user_values order by id LIMIT 0,2; 
++------+-----------+------------+----------------+-------+---------+--------------------+------------+----------------------+---------------------------+
+| id   | fname     | lname      | email          | class | section | address            | mobile_no  | password             | passwordWithoutEncryption |
++------+-----------+------------+----------------+-------+---------+--------------------+------------+----------------------+---------------------------+
+|   17 | Snehanjan | Chatterjee | s@gmail.com    | 12    | B       | 123,MG Road,Kol-96 | 1234567890 | c5051037e523a3ec06b7 | Snehanjan@1234            |
+|   18 | Ronit     | Sarkar     | r123@gmail.com | 10    | A       | dwdefws            | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 |
++------+-----------+------------+----------------+-------+---------+--------------------+------------+----------------------+---------------------------+
+2 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> notee;
