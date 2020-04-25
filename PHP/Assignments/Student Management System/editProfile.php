@@ -29,10 +29,10 @@ session_start();
 </head>
 
 <body>
-    <div class="container jumbotron my-edit">
+    <div class="container my-edit">
         <div class="row">
             <div class="col-12">
-                <div class="row">
+                <div class="row my-edit-profile-header">
                     <div class="col-12">
                         <h2 style="text-align: center;">Edit your profile</h2>
                         <h6 style="text-align: center;">(Fields marked <span style=" color: red">*</span> are mandatory)</h6>
@@ -118,8 +118,9 @@ session_start();
                             <!-- Buttons -->
                             <div class="row">
                                 <div class="col-lg-12 text-center" style="margin: auto;">
-                                    <button type="submit" name="editBtn" id="editBtn" class="btn btn-lg btn-primary">EDIT</button>
-                                    <button type="button" name="cancelBtn" id="cancelBtn" class="btn btn-lg btn-primary">CANCEL</button>
+                                    <button type="submit" name="editBtn" id="editBtn" class="btn btn-lg btn-success my-Btn">EDIT</button>
+                                    &nbsp;
+                                    <button type="button" name="cancelBtn" id="cancelBtn" class="btn btn-lg btn-success my-Btn">CANCEL</button>
                                 </div>
                             </div>
                         </form>

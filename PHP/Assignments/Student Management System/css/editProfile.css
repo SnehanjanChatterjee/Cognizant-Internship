@@ -7,4 +7,10 @@
     margin-top: 100px;
     margin-bottom: 100px;
     border-radius: 10px;
+    background-color: #9152f8;
+    color: white;
+    padding: 20px;
+}
+.my-Btn {
+    border: 1px solid white;
 }
