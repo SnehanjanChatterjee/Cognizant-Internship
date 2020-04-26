@@ -38,7 +38,7 @@ if(isset($username))
         $result_update_last_login = mysqli_query($conn, $sql_update_last_login);
 
         //For storing session variables for dashboard, myprofile
-        $sql1 = "SELECT u.id,u.last_login,uv.fname,uv.lname,uv.class,uv.section,u.status,uv.address,uv.mobile_no,uv.email 
+        $sql1 = "SELECT u.id,u.last_login,uv.fname,uv.lname,uv.class,uv.section,u.status,uv.address,uv.mobile_no,uv.email,uv.image 
         FROM users u INNER JOIN user_values uv ON u.id=uv.id WHERE u.userid='$username'";
 
         $result1 = mysqli_query($conn, $sql1);
@@ -57,6 +57,7 @@ if(isset($username))
         $_SESSION['address'] = $row['address'];
         $_SESSION['mobile_no'] = $row['mobile_no'];
         $_SESSION['email'] = $row['email'];
+        $_SESSION['image'] = $row['image'];
 
         echo "Success";
         // mysqli_close($conn);

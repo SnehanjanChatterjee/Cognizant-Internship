@@ -4,28 +4,28 @@
 .my-profile-dashboard {
     width: 60%;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 70px;
     border-radius: 10px;
     background-color: #9152f8;
     color: white;
     padding: 20px 20px 20px 20px;
 }
-.my-img-row {
+/* .my-img-row {
     background-color: white;
     width: 100px;
     height: 100px;
     border-radius: 50px;
     margin: auto;
-    padding-top: 0px;
-}
+    padding-top: 0px; 
+} */
 .myProfile-img {
-    /* border-radius: 50%; */
-    width: 80px;
-    height: 80px;
-    /* border: 5px solid white; */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 5px solid white;
     /* margin-top:-130px; */
-    margin: auto;
-    padding-top: 20px;
+    /* margin: auto;
+    padding-top: 20px; */
 }
 .my-profile-header {
     padding: 10px 10px 10px 10px;

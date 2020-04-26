@@ -1,0 +1,145 @@
+Microsoft Windows [Version 10.0.18363.778]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\Snehanjan>mydql -u root -p
+'mydql' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Snehanjan>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 16
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++---------------------------+
+| Database                  |
++---------------------------+
+| classicmodels             |
+| hr                        |
+| information_schema        |
+| irctc                     |
+| mydb                      |
+| mysql                     |
+| performance_schema        |
+| phpmyadmin                |
+| project                   |
+| sakila                    |
+| student_management_system |
+| test                      |
++---------------------------+
+12 rows in set (0.030 sec)
+
+MariaDB [(none)]> create database image_upload;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> use image_upload;
+Database changed
+MariaDB [image_upload]>  CREATE TABLE IF NOT EXISTS `tbl_images` (
+    ->   `id` int(11) NOT NULL AUTO_INCREMENT,
+    ->   `name` blob NOT NULL,
+    ->   PRIMARY KEY (`id`)
+    ->  ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+Query OK, 0 rows affected (0.187 sec)
+
+MariaDB [image_upload]> desc tbl_images;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
+| name  | blob    | NO   |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+2 rows in set (0.008 sec)
+
+MariaDB [image_upload]> alter table user_values add column image BLOB;
+ERROR 1146 (42S02): Table 'image_upload.user_values' doesn't exist
+MariaDB [image_upload]> exit
+Bye
+
+C:\Users\Snehanjan>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 17
+Server version: 10.4.11-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use student_management_system;
+Database changed
+MariaDB [student_management_system]> alter table user_values add column image BLOB;
+Query OK, 0 rows affected (0.107 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> desc user_values;
++---------------------------+--------------+------+-----+---------+-------+
+| Field                     | Type         | Null | Key | Default | Extra |
++---------------------------+--------------+------+-----+---------+-------+
+| id                        | int(11)      | YES  | MUL | NULL    |       |
+| fname                     | varchar(20)  | YES  |     | NULL    |       |
+| lname                     | varchar(20)  | YES  |     | NULL    |       |
+| email                     | varchar(20)  | NO   | PRI | NULL    |       |
+| class                     | varchar(10)  | YES  |     | NULL    |       |
+| section                   | varchar(10)  | YES  |     | NULL    |       |
+| address                   | varchar(100) | YES  |     | NULL    |       |
+| mobile_no                 | varchar(10)  | NO   | PRI | NULL    |       |
+| password                  | varchar(20)  | YES  |     | NULL    |       |
+| passwordWithoutEncryption | varchar(100) | YES  |     | NULL    |       |
+| image                     | blob         | YES  |     | NULL    |       |
++---------------------------+--------------+------+-----+---------+-------+
+11 rows in set (0.008 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL  |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL  |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL  |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL  |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL  |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL  |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL  |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+9 rows in set (0.076 sec)
+
+MariaDB [student_management_system]> <?php
+    ->                 $query = "SELECT * FROM tbl_images ORDER BY id DESC";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '<?php
+                $query = "SELECT * FROM tbl_images ORDER BY id DESC"' at line 1
+MariaDB [student_management_system]> create table image_details(
+    -> id INT NOT NULL AUTO_INCREMENT,
+    -> name BLOB NOT NULL,
+    -> constraint pk_image_details primary key(id)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.309 sec)
+
+MariaDB [student_management_system]> desc image_details;
++-------+---------+------+-----+---------+----------------+
+| Field | Type    | Null | Key | Default | Extra          |
++-------+---------+------+-----+---------+----------------+
+| id    | int(11) | NO   | PRI | NULL    | auto_increment |
+| name  | blob    | NO   |     | NULL    |                |
++-------+---------+------+-----+---------+----------------+
+2 rows in set (0.008 sec)
+
+MariaDB [student_management_system]> alter table image_details add column user_id INT after id;
+Query OK, 0 rows affected (0.098 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> desc image_details;
++---------+---------+------+-----+---------+----------------+
+| Field   | Type    | Null | Key | Default | Extra          |
++---------+---------+------+-----+---------+----------------+
+| id      | int(11) | NO   | PRI | NULL    | auto_increment |
+| user_id | int(11) | YES  |     | NULL    |                |
+| name    | blob    | NO   |     | NULL    |                |
++---------+---------+------+-----+---------+----------------+
+3 rows in set (0.008 sec)

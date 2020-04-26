@@ -27,7 +27,7 @@
         <div class="row">
             <!-- Student Form col -->
             <div class="col-12">
-                <form class="studentRegistrationForm" action="submitFormData.php" method="post" autocomplete="off">
+                <form class="studentRegistrationForm" action="submitFormData.php" method="post" autocomplete="off" enctype="multipart/form-data">
                     <h1 style="text-align: center;">Create Account</h1>
                     <h6 style="text-align: center;">(Fields marked <span style=" color: red">*</span> are mandatory)
                     </h6>
@@ -152,20 +152,20 @@
                         <div class="row" style="padding-bottom: 20px;">
                             <div class="col-lg-12">
                                 <label for="img">UPLOAD IMAGE</label>
-                                <div class="preview">
+                                <!-- <div class="preview">
                                     <img src="" id="img" width="100" height="100">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <!-- Image Upload -->
                         <div class="row btn-row">
-                            <div class="col-xs-12 col-md-12 col-lg-7 text-center" style="padding-bottom: 10px">
-                                <input type="file" id="file" name="file" />
+                            <div class="col-xs-12 col-md-12 col-lg-12 text-center" style="padding-bottom: 10px">
+                                <input type="file" id="myfile" name="myfile" />
                             </div>
-                            <div class="col-xs-12 col-md-12 col-lg-5 text-center" style="padding-bottom: 10px;">
+                            <!-- <div class="col-xs-12 col-md-12 col-lg-5 text-center" style="padding-bottom: 10px;">
                                 <button type="button" class="btn btn-success my-Btn" value="Upload"
                                     id="but_upload">UPLOAD</button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- Submit Button -->

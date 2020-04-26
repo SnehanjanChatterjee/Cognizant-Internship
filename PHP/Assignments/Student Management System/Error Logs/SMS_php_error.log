@@ -195,3 +195,27 @@ Stack trace:
 [25-Apr-2020 17:57:18 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 149
 [25-Apr-2020 17:57:58 Europe/Berlin] PHP Warning:  mysqli_fetch_all() expects parameter 1 to be mysqli_result, bool given in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 25
 [25-Apr-2020 17:57:58 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 149
+[26-Apr-2020 12:46:38 Europe/Berlin] PHP Notice:  Undefined index: myfile in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 55
+[26-Apr-2020 12:46:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 55
+[26-Apr-2020 12:46:38 Europe/Berlin] PHP Notice:  Undefined variable: location in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 66
+[26-Apr-2020 12:46:38 Europe/Berlin] PHP Notice:  Undefined variable: sql1 in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 102
+[26-Apr-2020 12:46:38 Europe/Berlin] PHP Warning:  mysqli_query(): Empty query in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 102
+[26-Apr-2020 12:47:42 Europe/Berlin] PHP Notice:  Undefined index: myfile in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 55
+[26-Apr-2020 12:47:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 55
+[26-Apr-2020 12:47:42 Europe/Berlin] PHP Notice:  Undefined variable: location in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 66
+[26-Apr-2020 12:47:42 Europe/Berlin] PHP Notice:  Undefined variable: sql1 in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 102
+[26-Apr-2020 12:47:42 Europe/Berlin] PHP Warning:  mysqli_query(): Empty query in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 102
+[26-Apr-2020 12:57:25 Europe/Berlin] PHP Notice:  Undefined index: myfile in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 55
+[26-Apr-2020 12:57:25 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 55
+[26-Apr-2020 12:57:25 Europe/Berlin] PHP Notice:  Undefined variable: sql1 in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 102
+[26-Apr-2020 12:57:25 Europe/Berlin] PHP Warning:  mysqli_query(): Empty query in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 102
+[26-Apr-2020 12:59:22 Europe/Berlin] PHP Notice:  Undefined index: myfile in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 55
+[26-Apr-2020 12:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 55
+[26-Apr-2020 12:59:22 Europe/Berlin] PHP Notice:  Undefined variable: sql1 in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 102
+[26-Apr-2020 12:59:22 Europe/Berlin] PHP Warning:  mysqli_query(): Empty query in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 102
+[26-Apr-2020 13:00:45 Europe/Berlin] PHP Notice:  Undefined variable: location in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 85
+[26-Apr-2020 13:00:45 Europe/Berlin] PHP Warning:  move_uploaded_file(): Filename cannot be empty in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 85
+[26-Apr-2020 13:00:45 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move 'C:\xampp\tmp\php7F97.tmp' to '' in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 85
+[26-Apr-2020 13:02:08 Europe/Berlin] PHP Notice:  Undefined variable: location in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 89
+[26-Apr-2020 13:16:30 Europe/Berlin] PHP Warning:  move_uploaded_file(./uploaded-file/scene.jpg): failed to open stream: No such file or directory in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 85
+[26-Apr-2020 13:16:30 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move 'C:\xampp\tmp\phpEB8E.tmp' to './uploaded-file/scene.jpg' in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 85

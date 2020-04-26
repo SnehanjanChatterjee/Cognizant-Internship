@@ -85,11 +85,11 @@ $Next = $page + 1;
                 <!-- Dashboard Details -->
                 <div class="row">
                     <div class="col-lg-6">
-                        <h5 style="font-size:2rem;">Last Logon : <span id="last_logon"><?php echo $_SESSION['last_logon']?></span> </h5>
-                        <h5 style="font-size:2rem;">Name : <span id="name"><?php echo $_SESSION['name']?></span> </h5>
-                        <h5 style="font-size:2rem;">Class : <span id="class"><?php echo $_SESSION['class']?></span> </h5>
-                        <h5 style="font-size:2rem;">Section : <span id="section"><?php echo $_SESSION['section']?></span> </h5>
-                        <h5 style="font-size:2rem;">Approval Status : <span id="approval_status"><?php echo $_SESSION['approval_status']?></span> </h5>
+                        <h5 style="font-size:1.5rem;">Last Logon : <span id="last_logon"><?php echo $_SESSION['last_logon']?></span> </h5>
+                        <h5 style="font-size:1.5rem;">Name : <span id="name"><?php echo $_SESSION['name']?></span> </h5>
+                        <h5 style="font-size:1.5rem;">Class : <span id="class"><?php echo $_SESSION['class']?></span> </h5>
+                        <h5 style="font-size:1.5rem;">Section : <span id="section"><?php echo $_SESSION['section']?></span> </h5>
+                        <h5 style="font-size:1.5rem;">Approval Status : <span id="approval_status"><?php echo $_SESSION['approval_status']?></span> </h5>
                     </div>
                     <div class="col-lg-6 text-center" style="margin: auto;">
                         <button type="button" name="myProfileBtn" id="myProfileBtn" class="btn btn-success my-Btn">MY PROFILE

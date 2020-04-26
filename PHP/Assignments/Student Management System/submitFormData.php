@@ -49,10 +49,56 @@
         header('Refresh: 2; URL= createAccount.php');
     }
     else{
-        
-        $sql1 = "INSERT INTO users(userid,user_role,password,passwordWithoutEncryption,last_login,status) VALUES ('$userId',2,'$encryptedPassword','$password',NULL,1)";
-        $sql2 = "INSERT INTO user_values(fname,lname,email,class,section,address,mobile_no,password,passwordWithoutEncryption) VALUES ('$fname','$lname','$email','$class','$section','$address','$mobileNo','$encryptedPassword','$password')";
-        
+
+        //if (isset($_FILES["myfile"]["name"]))
+        //{
+            $filename = $_FILES['myfile']['name'];
+            // $filetype = $_FILES["myfile"]["type"];
+            // $filesize = $_FILES["myfile"]["size"];
+            // $tempfile = $_FILES['myfile']['tmp_name'];
+            $filenameWithDirectory = "F:/CTS Internship/PHP/Assignments/Student Management System/images/uploaded-file/".$filename;
+
+            echo("File name = ". $filename . "<br>");
+
+            echo("File name with dir. = ". $filenameWithDirectory . "<br>");
+    
+            $uploadOk = 1;
+            $imageFileType = pathinfo($filenameWithDirectory,PATHINFO_EXTENSION);
+
+            echo("imageFileType = ". $imageFileType . "<br>");
+
+            /* Valid Extensions */
+            $valid_extensions = array("jpg","jpeg","png");
+
+            /* Check file extension */
+            if( !in_array(strtolower($imageFileType),$valid_extensions) ) {
+                $uploadOk = 0;
+            }
+            
+            echo("uoploakOk = " . $uploadOk . "<br>");
+
+            if($uploadOk == 0){
+                //echo 0;
+                echo "Invalid extension";
+            }else{
+                /* Upload file */
+                if(move_uploaded_file($_FILES['myfile']['tmp_name'],$filenameWithDirectory)){
+
+                    $sql1 = "INSERT INTO users(userid,user_role,password,passwordWithoutEncryption,last_login,status) VALUES ('$userId',2,'$encryptedPassword','$password',NULL,1)";
+                    $sql2 = "INSERT INTO user_values(fname,lname,email,class,section,address,mobile_no,password,passwordWithoutEncryption,image) VALUES ('$fname','$lname','$email','$class','$section','$address','$mobileNo','$encryptedPassword','$password','$filename')";
+                    //echo $filenameWithDirectory;
+                }else{
+                   //echo 0;
+                   $sql1 = "INSERT INTO users(userid,user_role,password,passwordWithoutEncryption,last_login,status) VALUES ('$userId',2,'$encryptedPassword','$password',NULL,1)";
+                   $sql2 = "INSERT INTO user_values(fname,lname,email,class,section,address,mobile_no,password,passwordWithoutEncryption) VALUES ('$fname','$lname','$email','$class','$section','$address','$mobileNo','$encryptedPassword','$password')";
+                }
+             }
+        //}
+        //else{
+
+         //   $sql1 = "INSERT INTO users(userid,user_role,password,passwordWithoutEncryption,last_login,status) VALUES ('$userId',2,'$encryptedPassword','$password',NULL,1)";
+         //   $sql2 = "INSERT INTO user_values(fname,lname,email,class,section,address,mobile_no,password,passwordWithoutEncryption) VALUES ('$fname','$lname','$email','$class','$section','$address','$mobileNo','$encryptedPassword','$password')";
+        //}
         if ((!mysqli_query($conn, $sql1)) || (!mysqli_query($conn, $sql2))) {
             echo "Error: " . "<br>" . mysqli_error($conn);
         }
