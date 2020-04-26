@@ -7,7 +7,7 @@ Font : 'Fira Sans', sans-serif;
 
 If user has no account, he can go to Sign Up page for registration.Upon successful registration message will be show.
 <br>
-User must enter password in valid format. I username and password matches, a session is created and user goes to dashboard.
+User must enter password in valid format. If username and password matches, a session is created and user goes to dashboard.
 
 ## Dashboard
 
