@@ -58,14 +58,14 @@
             // $tempfile = $_FILES['myfile']['tmp_name'];
             $filenameWithDirectory = "F:/CTS Internship/PHP/Assignments/Student Management System/images/uploaded-file/".$filename;
 
-            echo("File name = ". $filename . "<br>");
+            //echo("File name = ". $filename . "<br>");
 
-            echo("File name with dir. = ". $filenameWithDirectory . "<br>");
+            //echo("File name with dir. = ". $filenameWithDirectory . "<br>");
     
             $uploadOk = 1;
             $imageFileType = pathinfo($filenameWithDirectory,PATHINFO_EXTENSION);
 
-            echo("imageFileType = ". $imageFileType . "<br>");
+            // echo("imageFileType = ". $imageFileType . "<br>");
 
             /* Valid Extensions */
             $valid_extensions = array("jpg","jpeg","png");
@@ -112,7 +112,7 @@
         $_SESSION['registrationSuccessful'] = "Successfully Registered!";
 
         //mysqli_close($conn);
-        header('Refresh: 5; URL= index.php');
+        header('Refresh: 0; URL= index.php');
     }
     mysqli_close($conn);
 ?>

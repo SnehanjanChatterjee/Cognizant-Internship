@@ -1,0 +1,559 @@
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL  |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL  |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL  |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL  |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL  |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL  |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL  |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+9 rows in set (0.001 sec)
+
+MariaDB [student_management_system]> alter table user_values modify image varchar(1000);
+Query OK, 9 rows affected (1.322 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL  |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL  |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL  |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL  |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL  |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL  |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL  |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+9 rows in set (0.002 sec)
+
+MariaDB [student_management_system]> desc user_values;
++---------------------------+---------------+------+-----+---------+-------+
+| Field                     | Type          | Null | Key | Default | Extra |
++---------------------------+---------------+------+-----+---------+-------+
+| id                        | int(11)       | YES  | MUL | NULL    |       |
+| fname                     | varchar(20)   | YES  |     | NULL    |       |
+| lname                     | varchar(20)   | YES  |     | NULL    |       |
+| email                     | varchar(20)   | NO   | PRI | NULL    |       |
+| class                     | varchar(10)   | YES  |     | NULL    |       |
+| section                   | varchar(10)   | YES  |     | NULL    |       |
+| address                   | varchar(100)  | YES  |     | NULL    |       |
+| mobile_no                 | varchar(10)   | NO   | PRI | NULL    |       |
+| password                  | varchar(20)   | YES  |     | NULL    |       |
+| passwordWithoutEncryption | varchar(100)  | YES  |     | NULL    |       |
+| image                     | varchar(1000) | YES  |     | NULL    |       |
++---------------------------+---------------+------+-----+---------+-------+
+11 rows in set (0.294 sec)
+
+MariaDB [student_management_system]> select * from users;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    16
+Current database: student_management_system
+
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 02:20:51 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+9 rows in set (0.029 sec)
+
+MariaDB [student_management_system]> select * from users;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    18
+Current database: student_management_system
+
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+10 rows in set (0.003 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL  |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL  |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL  |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL  |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL  |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL  |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL  |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL  |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+10 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL  |
+|   31 | Snehanjan | Chatterjee  | lsnqiss@g.com      | 2     | A       |                     | 7028493547 | 13602d7117ac45642e9d | Sdr@ernudd12              | NULL  |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL  |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL  |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL  |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL  |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL  |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL  |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL  |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+11 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 31 | STU7028493547 |         2 | 13602d7117ac45642e9d | Sdr@ernudd12              | 2020-04-26 16:11:50 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+11 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 31 | STU7028493547 |         2 | 13602d7117ac45642e9d | Sdr@ernudd12              | 2020-04-26 16:11:50 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+11 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL  |
+|   31 | Snehanjan | Chatterjee  | lsnqiss@g.com      | 2     | A       |                     | 7028493547 | 13602d7117ac45642e9d | Sdr@ernudd12              | NULL  |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL  |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL  |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL  |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL  |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL  |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL  |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL  |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+11 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL  |
+|   31 | Snehanjan | Chatterjee  | lsnqiss@g.com      | 2     | A       |                     | 7028493547 | 13602d7117ac45642e9d | Sdr@ernudd12              | NULL  |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL  |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL  |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL  |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL  |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL  |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL  |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL  |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+-------+
+11 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 31 | STU7028493547 |         2 | 13602d7117ac45642e9d | Sdr@ernudd12              | 2020-04-26 16:11:50 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+11 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 31 | STU7028493547 |         2 | 13602d7117ac45642e9d | Sdr@ernudd12              | 2020-04-26 16:11:50 |      1 |
+| 32 | STU3446567686 |         2 | fb06135f37e113b5d577 | Asw123@fef                | 2020-04-26 16:30:45 |      1 |
+| 33 | STU8547961230 |         2 | d4b1d6a55a99f9093ddf | A@d122344                 | 2020-04-26 16:32:08 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+13 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 31 | STU7028493547 |         2 | 13602d7117ac45642e9d | Sdr@ernudd12              | 2020-04-26 16:11:50 |      1 |
+| 32 | STU3446567686 |         2 | fb06135f37e113b5d577 | Asw123@fef                | 2020-04-26 16:30:45 |      1 |
+| 33 | STU8547961230 |         2 | d4b1d6a55a99f9093ddf | A@d122344                 | 2020-04-26 16:32:08 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+13 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image                                                                                          |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+|   32 | asas      | saas        | asas@h.no          | 10    | C       | qeqe                | 3446567686 | fb06135f37e113b5d577 | Asw123@fef                | NULL                                                                                           |
+|   33 | asas      | asas        | ass@j.bh           | 10    | C       | qwqwqeq             | 8547961230 | d4b1d6a55a99f9093ddf | A@d122344                 | F:/CTS Internship/PHP/Assignments/Student Management System/images/uploaded-file/Snehanjan.jpg |
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL                                                                                           |
+|   31 | Snehanjan | Chatterjee  | lsnqiss@g.com      | 2     | A       |                     | 7028493547 | 13602d7117ac45642e9d | Sdr@ernudd12              | NULL                                                                                           |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL                                                                                           |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL                                                                                           |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL                                                                                           |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL                                                                                           |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL                                                                                           |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL                                                                                           |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL                                                                                           |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL                                                                                           |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL                                                                                           |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+13 rows in set (0.001 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image                                                                                          |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+|   34 | As        | dqdqd       | AD@ddQD.NU         | 11    | B       | SQS                 | 6589086321 | 7003af2411505ad7620e | A@3sdr343                 | NULL                                                                                           |
+|   32 | asas      | saas        | asas@h.no          | 10    | C       | qeqe                | 3446567686 | fb06135f37e113b5d577 | Asw123@fef                | NULL                                                                                           |
+|   33 | asas      | asas        | ass@j.bh           | 10    | C       | qwqwqeq             | 8547961230 | d4b1d6a55a99f9093ddf | A@d122344                 | F:/CTS Internship/PHP/Assignments/Student Management System/images/uploaded-file/Snehanjan.jpg |
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL                                                                                           |
+|   31 | Snehanjan | Chatterjee  | lsnqiss@g.com      | 2     | A       |                     | 7028493547 | 13602d7117ac45642e9d | Sdr@ernudd12              | NULL                                                                                           |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL                                                                                           |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL                                                                                           |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL                                                                                           |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL                                                                                           |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL                                                                                           |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL                                                                                           |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL                                                                                           |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL                                                                                           |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL                                                                                           |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+14 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 31 | STU7028493547 |         2 | 13602d7117ac45642e9d | Sdr@ernudd12              | 2020-04-26 16:11:50 |      1 |
+| 32 | STU3446567686 |         2 | fb06135f37e113b5d577 | Asw123@fef                | 2020-04-26 16:30:45 |      1 |
+| 33 | STU8547961230 |         2 | d4b1d6a55a99f9093ddf | A@d122344                 | 2020-04-26 16:39:22 |      1 |
+| 34 | STU6589086321 |         2 | 7003af2411505ad7620e | A@3sdr343                 | 2020-04-26 16:46:30 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+14 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 31 | STU7028493547 |         2 | 13602d7117ac45642e9d | Sdr@ernudd12              | 2020-04-26 16:11:50 |      1 |
+| 32 | STU3446567686 |         2 | fb06135f37e113b5d577 | Asw123@fef                | 2020-04-26 16:30:45 |      1 |
+| 33 | STU8547961230 |         2 | d4b1d6a55a99f9093ddf | A@d122344                 | 2020-04-26 16:50:49 |      1 |
+| 34 | STU6589086321 |         2 | 7003af2411505ad7620e | A@3sdr343                 | 2020-04-26 16:46:30 |      1 |
+| 35 | STU4567892345 |         2 | 4ec7dc3e50bafa0026f5 | A@s2345t                  | 2020-04-26 16:56:09 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+15 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image                                                                                          |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+|   34 | As        | dqdqd       | AD@ddQD.NU         | 11    | B       | SQS                 | 6589086321 | 7003af2411505ad7620e | A@3sdr343                 | NULL                                                                                           |
+|   32 | asas      | saas        | asas@h.no          | 10    | C       | qeqe                | 3446567686 | fb06135f37e113b5d577 | Asw123@fef                | NULL                                                                                           |
+|   33 | asas      | asas        | ass@j.bh           | 10    | C       | qwqwqeq             | 8547961230 | d4b1d6a55a99f9093ddf | A@d122344                 | F:/CTS Internship/PHP/Assignments/Student Management System/images/uploaded-file/Snehanjan.jpg |
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL                                                                                           |
+|   31 | Snehanjan | Chatterjee  | lsnqiss@g.com      | 2     | A       |                     | 7028493547 | 13602d7117ac45642e9d | Sdr@ernudd12              | NULL                                                                                           |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL                                                                                           |
+|   35 | dqqd      | dqdqd       | qdqd@d.co          | 9     | C       | www                 | 4567892345 | 4ec7dc3e50bafa0026f5 | A@s2345t                  | Snehanjan.jpg                                                                                  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL                                                                                           |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL                                                                                           |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL                                                                                           |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL                                                                                           |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL                                                                                           |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL                                                                                           |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL                                                                                           |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL                                                                                           |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+------------------------------------------------------------------------------------------------+
+15 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> 
+MariaDB [student_management_system]> delete from user_values where id=31;
+Query OK, 1 row affected (0.055 sec)
+
+MariaDB [student_management_system]> delete from user_values where id=33;
+Query OK, 1 row affected (0.044 sec)
+
+MariaDB [student_management_system]> delete from users where id=33;
+Query OK, 1 row affected (0.091 sec)
+
+MariaDB [student_management_system]> delete from users where id=31;
+Query OK, 1 row affected (0.036 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+---------------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image         |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+---------------+
+|   34 | As        | dqdqd       | AD@ddQD.NU         | 11    | B       | SQS                 | 6589086321 | 7003af2411505ad7620e | A@3sdr343                 | NULL          |
+|   32 | asas      | saas        | asas@h.no          | 10    | C       | qeqe                | 3446567686 | fb06135f37e113b5d577 | Asw123@fef                | NULL          |
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL          |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL          |
+|   35 | dqqd      | dqdqd       | qdqd@d.co          | 9     | C       | www                 | 4567892345 | 4ec7dc3e50bafa0026f5 | A@s2345t                  | Snehanjan.jpg |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL          |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL          |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL          |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL          |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL          |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL          |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL          |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL          |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+---------------+
+13 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 32 | STU3446567686 |         2 | fb06135f37e113b5d577 | Asw123@fef                | 2020-04-26 16:30:45 |      1 |
+| 34 | STU6589086321 |         2 | 7003af2411505ad7620e | A@3sdr343                 | 2020-04-26 16:46:30 |      1 |
+| 35 | STU4567892345 |         2 | 4ec7dc3e50bafa0026f5 | A@s2345t                  | 2020-04-26 17:15:46 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+13 rows in set (0.001 sec)
+
+MariaDB [student_management_system]> show tables;
++-------------------------------------+
+| Tables_in_student_management_system |
++-------------------------------------+
+| class                               |
+| class_section                       |
+| image_details                       |
+| user_values                         |
+| users                               |
++-------------------------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [student_management_system]> desc image_details;
++---------+---------+------+-----+---------+----------------+
+| Field   | Type    | Null | Key | Default | Extra          |
++---------+---------+------+-----+---------+----------------+
+| id      | int(11) | NO   | PRI | NULL    | auto_increment |
+| user_id | int(11) | YES  |     | NULL    |                |
+| name    | blob    | NO   |     | NULL    |                |
++---------+---------+------+-----+---------+----------------+
+3 rows in set (0.008 sec)
+
+MariaDB [student_management_system]> drop table image_details;
+Query OK, 0 rows affected (0.209 sec)
+
+MariaDB [student_management_system]> show tables;
++-------------------------------------+
+| Tables_in_student_management_system |
++-------------------------------------+
+| class                               |
+| class_section                       |
+| user_values                         |
+| users                               |
++-------------------------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 32 | STU3446567686 |         2 | fb06135f37e113b5d577 | Asw123@fef                | 2020-04-26 16:30:45 |      1 |
+| 34 | STU6589086321 |         2 | 7003af2411505ad7620e | A@3sdr343                 | 2020-04-26 16:46:30 |      1 |
+| 35 | STU4567892345 |         2 | 4ec7dc3e50bafa0026f5 | A@s2345t                  | 2020-04-26 17:15:46 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+13 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+---------------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image         |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+---------------+
+|   34 | As        | dqdqd       | AD@ddQD.NU         | 11    | B       | SQS                 | 6589086321 | 7003af2411505ad7620e | A@3sdr343                 | NULL          |
+|   32 | asas      | saas        | asas@h.no          | 10    | C       | qeqe                | 3446567686 | fb06135f37e113b5d577 | Asw123@fef                | NULL          |
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL          |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL          |
+|   35 | dqqd      | dqdqd       | qdqd@d.co          | 9     | C       | www                 | 4567892345 | 4ec7dc3e50bafa0026f5 | A@s2345t                  | Snehanjan.jpg |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL          |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL          |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL          |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL          |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL          |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL          |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL          |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL          |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+---------------+
+13 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from user_values;
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+----------------+
+| id   | fname     | lname       | email              | class | section | address             | mobile_no  | password             | passwordWithoutEncryption | image          |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+----------------+
+|   34 | As        | dqdqd       | AD@ddQD.NU         | 11    | B       | SQS                 | 6589086321 | 7003af2411505ad7620e | A@3sdr343                 | NULL           |
+|   32 | asas      | saas        | asas@h.no          | 10    | C       | qeqe                | 3446567686 | fb06135f37e113b5d577 | Asw123@fef                | NULL           |
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz            | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL           |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd             | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL           |
+|   35 | dqqd      | dqdqd       | qdqd@d.co          | 9     | C       | www                 | 4567892345 | 4ec7dc3e50bafa0026f5 | A@s2345t                  | Snehanjan.jpg  |
+|   36 | Ritabrata | Das         | r.das@yahoo.com    | 9     | A       | 36,JP Road          | 8574963210 | 683d0c2590d094dc8016 | S@ol%jnmm2                | ProfilePic.png |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs           | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL           |
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws             | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL           |
+|   17 | Snehanjan | Chatterjee  | s.c@gmail.com      | 1     | A       | 123,M.G Road,Kol-98 | 9512357899 | c5051037e523a3ec06b7 | Snehanjan@1234            | NULL           |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt              | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL           |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws               | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL           |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs                | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL           |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew             | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL           |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD   | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL           |
++------+-----------+-------------+--------------------+-------+---------+---------------------+------------+----------------------+---------------------------+----------------+
+14 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> select * from users;
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| id | userid        | user_role | password             | passwordWithoutEncryption | last_login          | status |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+| 17 | STU9512357899 |         2 | c5051037e523a3ec06b7 | Snehanjan@1234            | 2020-04-26 15:35:39 |      1 |
+| 18 | STU9285310780 |         2 | 53444ffff4d3d922ab78 | Ronit@123                 | 2020-04-25 03:03:26 |      1 |
+| 19 | STU7859632140 |         2 | ec486349fe9f9b261d7a | 140#Sdas                  | 2020-04-25 02:38:13 |      1 |
+| 20 | STU7865123490 |         2 | 50ec197b8258dfe43ee4 | nil@C123                  | 2020-04-25 17:42:36 |      1 |
+| 21 | STU9874563218 |         2 | 34874cee60ebb0210da7 | 1234#Dchak                | 2020-04-25 16:56:14 |      1 |
+| 22 | STU6589741230 |         2 | ab5ec5fc94488d617522 | San@4567890               | 2020-04-25 03:28:14 |      1 |
+| 23 | STU1236549870 |         2 | 12dc32456a3bd042ec0e | Rg@09887                  | 2020-04-25 03:44:37 |      1 |
+| 24 | STU9562308406 |         2 | 968eba10abd06e45d990 | Sm@12345                  | 2020-04-25 15:42:44 |      1 |
+| 25 | STU8564321970 |         2 | d1612b86d2563059e990 | Swe@12345                 | 2020-04-25 23:44:00 |      1 |
+| 30 | STU7812365490 |         2 | 4c05cf24e28293e36567 | omonub@mknubS@1           | 2020-04-26 16:03:56 |      1 |
+| 32 | STU3446567686 |         2 | fb06135f37e113b5d577 | Asw123@fef                | 2020-04-26 16:30:45 |      1 |
+| 34 | STU6589086321 |         2 | 7003af2411505ad7620e | A@3sdr343                 | 2020-04-26 16:46:30 |      1 |
+| 35 | STU4567892345 |         2 | 4ec7dc3e50bafa0026f5 | A@s2345t                  | 2020-04-26 17:15:46 |      1 |
+| 36 | STU8574963210 |         2 | 683d0c2590d094dc8016 | S@ol%jnmm2                | 2020-04-26 17:27:29 |      1 |
++----+---------------+-----------+----------------------+---------------------------+---------------------+--------+
+14 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> SELECT * FROM user_values ORDER BY id where id<>17 LIMIT 0, 10;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'where id<>17 LIMIT 0, 10' at line 1
+MariaDB [student_management_system]> SELECT * FROM user_values where id<> 17 ORDER BY id LIMIT 0, 10;
++------+-----------+-------------+--------------------+-------+---------+-------------------+------------+----------------------+---------------------------+-------+
+| id   | fname     | lname       | email              | class | section | address           | mobile_no  | password             | passwordWithoutEncryption | image |
++------+-----------+-------------+--------------------+-------+---------+-------------------+------------+----------------------+---------------------------+-------+
+|   18 | Ronit     | Sarkar      | r123@gmail.com     | 10    | A       | dwdefws           | 2147483647 | 53444ffff4d3d922ab78 | Ronit@123                 | NULL  |
+|   19 | Sudipta   | Das         | s.das@gmail.com    | 6     | B       | qwwws             | 2147483647 | ec486349fe9f9b261d7a | 140#Sdas                  | NULL  |
+|   20 | Nilanjan  | Chatterjee  | nil.ch@yahoo.com   | 11    | A       | wwdwdqd           | 7865123490 | 50ec197b8258dfe43ee4 | nil@C123                  | NULL  |
+|   21 | Dipan     | Chakraborty | d.chak23@gmail.com | 1     | A       | qqwsazqz          | 9874563218 | 34874cee60ebb0210da7 | 1234#Dchak                | NULL  |
+|   22 | Sandipan  | Das         | s.d.178@gmail.com  | 9     | B       | srgewt            | 2147483647 | ab5ec5fc94488d617522 | San@4567890               | NULL  |
+|   23 | Ranit     | Garai       | r.g@gmail.com      | 12    | C       | qqsqsqsqs         | 1236549870 | 12dc32456a3bd042ec0e | Rg@09887                  | NULL  |
+|   24 | Sahil     | Mukherjee   | s.m.123@gmail.com  | 3     | B       | eqeewew           | 9562308406 | 968eba10abd06e45d990 | Sm@12345                  | NULL  |
+|   25 | Snehashis | Ghosh       | s.g@gmail.com      | 2     | B       | qsqs              | 8564321970 | d1612b86d2563059e990 | Swe@12345                 | NULL  |
+|   30 | Snehanjan | Chatterjee  | sn@gmail.com       | 10    | A       | 157, S.N.Roy ROAD | 7812365490 | 4c05cf24e28293e36567 | omonub@mknubS@1           | NULL  |
+|   32 | asas      | saas        | asas@h.no          | 10    | C       | qeqe              | 3446567686 | fb06135f37e113b5d577 | Asw123@fef                | NULL  |
++------+-----------+-------------+--------------------+-------+---------+-------------------+------------+----------------------+---------------------------+-------+
+10 rows in set (0.000 sec)
+
+MariaDB [student_management_system]> notee;

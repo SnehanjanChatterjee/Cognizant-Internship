@@ -50,7 +50,6 @@ session_start();
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <h5 style="font-size:1.5rem;">Image Name : <span id="name"> <?php echo $_SESSION['image']?></span> </h5>
                         <h5 style="font-size:1.5rem;">Name : <span id="name"> <?php echo $_SESSION['name']?></span> </h5>
                         <h5 style="font-size:1.5rem;">Address : <span id="address"> <?php echo $_SESSION['address']?> </span> </h5>
                         <h5 style="font-size:1.5rem;">Mobile Number : <span id="mobileNo"> <?php echo $_SESSION['mobile_no']?> </span> </h5>
