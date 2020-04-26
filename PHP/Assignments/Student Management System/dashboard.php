@@ -20,7 +20,8 @@ $limit = 2;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $start = ($page - 1) * $limit;
 
-$sql_all_students = "SELECT * FROM user_values ORDER BY id LIMIT $start, $limit";
+$id = $_SESSION['id'];
+$sql_all_students = "SELECT * FROM user_values WHERE id <> '$id' ORDER BY id LIMIT $start, $limit";
 $result_all_students = mysqli_query($conn, $sql_all_students);
 $students = mysqli_fetch_all($result_all_students, MYSQLI_ASSOC);
 

@@ -38,7 +38,7 @@ session_start();
                             if(isset($_SESSION['image'])){
                                 echo('./images/uploaded-file/' . $_SESSION['image']);
                             }else {
-                                echo('./undraw_profile_6l1l.svg');
+                                echo('./images/undraw_profile_6l1l.svg');
                             }?>" alt="My Profile Image" class="myProfile-img">
                     </div>
                 </div>
