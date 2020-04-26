@@ -31,10 +31,7 @@ $(document).ready(function () {
 
                 // Empty the select box on every request
                 $("#ssection")
-                    .empty()
-                    .append(
-                        '<option selected="selected" value="select">Select the Section</option>'
-                    );
+                    .empty();
 
                 // Loop through the output and add the options to Section
                 $.each(result, function (key, val) {
