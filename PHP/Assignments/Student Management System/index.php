@@ -90,7 +90,7 @@
                                 </div>
                             </div> -->
                             <!-- Buttons -->
-                            <div class="row" style="width: 60%; margin: auto;">
+                            <div class="row" style="width: 50%; margin: auto;">
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-success my-Btn">LOGIN</button>
                                     &nbsp;
