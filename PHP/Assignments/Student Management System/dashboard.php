@@ -25,7 +25,7 @@ $sql_all_students = "SELECT * FROM user_values WHERE id <> '$id' ORDER BY id LIM
 $result_all_students = mysqli_query($conn, $sql_all_students);
 $students = mysqli_fetch_all($result_all_students, MYSQLI_ASSOC);
 
-$sql_count_id = "SELECT count(id) AS id FROM user_values";
+$sql_count_id = "SELECT count(id) AS id FROM user_values WHERE id <> '$id'";
 $result_count_id = mysqli_query($conn, $sql_count_id);
 $studentCount = mysqli_fetch_all($result_count_id, MYSQLI_ASSOC);
 
