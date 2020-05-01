@@ -219,3 +219,20 @@ Stack trace:
 [26-Apr-2020 13:02:08 Europe/Berlin] PHP Notice:  Undefined variable: location in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 89
 [26-Apr-2020 13:16:30 Europe/Berlin] PHP Warning:  move_uploaded_file(./uploaded-file/scene.jpg): failed to open stream: No such file or directory in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 85
 [26-Apr-2020 13:16:30 Europe/Berlin] PHP Warning:  move_uploaded_file(): Unable to move 'C:\xampp\tmp\phpEB8E.tmp' to './uploaded-file/scene.jpg' in F:\CTS Internship\PHP\Assignments\Student Management System\submitFormData.php on line 85
+[27-Apr-2020 07:14:36 Europe/Berlin] PHP Notice:  Undefined index: name in F:\CTS Internship\PHP\Assignments\Student Management System\myProfile.php on line 53
+[27-Apr-2020 07:14:36 Europe/Berlin] PHP Notice:  Undefined index: address in F:\CTS Internship\PHP\Assignments\Student Management System\myProfile.php on line 54
+[27-Apr-2020 07:14:36 Europe/Berlin] PHP Notice:  Undefined index: mobile_no in F:\CTS Internship\PHP\Assignments\Student Management System\myProfile.php on line 55
+[27-Apr-2020 07:14:36 Europe/Berlin] PHP Notice:  Undefined index: class in F:\CTS Internship\PHP\Assignments\Student Management System\myProfile.php on line 56
+[27-Apr-2020 07:14:36 Europe/Berlin] PHP Notice:  Undefined index: section in F:\CTS Internship\PHP\Assignments\Student Management System\myProfile.php on line 57
+[27-Apr-2020 07:14:41 Europe/Berlin] PHP Notice:  Undefined index: id in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 23
+[27-Apr-2020 07:14:41 Europe/Berlin] PHP Notice:  Undefined index: last_logon in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 89
+[27-Apr-2020 07:14:41 Europe/Berlin] PHP Notice:  Undefined index: name in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 90
+[27-Apr-2020 07:14:41 Europe/Berlin] PHP Notice:  Undefined index: class in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 91
+[27-Apr-2020 07:14:41 Europe/Berlin] PHP Notice:  Undefined index: section in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 92
+[27-Apr-2020 07:14:41 Europe/Berlin] PHP Notice:  Undefined index: approval_status in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 93
+[28-Apr-2020 08:20:20 Europe/Berlin] PHP Notice:  Undefined index: id in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 23
+[28-Apr-2020 08:20:20 Europe/Berlin] PHP Notice:  Undefined index: last_logon in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 89
+[28-Apr-2020 08:20:20 Europe/Berlin] PHP Notice:  Undefined index: name in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 90
+[28-Apr-2020 08:20:20 Europe/Berlin] PHP Notice:  Undefined index: class in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 91
+[28-Apr-2020 08:20:20 Europe/Berlin] PHP Notice:  Undefined index: section in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 92
+[28-Apr-2020 08:20:20 Europe/Berlin] PHP Notice:  Undefined index: approval_status in F:\CTS Internship\PHP\Assignments\Student Management System\dashboard.php on line 93
