@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Book View{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; width: 95%; font: 18px/1.5 'Fira Sans', sans-serif;}
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1 class="text-center">View Book</h1>
+
+   <div class="alert alert-success">
+        Check out this great product: {{book_name}}
+   </div>
+   <div>
+        <a href="/book/view">View all Books</a>
+   </div>
+
+</div>
+{% endblock %}

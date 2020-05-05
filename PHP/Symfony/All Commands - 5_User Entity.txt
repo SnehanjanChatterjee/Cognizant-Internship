@@ -1,0 +1,224 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> composer update symfony/*
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Restricting packages listed in "symfony/symfony" to "5.0.*"
+Package operations: 0 installs, 1 update, 0 removals
+  - Updating symfony/maker-bundle (v1.15.1 => v1.16.0): Downloading (100%)
+Writing lock file
+Generating autoload files
+ocramius/package-versions: Generating version class...
+ocramius/package-versions: ...done generating version class
+67 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+What about running composer global require symfony/thanks && composer thanks now?
+This will spread some love by sending a star to the GitHub repositories of your fellow package maintainers.
+
+Executing script cache:clear [OK]
+Executing script assets:install public [OK]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:crud
+
+ The class name of the entity to create CRUD (e.g. BravePuppy):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Controller/UserController.php
+ [34mcreated[39m: src/Form/UserType.php
+ [34mcreated[39m: templates/user/_delete_form.html.twig
+ [34mcreated[39m: templates/user/_form.html.twig
+ [34mcreated[39m: templates/user/edit.html.twig
+ [34mcreated[39m: templates/user/index.html.twig
+ [34mcreated[39m: templates/user/new.html.twig
+ [34mcreated[39m: templates/user/show.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Check your new CRUD by going to [33m/user/[39m
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> composer show symfony/console
+name     : symfony/console
+descrip. : Symfony Console Component
+keywords :
+versions : * v5.0.8
+type     : library
+license  : MIT License (MIT) (OSI approved) https://spdx.org/licenses/MIT.html#licenseText
+homepage : https://symfony.com
+source   : [git] https://github.com/symfony/console.git 5fa1caadc8cdaa17bcfb25219f3b53fe294a9935
+dist     : [zip] https://api.github.com/repos/symfony/console/zipball/5fa1caadc8cdaa17bcfb25219f3b53fe294a9935 5fa1caadc8cdaa17bcfb25219f3b53fe294a9935
+path     : F:\CTS Internship\PHP\Symfony\Crud_Application\vendor\symfony\console
+names    : symfony/console, psr/log-implementation
+
+autoload
+psr-4
+Symfony\Component\Console\ => .
+exclude-from-classmap
+
+requires
+php ^7.2.5
+symfony/polyfill-mbstring ~1.0
+symfony/polyfill-php73 ^1.8
+symfony/service-contracts ^1.1|^2
+
+requires (dev)
+psr/log ~1.0
+symfony/config ^4.4|^5.0
+symfony/dependency-injection ^4.4|^5.0
+symfony/event-dispatcher ^4.4|^5.0
+symfony/lock ^4.4|^5.0
+symfony/process ^4.4|^5.0
+symfony/var-dumper ^4.4|^5.0
+
+suggests
+psr/log For using the console logger
+symfony/event-dispatcher
+symfony/lock
+symfony/process
+
+provides
+psr/log-implementation 1.0
+
+conflicts
+symfony/dependency-injection <4.4
+symfony/event-dispatcher <4.4
+symfony/lock <4.4
+symfony/process <4.4
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. VictoriousKangaroo):
+ > User
+U[Ks[Ke[Kr[K
+
+ [34mcreated[39m: src/Entity/User.php
+ [34mcreated[39m: src/Repository/UserRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > name
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ?
+?[K
+
+[32mMain types[39m
+  * [33mstring[39m
+  * [33mtext[39m
+  * [33mboolean[39m
+  * [33minteger[39m (or [33msmallint[39m, [33mbigint[39m)
+  * [33mfloat[39m
+
+[32mRelationships / Associations[39m
+  * [33mrelation[39m (a wizard will help you build the relation)
+  * [33mManyToOne[39m
+  * [33mOneToMany[39m
+  * [33mManyToMany[39m
+  * [33mOneToOne[39m
+
+[32mArray/Object Types[39m
+  * [33marray[39m (or [33msimple_array[39m)
+  * [33mjson[39m
+  * [33mobject[39m
+  * [33mbinary[39m
+  * [33mblob[39m
+
+[32mDate/Time Types[39m
+  * [33mdatetime[39m (or [33mdatetime_immutable[39m)
+  * [33mdatetimetz[39m (or [33mdatetimetz_immutable[39m)
+  * [33mdate[39m (or [33mdate_immutable[39m)
+  * [33mtime[39m (or [33mtime_immutable[39m)
+  * [33mdateinterval[39m
+
+[32mOther Types[39m
+  * [33mdecimal[39m
+  * [33mguid[39m
+  * [33mjson_array[39m
+
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > email
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > phone_no
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > integer
+i[K7[30;47mnteger[39;49m8n[K7[30;47mteger[39;49m8t[K7[30;47meger[39;49m8e[K7[30;47mger[39;49m8g[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > yes
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200505172312.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200505172312 from 20200504122859
+
+  ++ migrating 20200505172312
+
+     -> CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone_no INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+     -> ALTER TABLE book CHANGE title title VARCHAR(255) NOT NULL, CHANGE chapters chapters VARCHAR(255) NOT NULL, CHANGE author author VARCHAR(255) NOT NULL, CHANGE description description VARCHAR(255) NOT NULL
+
+  ++ migrated (took 2046.8ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 2106.3ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 2 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application>
