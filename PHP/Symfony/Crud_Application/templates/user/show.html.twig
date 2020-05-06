@@ -33,7 +33,13 @@
             </tr>
             <tr>
                 <th>Gender</th>
-                <td>{{ user.gender }}</td>
+                <td>
+                    {% if user.gender == '0' %}
+                        {{'Male'}}
+                    {% else %}
+                        {{'Female'}}
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Interest</th>
