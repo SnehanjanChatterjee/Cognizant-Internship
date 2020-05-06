@@ -32,7 +32,16 @@
                     <td>{{book.author}}</td>
                     <td>{{book.chapters}}</td>
                     <td>{{book.description}}</td>
-                    <td>{{book.status}}</td>
+                    <td> 
+                        {% if book.status == 0 %}
+                            {{'In progress'}}
+                        {% elseif book.status == 1 %}
+                            {{'Under Review'}}
+                        {% else %}
+                            {{'Completed'}}
+                        {% endif %}
+                        {# {{book.status}} #}
+                    </td>
                     {# <td>{{book.posted_by}}</td> #}
                     <td>
                         <a href="/book/edit/{{book.id}}">Edit</a>
