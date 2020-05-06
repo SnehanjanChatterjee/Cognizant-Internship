@@ -12,6 +12,10 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone_no</th>
+                <th>Password</th>
+                <th>Dob</th>
+                <th>Gender</th>
+                <th>Interest</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +26,10 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.phoneNo }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.dob }}</td>
+                <td>{{ user.gender }}</td>
+                <td>{{ user.interest ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
@@ -29,7 +37,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="9">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

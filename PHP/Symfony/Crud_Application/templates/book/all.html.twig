@@ -19,7 +19,9 @@
             <th scope="col">Author</th>
             <th scope="col">Chapters</th>
             <th scope="col">Description</th>
-            <th scope="col"></th>
+            <th scope="col">Status</th>
+            {# <th scope="col">Posted By</th> #}
+            <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +32,8 @@
                     <td>{{book.author}}</td>
                     <td>{{book.chapters}}</td>
                     <td>{{book.description}}</td>
+                    <td>{{book.status}}</td>
+                    {# <td>{{book.posted_by}}</td> #}
                     <td>
                         <a href="/book/edit/{{book.id}}">Edit</a>
                         |

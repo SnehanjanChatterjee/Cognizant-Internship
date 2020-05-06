@@ -1,0 +1,1525 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. TinyGnome):
+ > Book
+B[K7[30;47mook[39;49m8o[K7[30;47mok[39;49m8o[K7[30;47mk[39;49m8k[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > posted_by
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ?
+?[K
+
+[32mMain types[39m
+  * [33mstring[39m
+  * [33mtext[39m
+  * [33mboolean[39m
+  * [33minteger[39m (or [33msmallint[39m, [33mbigint[39m)
+  * [33mfloat[39m
+
+[32mRelationships / Associations[39m
+  * [33mrelation[39m (a wizard will help you build the relation)
+  * [33mManyToOne[39m
+  * [33mOneToMany[39m
+  * [33mManyToMany[39m
+  * [33mOneToOne[39m
+
+[32mArray/Object Types[39m
+  * [33marray[39m (or [33msimple_array[39m)
+  * [33mjson[39m
+  * [33mobject[39m
+  * [33mbinary[39m
+  * [33mblob[39m
+
+[32mDate/Time Types[39m
+  * [33mdatetime[39m (or [33mdatetime_immutable[39m)
+  * [33mdatetimetz[39m (or [33mdatetimetz_immutable[39m)
+  * [33mdate[39m (or [33mdate_immutable[39m)
+  * [33mtime[39m (or [33mtime_immutable[39m)
+  * [33mdateinterval[39m
+
+[32mOther Types[39m
+  * [33mdecimal[39m
+  * [33mguid[39m
+  * [33mjson_array[39m
+
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ManyToOne
+M[K7[30;47manyToOne[39;49m8a[K7[30;47mnyToOne[39;49m8n[K7[30;47myToOne[39;49m8y[K7[30;47mToOne[39;49m8T[K7[30;47moOne[39;49m8o[K7[30;47mOne[39;49m8O[K7[30;47mne[39;49m8n[K7[30;47me[39;49m8e[K78
+
+ [32mWhat class should this entity be related to?[39m:
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [32mIs the [39m[33mBook[39m[32m.[39m[33mposted_by[39m[32m property allowed to be null (nullable)? (yes/no)[39m [[33myes[39m]:
+ > no
+
+ [32mDo you want to add a new property to [39m[33mUser[39m[32m so that you can access/update [39m[33mBook[39m[32m objects from it - e.g. [39m[33m$user->getBooks()[39m[32m? (yes/no)[39m [[33myes[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> bin/console make:migration
+Program 'console' failed to run: No application is associated with the specified file for this operationAt line:1 char:1
++ bin/console make:migration
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~.
+At line:1 char:1
++ bin/console make:migration
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (:) [], ApplicationFailedException
+    + FullyQualifiedErrorId : NativeCommandFailed
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506063539.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506063539 from 20200505172312
+
+  ++ migrating 20200506063539
+
+     -> ALTER TABLE book ADD posted_by_id INT NOT NULL
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+Migration 20200506063539 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)':
+
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`books`.`#sql-4434_1a`, CONSTRAINT `FK_CBE5A3315A6D2235` FOREIGN KEY (`posted_by_id`) REFERENCES `user` (`id`))
+
+In AbstractMySQLDriver.php line 49:
+
+  An exception occurred while executing 'ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)':
+
+  SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`books`.`#sql-4434_1a`, CONSTRAINT `FK_CBE5A331
+  5A6D2235` FOREIGN KEY (`posted_by_id`) REFERENCES `user` (`id`))
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`books`.`#sql-4434_1a`, CONSTRAINT `FK_CBE5A331
+  5A6D2235` FOREIGN KEY (`posted_by_id`) REFERENCES `user` (`id`))
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`books`.`#sql-4434_1a`, CONSTRAINT `FK_CBE5A331
+  5A6D2235` FOREIGN KEY (`posted_by_id`) REFERENCES `user` (`id`))
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. FierceJellybean):
+ > Book
+B[K7[30;47mook[39;49m8o[K7[30;47mok[39;49m8o[K7[30;47mk[39;49m8k[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > status
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506065613.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506065613 from 20200505172312
+
+  ++ migrating 20200506063539
+
+     -> ALTER TABLE book ADD posted_by_id INT NOT NULL
+Migration 20200506063539 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD posted_by_id INT NOT NULL':
+
+SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+In AbstractMySQLDriver.php line 65:
+
+  An exception occurred while executing 'ALTER TABLE book ADD posted_by_id INT NOT NULL':
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506065613 from 20200505172312
+
+  ++ migrating 20200506063539
+
+     -> ALTER TABLE book ADD posted_by_id INT NOT NULL
+Migration 20200506063539 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD posted_by_id INT NOT NULL':
+
+SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+In AbstractMySQLDriver.php line 65:
+
+  An exception occurred while executing 'ALTER TABLE book ADD posted_by_id INT NOT NULL':
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> select * from book;
+Select-Object : A positional parameter cannot be found that accepts argument 'from'.
+At line:1 char:1
++ select * from book;
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Select-Object], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SelectObjectCommand
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506095429.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You have 3 previously executed migrations in the database that are not registered migrations.
+    >> 2020-05-04 12:27:55 (20200504122755)
+    >> 2020-05-04 12:28:59 (20200504122859)
+    >> 2020-05-05 17:23:12 (20200505172312)
+Are you sure you wish to continue? (y/n)y
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506095429 from 0
+
+  ++ migrating 20200506095429
+
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+Migration 20200506095429 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)':
+
+SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`books`.`#sql-4434_4b`, CONSTRAINT `FK_CBE5A3315A6D2235` FOREIGN KEY (`posted_by_id`) REFERENCES `user` (`id`))
+
+In AbstractMySQLDriver.php line 49:
+
+  An exception occurred while executing 'ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)':
+
+  SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`books`.`#sql-4434_4b`, CONSTRAINT `FK_CBE5A3315A6D2235` FOREIGN KEY (`posted_by_id`)
+  REFERENCES `user` (`id`))
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`books`.`#sql-4434_4b`, CONSTRAINT `FK_CBE5A3315A6D2235` FOREIGN KEY (`posted_by_id`)
+  REFERENCES `user` (`id`))
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`books`.`#sql-4434_4b`, CONSTRAINT `FK_CBE5A3315A6D2235` FOREIGN KEY (`posted_by_id`)
+  REFERENCES `user` (`id`))
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate prev
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating down to 20200504122859 from 20200505172312
+
+  -- reverting 20200505172312
+
+     -> DROP TABLE user
+     -> ALTER TABLE book CHANGE title title LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, CHANGE chapters chapters LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, CHANGE author author LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, CHANGE description description LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`
+
+  -- reverted (took 2084.1ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 2157.2ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 2 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506095429 from 20200504122859
+
+  ++ migrating 20200505172312
+
+     -> CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone_no INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+     -> ALTER TABLE book CHANGE title title VARCHAR(255) NOT NULL, CHANGE chapters chapters VARCHAR(255) NOT NULL, CHANGE author author VARCHAR(255) NOT NULL, CHANGE description description VARCHAR(255) NOT NULL
+
+  ++ migrated (took 1163.3ms, used 18M memory)
+
+  ++ migrating 20200506063539
+
+     -> ALTER TABLE book ADD posted_by_id INT NOT NULL
+Migration 20200506063539 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD posted_by_id INT NOT NULL':
+
+SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+In AbstractMySQLDriver.php line 65:
+
+  An exception occurred while executing 'ALTER TABLE book ADD posted_by_id INT NOT NULL':
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'posted_by_id'
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate prev
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating down to 20200504122859 from 20200505172312
+
+  -- reverting 20200505172312
+
+     -> DROP TABLE user
+     -> ALTER TABLE book CHANGE title title LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, CHANGE chapters chapters LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, CHANGE author author LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, CHANGE description description LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`
+
+  -- reverted (took 1038.2ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 1041ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 2 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate prev
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating down to 20200504122755 from 20200504122859
+
+  -- reverting 20200504122859
+
+     -> ALTER TABLE book DROP description
+
+  -- reverted (took 167.2ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 169.7ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:database:create
+Created database `books` for connection named default
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. GrumpyElephant):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506095429 from 0
+
+  ++ migrating 20200504122755
+
+     -> CREATE TABLE book (id INT AUTO_INCREMENT NOT NULL, title LONGTEXT NOT NULL, chapters LONGTEXT NOT NULL, author LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+
+  ++ migrated (took 421.7ms, used 18M memory)
+
+  ++ migrating 20200504122859
+
+     -> ALTER TABLE book ADD description LONGTEXT NOT NULL
+
+  ++ migrated (took 593.7ms, used 18M memory)
+
+  ++ migrating 20200505172312
+
+     -> CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone_no INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+     -> ALTER TABLE book CHANGE title title VARCHAR(255) NOT NULL, CHANGE chapters chapters VARCHAR(255) NOT NULL, CHANGE author author VARCHAR(255) NOT NULL, CHANGE description description VARCHAR(255) NOT NULL
+
+  ++ migrated (took 1788.3ms, used 18M memory)
+
+  ++ migrating 20200506063539
+
+     -> ALTER TABLE book ADD posted_by_id INT NOT NULL
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+     -> CREATE INDEX IDX_CBE5A3315A6D2235 ON book (posted_by_id)
+
+  ++ migrated (took 3104.3ms, used 18M memory)
+
+  ++ migrating 20200506065613
+
+     -> ALTER TABLE book ADD status VARCHAR(255) NOT NULL
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+Migration 20200506065613 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)':
+
+SQLSTATE[HY000]: General error: 1005 Can't create table `books`.`book` (errno: 121 "Duplicate key on write or update")
+
+In AbstractMySQLDriver.php line 106:
+
+  An exception occurred while executing 'ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)':
+
+  SQLSTATE[HY000]: General error: 1005 Can't create table `books`.`book` (errno: 121 "Duplicate key on write or update")
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[HY000]: General error: 1005 Can't create table `books`.`book` (errno: 121 "Duplicate key on write or update")
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[HY000]: General error: 1005 Can't create table `books`.`book` (errno: 121 "Duplicate key on write or update")
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:database:create
+Created database `books` for connection named default
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. BravePuppy):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+In RegisterControllerArgumentLocatorsPass.php line 173:
+
+  Cannot determine controller argument for "App\Controller\UserController::index()": the $userRepository argument is type-hinted with the non-existent class or interface: "App\Repository\UserRepository".
+
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. BravePizza):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate next
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200504122755 from 0
+
+  ++ migrating 20200504122755
+
+     -> CREATE TABLE book (id INT AUTO_INCREMENT NOT NULL, title LONGTEXT NOT NULL, chapters LONGTEXT NOT NULL, author LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+
+  ++ migrated (took 298ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 300.5ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate next
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200504122859 from 20200504122755
+
+  ++ migrating 20200504122859
+
+     -> ALTER TABLE book ADD description LONGTEXT NOT NULL
+
+  ++ migrated (took 324ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 326.8ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate next
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200505172312 from 20200504122859
+
+  ++ migrating 20200505172312
+
+     -> CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone_no INT DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+     -> ALTER TABLE book CHANGE title title VARCHAR(255) NOT NULL, CHANGE chapters chapters VARCHAR(255) NOT NULL, CHANGE author author VARCHAR(255) NOT NULL, CHANGE description description VARCHAR(255) NOT NULL
+
+  ++ migrated (took 1182.7ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 1185.8ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 2 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate next
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506063539 from 20200505172312
+
+  ++ migrating 20200506063539
+
+     -> ALTER TABLE book ADD posted_by_id INT NOT NULL
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+     -> CREATE INDEX IDX_CBE5A3315A6D2235 ON book (posted_by_id)
+
+  ++ migrated (took 1639.9ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 1642.5ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 3 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. BraveGnome):
+ > Book
+B[K7[30;47mook[39;49m8o[K7[30;47mok[39;49m8o[K7[30;47mk[39;49m8k[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > status
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > integer
+i[K7[30;47mnteger[39;49m8n[K7[30;47mteger[39;49m8t[K7[30;47meger[39;49m8e[K7[30;47mger[39;49m8g[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > yes
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506150141.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506150141 from 20200506063539
+
+  ++ migrating 20200506065613
+
+     -> ALTER TABLE book ADD status VARCHAR(255) NOT NULL
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+Migration 20200506065613 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)':
+
+SQLSTATE[HY000]: General error: 1005 Can't create table `books`.`book` (errno: 121 "Duplicate key on write or update")
+
+In AbstractMySQLDriver.php line 106:
+
+  An exception occurred while executing 'ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)':
+
+  SQLSTATE[HY000]: General error: 1005 Can't create table `books`.`book` (errno: 121 "Duplicate key on write or update")
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[HY000]: General error: 1005 Can't create table `books`.`book` (errno: 121 "Duplicate key on write or update")
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[HY000]: General error: 1005 Can't create table `books`.`book` (errno: 121 "Duplicate key on write or update")
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. AgreeableKangaroo):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > password
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506150637.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506150637 from 20200506063539
+
+  ++ migrating 20200506065613
+
+     -> ALTER TABLE book ADD status VARCHAR(255) NOT NULL
+Migration 20200506065613 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD status VARCHAR(255) NOT NULL':
+
+SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+In AbstractMySQLDriver.php line 65:
+
+  An exception occurred while executing 'ALTER TABLE book ADD status VARCHAR(255) NOT NULL':
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate prev
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating down to 20200505172312 from 20200506063539
+
+  -- reverting 20200506063539
+
+     -> ALTER TABLE book DROP FOREIGN KEY FK_CBE5A3315A6D2235
+     -> DROP INDEX IDX_CBE5A3315A6D2235 ON book
+     -> ALTER TABLE book DROP posted_by_id
+
+  -- reverted (took 515.9ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 518.7ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 3 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate next
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506063539 from 20200505172312
+
+  ++ migrating 20200506063539
+
+     -> ALTER TABLE book ADD posted_by_id INT NOT NULL
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+     -> CREATE INDEX IDX_CBE5A3315A6D2235 ON book (posted_by_id)
+
+  ++ migrated (took 1698.3ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 1701.2ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 3 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate next
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506065613 from 20200506063539
+
+  ++ migrating 20200506065613
+
+     -> ALTER TABLE book ADD status VARCHAR(255) NOT NULL
+Migration 20200506065613 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD status VARCHAR(255) NOT NULL':
+
+SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+In AbstractMySQLDriver.php line 65:
+
+  An exception occurred while executing 'ALTER TABLE book ADD status VARCHAR(255) NOT NULL':
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506150637 from 20200506063539
+
+  ++ migrating 20200506065613
+
+     -> ALTER TABLE book ADD status VARCHAR(255) NOT NULL
+Migration 20200506065613 failed during Execution. Error An exception occurred while executing 'ALTER TABLE book ADD status VARCHAR(255) NOT NULL':
+
+SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+In AbstractMySQLDriver.php line 65:
+
+  An exception occurred while executing 'ALTER TABLE book ADD status VARCHAR(255) NOT NULL':
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+In PDOConnection.php line 83:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+In PDOConnection.php line 78:
+
+  SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'status'
+
+
+doctrine:migrations:migrate [--write-sql [WRITE-SQL]] [--dry-run] [--query-time] [--allow-no-migration] [--all-or-nothing [ALL-OR-NOTHING]] [--configuration [CONFIGURATION]] [--db-configuration [DB-CONFIGURATION]] [--db DB] [--em EM] [--shard SHARD] [-h|--help] [-q|--quiet] [-v|vv|vvv|--verbose] [-V|--version] [--ansi] [--no-ansi] [-n|--no-interaction] [-e|--env ENV] [--no-debug] [--] <command> [<version>]
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:database:create
+Created database `books` for connection named default
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. BravePuppy):
+ > User
+U[Ks[Ke[Kr[K
+
+ [34mcreated[39m: src/Entity/User.php
+ [34mcreated[39m: src/Repository/UserRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > name
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > email
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > phone_no
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ?
+?[K
+
+[32mMain types[39m
+  * [33mstring[39m
+  * [33mtext[39m
+  * [33mboolean[39m
+  * [33minteger[39m (or [33msmallint[39m, [33mbigint[39m)
+  * [33mfloat[39m
+
+[32mRelationships / Associations[39m
+  * [33mrelation[39m (a wizard will help you build the relation)
+  * [33mManyToOne[39m
+  * [33mOneToMany[39m
+  * [33mManyToMany[39m
+  * [33mOneToOne[39m
+
+[32mArray/Object Types[39m
+  * [33marray[39m (or [33msimple_array[39m)
+  * [33mjson[39m
+  * [33mobject[39m
+  * [33mbinary[39m
+  * [33mblob[39m
+
+[32mDate/Time Types[39m
+  * [33mdatetime[39m (or [33mdatetime_immutable[39m)
+  * [33mdatetimetz[39m (or [33mdatetimetz_immutable[39m)
+  * [33mdate[39m (or [33mdate_immutable[39m)
+  * [33mtime[39m (or [33mtime_immutable[39m)
+  * [33mdateinterval[39m
+
+[32mOther Types[39m
+  * [33mdecimal[39m
+  * [33mguid[39m
+  * [33mjson_array[39m
+
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > bigint
+b[K7[30;47migint[39;49m8i[K7[30;47mgint[39;49m8g[K7[30;47mint[39;49m8i[K7[30;47mnt[39;49m8n[K7[30;47mt[39;49m8t[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > password
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506153525.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506153525 from 0
+
+  ++ migrating 20200506153525
+
+     -> CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone_no BIGINT NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+
+  ++ migrated (took 479.2ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 482.4ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. GentleElephant):
+ > Book
+B[Ko[Ko[Kk[K
+
+ [34mcreated[39m: src/Entity/Book.php
+ [34mcreated[39m: src/Repository/BookRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > title
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > chapters
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ > no
+
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] Invalid length "no".                                                                                           [39;49m
+[37;41m                                                                                                                        [39;49m
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > description
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > status
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > integer
+i[K7[30;47mnteger[39;49m8n[K7[30;47mteger[39;49m8t[K7[30;47meger[39;49m8e[K7[30;47mger[39;49m8g[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > posted_by
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ?
+?[K
+
+[32mMain types[39m
+  * [33mstring[39m
+  * [33mtext[39m
+  * [33mboolean[39m
+  * [33minteger[39m (or [33msmallint[39m, [33mbigint[39m)
+  * [33mfloat[39m
+
+[32mRelationships / Associations[39m
+  * [33mrelation[39m (a wizard will help you build the relation)
+  * [33mManyToOne[39m
+  * [33mOneToMany[39m
+  * [33mManyToMany[39m
+  * [33mOneToOne[39m
+
+[32mArray/Object Types[39m
+  * [33marray[39m (or [33msimple_array[39m)
+  * [33mjson[39m
+  * [33mobject[39m
+  * [33mbinary[39m
+  * [33mblob[39m
+
+[32mDate/Time Types[39m
+  * [33mdatetime[39m (or [33mdatetime_immutable[39m)
+  * [33mdatetimetz[39m (or [33mdatetimetz_immutable[39m)
+  * [33mdate[39m (or [33mdate_immutable[39m)
+  * [33mtime[39m (or [33mtime_immutable[39m)
+  * [33mdateinterval[39m
+
+[32mOther Types[39m
+  * [33mdecimal[39m
+  * [33mguid[39m
+  * [33mjson_array[39m
+
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ManyToOne
+M[K7[30;47manyToOne[39;49m8a[K7[30;47mnyToOne[39;49m8n[K7[30;47myToOne[39;49m8y[K7[30;47mToOne[39;49m8T[K7[30;47moOne[39;49m8o[K7[30;47mOne[39;49m8O[K7[30;47mne[39;49m8n[K7[30;47me[39;49m8e[K78
+
+ [32mWhat class should this entity be related to?[39m:
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [32mIs the [39m[33mBook[39m[32m.[39m[33mposted_by[39m[32m property allowed to be null (nullable)? (yes/no)[39m [[33myes[39m]:
+ > yes
+
+ [32mDo you want to add a new property to [39m[33mUser[39m[32m so that you can access/update [39m[33mBook[39m[32m objects from it - e.g. [39m[33m$user->getBooks()[39m[32m? (yes/no)[39m [[33myes[39m]:
+ >
+
+ A new property will also be added to the [33mUser[39m class so that you can access the related [33mBook[39m objects from it.
+
+ [32mNew field name inside User[39m [[33mbooks[39m]:
+ >
+
+ [33mupdated[39m: src/Entity/Book.php
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506153851.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506153851 from 20200506153525
+
+  ++ migrating 20200506153851
+
+     -> CREATE TABLE book (id INT AUTO_INCREMENT NOT NULL, posted_by_id INT DEFAULT NULL, title VARCHAR(255) NOT NULL, chapters VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, status INT NOT NULL, INDEX IDX_CBE5A3315A6D2235 (posted_by_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+
+  ++ migrated (took 989.1ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 991.9ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 2 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:crud
+
+ The class name of the entity to create CRUD (e.g. FierceGnome):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] The file "templates/user/_delete_form.html.twig" can't be generated because it already exists.                 [39;49m
+[37;41m                                                                                                                        [39;49m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:crud
+
+ The class name of the entity to create CRUD (e.g. DeliciousPizza):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Controller/UserController.php
+ [34mcreated[39m: src/Form/User1Type.php
+ [34mcreated[39m: templates/user/_delete_form.html.twig
+ [34mcreated[39m: templates/user/_form.html.twig
+ [34mcreated[39m: templates/user/edit.html.twig
+ [34mcreated[39m: templates/user/index.html.twig
+ [34mcreated[39m: templates/user/new.html.twig
+ [34mcreated[39m: templates/user/show.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Check your new CRUD by going to [33m/user/[39m
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:crud
+
+ The class name of the entity to create CRUD (e.g. OrangePizza):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Controller/UserController.php
+ [34mcreated[39m: src/Form/UserType.php
+ [34mcreated[39m: templates/user/_delete_form.html.twig
+ [34mcreated[39m: templates/user/_form.html.twig
+ [34mcreated[39m: templates/user/edit.html.twig
+ [34mcreated[39m: templates/user/index.html.twig
+ [34mcreated[39m: templates/user/new.html.twig
+ [34mcreated[39m: templates/user/show.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Check your new CRUD by going to [33m/user/[39m
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. FierceChef):
+ > Book
+B[K7[30;47mook[39;49m8o[K7[30;47mok[39;49m8o[K7[30;47mk[39;49m8k[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > author
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506154658.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506154658 from 20200506153851
+
+  ++ migrating 20200506154658
+
+     -> ALTER TABLE book ADD author VARCHAR(255) NOT NULL
+
+  ++ migrated (took 687.6ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 690.5ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. AgreeableKangaroo):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > dob
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506163914.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506163914 from 20200506154658
+
+  ++ migrating 20200506163914
+
+     -> ALTER TABLE user ADD dob VARCHAR(255) NOT NULL
+
+  ++ migrated (took 211.8ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 214.6ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. OrangeElephant):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > gender
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > ?
+
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] "?" is not a valid PHP property name.                                                                          [39;49m
+[37;41m                                                                                                                        [39;49m
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > interest
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ?
+?[K
+
+[32mMain types[39m
+  * [33mstring[39m
+  * [33mtext[39m
+  * [33mboolean[39m
+  * [33minteger[39m (or [33msmallint[39m, [33mbigint[39m)
+  * [33mfloat[39m
+
+[32mRelationships / Associations[39m
+  * [33mrelation[39m (a wizard will help you build the relation)
+  * [33mManyToOne[39m
+  * [33mOneToMany[39m
+  * [33mManyToMany[39m
+  * [33mOneToOne[39m
+
+[32mArray/Object Types[39m
+  * [33marray[39m (or [33msimple_array[39m)
+  * [33mjson[39m
+  * [33mobject[39m
+  * [33mbinary[39m
+  * [33mblob[39m
+
+[32mDate/Time Types[39m
+  * [33mdatetime[39m (or [33mdatetime_immutable[39m)
+  * [33mdatetimetz[39m (or [33mdatetimetz_immutable[39m)
+  * [33mdate[39m (or [33mdate_immutable[39m)
+  * [33mtime[39m (or [33mtime_immutable[39m)
+  * [33mdateinterval[39m
+
+[32mOther Types[39m
+  * [33mdecimal[39m
+  * [33mguid[39m
+  * [33mjson_array[39m
+
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > boolean
+b[K7[30;47migint[39;49m8o[K7[30;47molean[39;49m8o[K7[30;47mlean[39;49m8l[K7[30;47mean[39;49m8e[K7[30;47man[39;49m8a[K7[30;47mn[39;49m8n[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200506172348.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200506172348 from 20200506163914
+
+  ++ migrating 20200506172348
+
+     -> ALTER TABLE user ADD gender VARCHAR(255) NOT NULL, ADD interest TINYINT(1) NOT NULL
+
+  ++ migrated (took 962.4ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 965.3ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:crud
+
+ The class name of the entity to create CRUD (e.g. TinyGnome):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Controller/UserController.php
+ [34mcreated[39m: src/Form/UserType.php
+ [34mcreated[39m: templates/user/_delete_form.html.twig
+ [34mcreated[39m: templates/user/_form.html.twig
+ [34mcreated[39m: templates/user/edit.html.twig
+ [34mcreated[39m: templates/user/index.html.twig
+ [34mcreated[39m: templates/user/new.html.twig
+ [34mcreated[39m: templates/user/show.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Check your new CRUD by going to [33m/user/[39m
+PS F:\CTS Internship\PHP\Symfony\Crud_Application>
