@@ -25,6 +25,7 @@ class UserType extends AbstractType
             ->add('password', PasswordType::class)
             ->add('dob', DateType::class, [
                 'widget' => 'single_text',
+                // 'widget' => 'choice',
                 'input'  => 'string',
                 'format' => 'yyyy-MM-dd',
                 // 'choice_translation_domain' => true,
@@ -40,7 +41,8 @@ class UserType extends AbstractType
             ->add('interest', CheckboxType::class, [
                 'label'    => 'Interested in books?',
                 'required' => false
-            ]);
+            ])
+            ->add('username');
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -17,7 +17,7 @@ class BookType1Type extends AbstractType
             ->add('chapters')
             ->add('author')
             ->add('description');
-        // ->add('status')
+        // ->add('status');
         // ->add('posted_by');
         $builder->add('Edit', SubmitType::class, ['label' => 'Edit Book']);
     }
