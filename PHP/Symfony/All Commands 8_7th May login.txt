@@ -1,0 +1,192 @@
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. VictoriousPuppy):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > username
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200507071743.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200507071743 from 20200506172348
+
+  ++ migrating 20200507071743
+
+     -> ALTER TABLE user ADD username VARCHAR(255) NOT NULL
+
+  ++ migrated (took 766.5ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 834.7ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:auth
+
+ What style of authentication do you want? [Empty authenticator]:
+  [0] Empty authenticator
+  [1] Login form authenticator
+ > 1
+1[K
+
+ [32mThe class name of the authenticator to create (e.g. [39m[33mAppCustomAuthenticator[39m[32m)[39m:
+ > CustomAuthenticator
+
+ [32mChoose a name for the controller class (e.g. [39m[33mSecurityController[39m[32m)[39m [[33mSecurityController[39m]:
+ >
+
+ [32mDo you want to generate a '/logout' URL? (yes/no)[39m [[33myes[39m]:
+ > yes
+
+ [34mcreated[39m: src/Security/CustomAuthenticator.php
+ [33mupdated[39m: config/packages/security.yaml
+ [34mcreated[39m: src/Controller/SecurityController.php
+ [34mcreated[39m: templates/security/login.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next:
+ - Customize your new authenticator.
+ - Finish the redirect "TODO" in the [32mApp\Security\CustomAuthenticator::onAuthenticationSuccess()[39m method.
+ - Review & adapt the login template: [32mtemplates/security/login.html.twig[39m.
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. GentleJellybean):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > roles
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ?
+?[K
+
+[32mMain types[39m
+  * [33mstring[39m
+  * [33mtext[39m
+  * [33mboolean[39m
+  * [33minteger[39m (or [33msmallint[39m, [33mbigint[39m)
+  * [33mfloat[39m
+
+[32mRelationships / Associations[39m
+  * [33mrelation[39m (a wizard will help you build the relation)
+  * [33mManyToOne[39m
+  * [33mOneToMany[39m
+  * [33mManyToMany[39m
+  * [33mOneToOne[39m
+
+[32mArray/Object Types[39m
+  * [33marray[39m (or [33msimple_array[39m)
+  * [33mjson[39m
+  * [33mobject[39m
+  * [33mbinary[39m
+  * [33mblob[39m
+
+[32mDate/Time Types[39m
+  * [33mdatetime[39m (or [33mdatetime_immutable[39m)
+  * [33mdatetimetz[39m (or [33mdatetimetz_immutable[39m)
+  * [33mdate[39m (or [33mdate_immutable[39m)
+  * [33mtime[39m (or [33mtime_immutable[39m)
+  * [33mdateinterval[39m
+
+[32mOther Types[39m
+  * [33mdecimal[39m
+  * [33mguid[39m
+  * [33mjson_array[39m
+
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > json
+j[K7[30;47mson[39;49m8s[K7[30;47mon[39;49m8o[K7[30;47mn[39;49m8n[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ Not generating [32mUser::getRoles()[39m: method already exists
+ Not generating [32mUser::setRoles()[39m: method already exists
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200507112623.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200507112623 from 20200507071743
+
+  ++ migrating 20200507112623
+
+     -> ALTER TABLE user ADD roles LONGTEXT NOT NULL COMMENT '(DC2Type:json)'
+     -> CREATE UNIQUE INDEX UNIQ_8D93D649F85E0677 ON user (username)
+
+  ++ migrated (took 1750.6ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 1889.1ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 2 sql queries
