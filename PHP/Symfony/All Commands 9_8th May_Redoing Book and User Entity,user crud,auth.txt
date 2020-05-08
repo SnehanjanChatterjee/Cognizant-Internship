@@ -1,0 +1,731 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:database:create
+
+In CheckExceptionOnInvalidReferenceBehaviorPass.php line 86:
+
+  The service "security.authentication.provider.guard.main" has a dependency on a non-existent service "App\Security\CustomAuthenticator".
+
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:database:create
+Created database `books` for connection named default
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. BraveGnome):
+ > User
+U[Ks[Ke[Kr[K
+
+ [34mcreated[39m: src/Entity/User.php
+ [34mcreated[39m: src/Repository/UserRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > name
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > email
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > phone_no
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > bigint
+b[K7[30;47migint[39;49m8i[K7[30;47mgint[39;49m8g[K7[30;47mint[39;49m8i[K7[30;47mnt[39;49m8n[K7[30;47mt[39;49m8t[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > password
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200508153603.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200508153603 from 0
+
+  ++ migrating 20200508153603
+
+     -> CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, phone_no BIGINT NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+
+  ++ migrated (took 2095.3ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 2097.7ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. GentleKangaroo):
+ > Book
+B[Ko[Ko[Kk[K
+
+ [34mcreated[39m: src/Entity/Book.php
+ [34mcreated[39m: src/Repository/BookRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > title
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > chapters
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ > no
+
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] Invalid length "no".                                                                                           [39;49m
+[37;41m                                                                                                                        [39;49m
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > description
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > status
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > integer
+i[K7[30;47mnteger[39;49m8n[K7[30;47mteger[39;49m8t[K7[30;47meger[39;49m8e[K7[30;47mger[39;49m8g[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > posted_by
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > ManyToOne
+M[K7[30;47manyToOne[39;49m8a[K7[30;47mnyToOne[39;49m8n[K7[30;47myToOne[39;49m8y[K7[30;47mToOne[39;49m8T[K7[30;47moOne[39;49m8o[K7[30;47mOne[39;49m8O[K7[30;47mne[39;49m8n[K7[30;47me[39;49m8e[K78
+
+ [32mWhat class should this entity be related to?[39m:
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [32mIs the [39m[33mBook[39m[32m.[39m[33mposted_by[39m[32m property allowed to be null (nullable)? (yes/no)[39m [[33myes[39m]:
+ > yes
+
+ [32mDo you want to add a new property to [39m[33mUser[39m[32m so that you can access/update [39m[33mBook[39m[32m objects from it - e.g. [39m[33m$user->getBooks()[39m[32m? (yes/no)[39m [[33myes[39m]:
+ >
+
+ A new property will also be added to the [33mUser[39m class so that you can access the related [33mBook[39m objects from it.
+
+ [32mNew field name inside User[39m [[33mbooks[39m]:
+ >
+
+ [33mupdated[39m: src/Entity/Book.php
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200508153933.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200508153933 from 20200508153603
+
+  ++ migrating 20200508153933
+
+     -> CREATE TABLE book (id INT AUTO_INCREMENT NOT NULL, posted_by_id INT DEFAULT NULL, title VARCHAR(255) NOT NULL, chapters VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, status INT NOT NULL, INDEX IDX_CBE5A3315A6D2235 (posted_by_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+     -> ALTER TABLE book ADD CONSTRAINT FK_CBE5A3315A6D2235 FOREIGN KEY (posted_by_id) REFERENCES user (id)
+
+  ++ migrated (took 1427.6ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 1430ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 2 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:crud
+
+ The class name of the entity to create CRUD (e.g. AgreeableKangaroo):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Controller/UserController.php
+ [34mcreated[39m: src/Form/UserType.php
+ [34mcreated[39m: templates/user/_delete_form.html.twig
+ [34mcreated[39m: templates/user/_form.html.twig
+ [34mcreated[39m: templates/user/edit.html.twig
+ [34mcreated[39m: templates/user/index.html.twig
+ [34mcreated[39m: templates/user/new.html.twig
+ [34mcreated[39m: templates/user/show.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Check your new CRUD by going to [33m/user/[39m
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. GrumpyChef):
+ > Book
+B[K7[30;47mook[39;49m8o[K7[30;47mok[39;49m8o[K7[30;47mk[39;49m8k[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > author
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/Book.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200508154309.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200508154309 from 20200508153933
+
+  ++ migrating 20200508154309
+
+     -> ALTER TABLE book ADD author VARCHAR(255) NOT NULL
+
+  ++ migrated (took 193.1ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 195.6ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. OrangePuppy):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > dob
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200508154402.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200508154402 from 20200508154309
+
+  ++ migrating 20200508154402
+
+     -> ALTER TABLE user ADD dob VARCHAR(255) NOT NULL
+
+  ++ migrated (took 1442.2ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 1444.6ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. FiercePuppy):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > gender
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > interest
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > boolean
+b[K7[30;47migint[39;49m8o[K7[30;47molean[39;49m8o[K7[30;47mlean[39;49m8l[K7[30;47mean[39;49m8e[K7[30;47man[39;49m8a[K7[30;47mn[39;49m8n[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200508154720.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200508154720 from 20200508154402
+
+  ++ migrating 20200508154720
+
+     -> ALTER TABLE user ADD gender VARCHAR(255) NOT NULL, ADD interest TINYINT(1) NOT NULL
+
+  ++ migrated (took 315.3ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 318.5ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:crud
+
+ The class name of the entity to create CRUD (e.g. DeliciousKangaroo):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Controller/UserController.php
+ [34mcreated[39m: src/Form/UserType.php
+ [34mcreated[39m: templates/user/_delete_form.html.twig
+ [34mcreated[39m: templates/user/_form.html.twig
+ [34mcreated[39m: templates/user/edit.html.twig
+ [34mcreated[39m: templates/user/index.html.twig
+ [34mcreated[39m: templates/user/new.html.twig
+ [34mcreated[39m: templates/user/show.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Check your new CRUD by going to [33m/user/[39m
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. DeliciousGnome):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > username
+
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] The "username" property already exists.                                                                        [39;49m
+[37;41m                                                                                                                        [39;49m
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. VictoriousPizza):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > username
+
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] The "username" property already exists.                                                                        [39;49m
+[37;41m                                                                                                                        [39;49m
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. GrumpyGnome):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > username
+
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] The "username" property already exists.                                                                        [39;49m
+[37;41m                                                                                                                        [39;49m
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. DeliciousGnome):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > username
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > string
+s[K7[30;47mimple_array[39;49m8t[K7[30;47mring[39;49m8r[K7[30;47ming[39;49m8i[K7[30;47mng[39;49m8n[K7[30;47mg[39;49m8g[K78
+
+ [32mField length[39m [[33m255[39m]:
+ >
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200508160159.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200508160159 from 20200508154720
+
+  ++ migrating 20200508160159
+
+     -> ALTER TABLE user ADD username VARCHAR(255) NOT NULL
+
+  ++ migrated (took 146.3ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 148.7ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. VictoriousPizza):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ Your entity already exists! So let's add some new fields!
+
+ [32mNew property name (press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ > roles
+
+ [32mField type (enter [39m[33m?[39m[32m to see all types)[39m [[33mstring[39m]:
+ > json
+j[K7[30;47mson[39;49m8s[K7[30;47mon[39;49m8o[K7[30;47mn[39;49m8n[K78
+
+ [32mCan this field be null in the database (nullable) (yes/no)[39m [[33mno[39m]:
+ > no
+
+ [33mupdated[39m: src/Entity/User.php
+
+ [32mAdd another property? Enter the property name (or press [39m[32m<return>[39m[32m to stop adding fields)[39m:
+ >
+
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: When you're ready, create a migration with [32mphp bin/console make:migration[39m
+
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:migration
+
+
+  Success!
+
+
+ Next: Review the new migration "src/Migrations/Version20200508160337.php"
+ Then: Run the migration with php bin/console doctrine:migrations:migrate
+ See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console doctrine:migrations:migrate
+
+                    Application Migrations
+
+
+WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+Migrating up to 20200508160337 from 20200508160159
+
+  ++ migrating 20200508160337
+
+     -> ALTER TABLE user ADD roles LONGTEXT NOT NULL COMMENT '(DC2Type:json)'
+
+  ++ migrated (took 500.8ms, used 18M memory)
+
+  ------------------------
+
+  ++ finished in 506ms
+  ++ used 18M memory
+  ++ 1 migrations executed
+  ++ 1 sql queries
+PS F:\CTS Internship\PHP\Symfony\Crud_Application> php bin/console make:auth
+
+ What style of authentication do you want? [Empty authenticator]:
+  [0] Empty authenticator
+  [1] Login form authenticator
+ > 1
+1[K
+
+ [32mThe class name of the authenticator to create (e.g. [39m[33mAppCustomAuthenticator[39m[32m)[39m:
+ > CustomAuthenticator
+
+ [32mChoose a name for the controller class (e.g. [39m[33mSecurityController[39m[32m)[39m [[33mSecurityController[39m]:
+ >
+
+ [32mDo you want to generate a '/logout' URL? (yes/no)[39m [[33myes[39m]:
+ > yes
+
+ [34mcreated[39m: src/Security/CustomAuthenticator.php
+ [33mupdated[39m: config/packages/security.yaml
+ [34mcreated[39m: src/Controller/SecurityController.php
+ [34mcreated[39m: templates/security/login.html.twig
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next:
+ - Customize your new authenticator.
+ - Finish the redirect "TODO" in the [32mApp\Security\CustomAuthenticator::onAuthenticationSuccess()[39m method.
+ - Review & adapt the login template: [32mtemplates/security/login.html.twig[39m.
