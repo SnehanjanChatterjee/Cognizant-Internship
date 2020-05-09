@@ -17,7 +17,16 @@
             </tr>
             <tr>
                 <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+                <td>
+                    {% if 'ROLE_STUDENT' in user.roles|json_encode %}
+                        {{ 'Student' }}
+                    {% elseif 'ROLE_TEACHER' in user.roles|json_encode %}
+                        {{ 'Teacher' }}
+                    {% elseif 'ROLE_ADMIN' in user.roles|json_encode %}
+                        {{ 'Admin' }}
+                    {% endif %}
+                </td>
             </tr>
             <tr>
                 <th>Password</th>

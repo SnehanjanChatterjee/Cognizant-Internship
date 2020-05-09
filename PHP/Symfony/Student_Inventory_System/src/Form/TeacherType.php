@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class TeacherType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -44,8 +44,8 @@ class UserType extends AbstractType
                 // 'empty_data' => 'ROLE_USER',
                 'choices' => [
                     // 'Select Role' => null,
-                    'Student' => 'ROLE_STUDENT'
-                    // 'Teacher' => 'ROLE_TEACHER'
+                    'Student' => 'ROLE_STUDENT',
+                    'Teacher' => 'ROLE_TEACHER'
                     // 'Admin' => 'ROLE_ADMIN',
                 ]
             ])
