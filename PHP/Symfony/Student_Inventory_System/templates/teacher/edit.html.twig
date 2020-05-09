@@ -3,11 +3,26 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
+    <style>
+        .example-wrapper { margin: auto; width: 50%; font: 18px/1.5; background: white; 
+        border-radius: 10px; padding: 20px; margin-bottom: 20px;}
+        * {
+            font-family: 'Fira Sans', sans-serif;
+        }
+        body{
+            background-color: #f1ece3;
+        }
+    </style>
 
-    {{ include('teacher/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container-fluid" style="margin-top: 20px;">
+        <h1 class="text-center">Edit User</h1>
+    </div>
+    <div class="example-wrapper">
 
-    {# <a href="{{ path('teacher_index') }}">back to list</a> #}
+        {{ include('teacher/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('teacher/_delete_form.html.twig') }}
+        {# <a href="{{ path('teacher_index') }}">back to list</a> #}
+        <br>
+        {{ include('teacher/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

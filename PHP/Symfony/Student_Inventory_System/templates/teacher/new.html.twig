@@ -3,9 +3,23 @@
 {% block title %}New User{% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
+    <style>
+        .example-wrapper { margin: auto; width: 50%; font: 18px/1.5; background: white; border-radius: 10px; padding: 20px;}
+        * {
+            font-family: 'Fira Sans', sans-serif;
+        }
+        body{
+            background-color: #f1ece3;
+        }
+    </style>
 
-    {{ include('teacher/_form.html.twig') }}
+    <div class="container-fluid">
+        <h1 class="text-center">Create new User</h1>
+    </div>
+    <div class="example-wrapper">
 
-    {# <a href="{{ path('teacher_index') }}">back to list</a> #}
+        {{ include('teacher/_form.html.twig') }}
+
+        {# <a href="{{ path('teacher_index') }}">back to list</a> #}
+    </div>
 {% endblock %}

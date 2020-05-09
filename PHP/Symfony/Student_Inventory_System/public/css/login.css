@@ -1,0 +1,19 @@
+* {
+    font-family: 'Fira Sans', sans-serif;
+}
+body{
+    background-color: #f1ece3;
+}
+.my-login-form{
+    width: 30%;
+    margin: auto;
+    margin-top: 90px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: white;
+    /* color: white; */
+    padding: 20px;
+}
+/* .submit-button{
+    padding-top: 20px;
+} */
