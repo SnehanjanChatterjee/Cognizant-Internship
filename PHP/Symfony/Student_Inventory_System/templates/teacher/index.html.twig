@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_teacher.html.twig' %}
 
 {% block title %}Dashboard{% endblock %}
 
@@ -43,7 +43,9 @@
                 <td>{{ user.gender }}</td>
                 <td>
                     <a href="{{ path('teacher_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('teacher_edit', {'id': user.id}) }}">edit</a>
+                    {% if 'ROLE_TEACHER' in user.roles|json_encode %}
+                        <a href="{{ path('teacher_edit', {'id': user.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}

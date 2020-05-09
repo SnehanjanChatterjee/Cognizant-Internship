@@ -30,7 +30,7 @@ class TeacherController extends AbstractController
      */
     public function index(UserRepository $userRepository): Response
     {
-        return $this->render('user/index.html.twig', [
+        return $this->render('teacher/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
     }
@@ -54,10 +54,10 @@ class TeacherController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('teacher_index');
         }
 
-        return $this->render('user/new.html.twig', [
+        return $this->render('teacher/new.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
@@ -68,7 +68,7 @@ class TeacherController extends AbstractController
      */
     public function show(User $user): Response
     {
-        return $this->render('user/show.html.twig', [
+        return $this->render('teacher/show.html.twig', [
             'user' => $user,
         ]);
     }
@@ -92,10 +92,10 @@ class TeacherController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_index');
+            return $this->redirectToRoute('teacher_index');
         }
 
-        return $this->render('user/edit.html.twig', [
+        return $this->render('teacher/edit.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
         ]);
@@ -112,6 +112,6 @@ class TeacherController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('user_index');
+        return $this->redirectToRoute('teacher_index');
     }
 }
