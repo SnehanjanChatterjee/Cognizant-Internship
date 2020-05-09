@@ -22,32 +22,34 @@
         </thead>
         <tbody>
         {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
-                <td>
-                    {% if 'ROLE_STUDENT' in user.roles|json_encode %}
-                        {{ 'Student' }}
-                    {% elseif 'ROLE_TEACHER' in user.roles|json_encode %}
-                        {{ 'Teacher' }}
-                    {% elseif 'ROLE_ADMIN' in user.roles|json_encode %}
-                        {{ 'Admin' }}
-                    {% endif %}
-                </td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.phoneNo }}</td>
-                <td>{{ user.dob }}</td>
-                <td>{{ user.gender }}</td>
-                <td>
-                    <a href="{{ path('teacher_show', {'id': user.id}) }}">show</a>
-                    {% if 'ROLE_TEACHER' in user.roles|json_encode %}
-                        <a href="{{ path('teacher_edit', {'id': user.id}) }}">edit</a>
-                    {% endif %}
-                </td>
-            </tr>
+            {% if 'ROLE_TEACHER' in user.roles|json_encode %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+                    <td>
+                        {% if 'ROLE_STUDENT' in user.roles|json_encode %}
+                            {{ 'Student' }}
+                        {% elseif 'ROLE_TEACHER' in user.roles|json_encode %}
+                            {{ 'Teacher' }}
+                        {% elseif 'ROLE_ADMIN' in user.roles|json_encode %}
+                            {{ 'Admin' }}
+                        {% endif %}
+                    </td>
+                    <td>{{ user.password }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.phoneNo }}</td>
+                    <td>{{ user.dob }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>
+                        <a href="{{ path('teacher_show', {'id': user.id}) }}">show</a>
+                        {# {% if 'ROLE_TEACHER' in user.roles|json_encode %} #}
+                            <a href="{{ path('teacher_edit', {'id': user.id}) }}">edit</a>
+                        {# {% endif %} #}
+                    </td>
+                </tr>
+            {% endif %}
         {% else %}
             <tr>
                 <td colspan="10">no records found</td>
