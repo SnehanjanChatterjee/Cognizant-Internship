@@ -44,8 +44,8 @@ class AdminType extends AbstractType
                 // 'empty_data' => 'ROLE_USER',
                 'choices' => [
                     // 'Select Role' => null,
-                    'Student' => 'ROLE_STUDENT',
-                    'Teacher' => 'ROLE_TEACHER',
+                    // 'Student' => 'ROLE_STUDENT',
+                    // 'Teacher' => 'ROLE_TEACHER',
                     'Admin' => 'ROLE_ADMIN',
                 ]
             ])
