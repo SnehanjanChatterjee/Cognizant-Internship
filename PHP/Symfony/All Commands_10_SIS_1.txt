@@ -530,3 +530,64 @@ What style of authentication do you want? [Empty authenticator]:
  - Customize your new authenticator.
  - Finish the redirect "TODO" in the [32mApp\Security\CustomAuthenticator::onAuthenticationSuccess()[39m method.
  - Review & adapt the login template: [32mtemplates/security/login.html.twig[39m.
+
+PS F:\CTS Internship\PHP\Symfony\Student_Inventory_System> php bin/console make:controller
+
+ Choose a name for your controller class (e.g. DeliciousJellybeanController):
+ > TeacherController
+
+ created: src/Controller/TeacherController.php
+ created: templates/teacher/index.html.twig
+
+
+  Success!
+
+
+ Next: Open your new controller class and add some pages!
+PS F:\CTS Internship\PHP\Symfony\Student_Inventory_System> php bin/console make:controller
+
+ Choose a name for your controller class (e.g. DeliciousElephantController):
+ > AdminController
+
+ created: src/Controller/AdminController.php
+ created: templates/admin/index.html.twig
+
+
+  Success!
+
+
+ Next: Open your new controller class and add some pages!
+PS F:\CTS Internship\PHP\Symfony\Student_Inventory_System> php bin/console make:form
+
+ The name of the form class (e.g. BraveGnomeType):
+ > Admin
+
+ The name of Entity or fully qualified model class name that the new form will be bound to (empty for none):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Form/AdminType.php
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Add fields to your form and start using it.
+ Find the documentation at [33mhttps://symfony.com/doc/current/forms.html[39m
+PS F:\CTS Internship\PHP\Symfony\Student_Inventory_System> php bin/console make:form
+
+ The name of the form class (e.g. GentleJellybeanType):
+ > Teacher
+
+ The name of Entity or fully qualified model class name that the new form will be bound to (empty for none):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Form/TeacherType.php
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Add fields to your form and start using it.
+ Find the documentation at [33mhttps://symfony.com/doc/current/forms.html[39m

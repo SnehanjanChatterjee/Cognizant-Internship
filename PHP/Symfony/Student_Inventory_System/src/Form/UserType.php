@@ -41,7 +41,7 @@ class UserType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'required' => true,
-                // 'empty_data' => 'ROLE_USER',
+                'empty_data' => 'ROLE_STUDENT',
                 'choices' => [
                     // 'Select Role' => null,
                     'Student' => 'ROLE_STUDENT'

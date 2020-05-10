@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2020 at 12:45 AM
+-- Generation Time: May 10, 2020 at 06:14 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -66,14 +66,16 @@ INSERT INTO `user` (`id`, `username`, `roles`, `password`, `name`, `email`, `pho
 (2, 'rghosh', '{\"ROLE_TEACHER\": \"ROLE_TEACHER\"}', '$2y$13$N7OzSHvKbYPLVwg9L2rX1On77qpOajOAqdVBo/5NCO9MD9L/wbiyC', 'Rajarshi Ghosh', 'r@gmail.com', 8798456320, '1980-11-02', 'Male'),
 (3, 'rroy', '{\"ROLE_ADMIN\": \"ROLE_ADMIN\"}', '$2y$13$l1q59mTZP4rp3fY7YESoO.BU1YGdQrBCx6SEl.5.538gKAkHCCeGG', 'Rahul Roy', 'roy@gmail.com', 8574963210, '1990-02-22', 'Male'),
 (4, 'sdas', '[\"ROLE_TEACHER\"]', '$2y$13$AhCsWY1ByLcOQkcXmdyGB.rwRtPh1GC34fPgBsMnZPgqjcg4Df9lK', 'Soham Das', 's@gmail.com', 8574961579, '1978-08-08', 'Male'),
-(5, 'spal', '[\"ROLE_ADMIN\"]', '$2y$13$sY/w3qrNFJmkddZuyXGdJ.h80qPT7p50GAn0UfvFscTDZVaQ7ToCy', 'Sudipta Pal', 's.p@gmail.com', 9876123407, '1995-05-05', 'Male'),
+(5, 'spal', '[\"ROLE_ADMIN\"]', '$2y$13$flHcUrIIuZ8P/aHDfJUtjex55RmQHzI9X4lwG4w42g02TezNTkPEm', 'Sudipta Pal', 's.p@gmail.com', 9876123407, '1985-05-05', 'Male'),
 (7, 'sdutta', '[\"ROLE_STUDENT\"]', '$2y$13$9IT5QVx2ts8AszGe3cja5eNu2l4gTZTX2CxovqO66HHcJ8JQo8g3i', 'Sounak Dutta', 's@gmail.com', 9578641238, '1996-05-05', 'Male'),
 (8, 'smajumder', '[\"ROLE_ADMIN\"]', '$2y$13$ZHKwLhnp/uLwQmV5estsW.mml/JHZ8oFyEIrsBIAIrtcGhkzlflei', 'Subhrajit Majumder', 'r.m@gmail.com', 9685741236, '1997-12-12', 'Male'),
 (9, 'rsharma', '[\"ROLE_ADMIN\"]', '$2y$13$2v8q3WU2R4LTzJgcomM8P.zqvZnE3wAJizaRfQE5sLabFn0OqqMt.', 'Rohit Sharma', 's9dnn@gmail.com', 9182736452, '1982-07-08', 'Male'),
 (10, 'ssaha', '[\"ROLE_STUDENT\"]', '$2y$13$D3uOE3arJL3IU5LkiQbene8lfUnv7ZMv17CyPZQFABhgfVeUV0m/i', 'Sagnik Saha', 'ssaha@gmail.com', 8597463210, '1996-12-26', 'Male'),
 (11, 'aghosh', '[\"ROLE_STUDENT\"]', '$2y$13$Yc0mUd5VvRGpnxvULURaaes2j20GSAP2zx2E5X8Msbj1.S8SqFMdK', 'Ananya Ghosh', 'aghsoh@gmail.com', 8978456512, '1997-02-02', 'Female'),
 (12, 'sgupta', '[\"ROLE_STUDENT\"]', '$2y$13$qnqQyuFjIdky7f.YJuU62uTybDgK9k.LK.y9aiwcnDK6C.hjh9Nry', 'Shraddha Gupta', 'sgupta@gmail.com', 9764318205, '1998-05-12', 'Female'),
-(13, 'rsanyal', '[\"ROLE_TEACHER\"]', '$2y$13$rcieir1CbAHTM5HUEIUOIOm5b1c8QiXFvoPtGmYcd0xMBdla0kbXW', 'Riya Sanyal', 'r.s23@gmail.com', 9877563126, '1980-02-02', 'Female');
+(13, 'rsanyal', '[\"ROLE_TEACHER\"]', '$2y$13$rcieir1CbAHTM5HUEIUOIOm5b1c8QiXFvoPtGmYcd0xMBdla0kbXW', 'Riya Sanyal', 'r.s23@gmail.com', 9877563126, '1980-02-02', 'Female'),
+(15, 'sganguly', '[\"ROLE_ADMIN\"]', '$2y$13$ewPqnCZF3G/3nrxPo9su2OBiJIIkLNJ1B.couhyd4LgrbLTZ2Sxe6', 'Sourav Ganguly', 'sg@gmail.com', 7893214560, '1984-02-02', 'Male'),
+(16, 'smukherjee', '[\"ROLE_STUDENT\"]', '$2y$13$p7cnjGPGbz.Hou3zJZZoWeJDa8XlZ7SPAeG9uxLmRTRs4Sf2vkU62', 'Sahil Mukherjee', 'sm2@gmail.com', 9685743201, '1996-05-12', 'Male');
 
 --
 -- Indexes for dumped tables
@@ -100,7 +102,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
