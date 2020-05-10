@@ -4,7 +4,7 @@
 
 {% block body %}
     <style>
-        .example-wrapper { margin: auto; width: 50%; font: 18px/1.5; background: white; border-radius: 10px; padding: 20px;}
+        .example-wrapper { margin: auto; width: 50%; font: 18px/1.5; background: white; border-radius: 10px; padding: 20px; margin-top:20px}
         * {
             font-family: 'Fira Sans', sans-serif;
         }
@@ -39,10 +39,10 @@
                         {% endif %}
                     </td>
                 </tr>
-                <tr>
+                {# <tr>
                     <th>Password</th>
                     <td>{{ user.password }}</td>
-                </tr>
+                </tr> #}
                 <tr>
                     <th>Name</th>
                     <td>{{ user.name }}</td>

@@ -1,5 +1,6 @@
 * {
     font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2rem;
 }
 body{
     background-color: #f1ece3;
@@ -14,6 +15,12 @@ body{
     /* color: white; */
     padding: 20px;
 }
+.my-item-list a:hover {
+    border-bottom: 3px solid white;
+}
+/* a.active {
+    border-bottom: 3px solid white;
+} */
 /* .submit-button{
     padding-top: 20px;
 } */
