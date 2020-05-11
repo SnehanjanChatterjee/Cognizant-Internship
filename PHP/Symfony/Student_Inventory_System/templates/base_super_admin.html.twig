@@ -21,14 +21,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active" href="{{ path('user_new') }}" 
-                        style="border-right:2px solid white; border-left:2px solid white;">Create Student</a>
+                    {# <a class="nav-item nav-link active" href="{{ path('user_new') }}" 
+                        style="border-right:2px solid white; border-left:2px solid white;">Create Student</a> #}
                     {% if app.user %}
-                        <a class="nav-item nav-link active" href="{{ path('user_index') }}" style="border-right:2px solid white;">Students</a>
-                        <a class="nav-item nav-link active" href="{{ path('teacher_new') }}" style="border-right:2px solid white;">Create Teacher</a>
-                        <a class="nav-item nav-link active" href="{{ path('teacher_index') }}" style="border-right:2px solid white;">Teachers</a>
-                        {# <a class="nav-item nav-link active" href="{{ path('admin_new') }}" style="border-right:2px solid white;">Create Admin</a> #}
-                        <a class="nav-item nav-link active" href="{{ path('admin_index') }}" style="border-right:2px solid white;">Users</a>
+                        {# <a class="nav-item nav-link active" href="{{ path('user_index') }}" style="border-right:2px solid white;">Students</a> #}
+                        {# <a class="nav-item nav-link active" href="{{ path('teacher_new') }}" style="border-right:2px solid white;">Create Teacher</a> #}
+                        {# <a class="nav-item nav-link active" href="{{ path('teacher_index') }}" style="border-right:2px solid white;">Teachers</a> #}
+                        <a class="nav-item nav-link active" href="{{ path('super_admin_new') }}" style="border-right:2px solid white;">Create Admin</a>
+                        <a class="nav-item nav-link active" href="{{ path('super_admin_index') }}" style="border-right:2px solid white;">Admins</a>
                         <a class="nav-item nav-link active" href="#">{{ app.user.name }}</a>
                         <a class="nav-item nav-link active" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt"></i></a>
                     {% endif %}

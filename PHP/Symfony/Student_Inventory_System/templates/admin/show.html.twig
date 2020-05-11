@@ -36,6 +36,8 @@
                             {{ 'Teacher' }}
                         {% elseif 'ROLE_ADMIN' in user.roles|json_encode %}
                             {{ 'Admin' }}
+                        {% elseif 'ROLE_SUPER_ADMIN' in user.roles|json_encode %}
+                            {{ 'Super Admin' }}
                         {% endif %}
                     </td>
                 </tr>
@@ -70,6 +72,6 @@
 
         {# <a href="{{ path('admin_edit', {'id': user.id}) }}">edit</a> #}
 
-        {{ include('admin/_delete_form.html.twig') }}
+        {# {{ include('admin/_delete_form.html.twig') }} #}
     </div>
 {% endblock %}

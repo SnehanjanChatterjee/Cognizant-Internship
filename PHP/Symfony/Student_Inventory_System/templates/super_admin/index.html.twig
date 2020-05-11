@@ -1,0 +1,72 @@
+{% extends 'base_super_admin.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; width: 80%; font: 18px/1.5; background: white;}
+        * {
+            font-family: 'Fira Sans', sans-serif;
+        }
+        body{
+            background-color: #f1ece3;
+        }
+    </style>
+
+    <div class="container-fluid pt-1">
+        <h1 class="text-center">Super Admin Dashboard</h1>
+    </div>
+
+    <div class="table-responsive-md example-wrapper shadow">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr class="text-uppercase">
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Roles</th>
+                    {# <th>Password</th> #}
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone no.</th>
+                    <th>Dob</th>
+                    <th>Gender</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                {% if ('ROLE_ADMIN' in user.roles|json_encode) or ('ROLE_SUPER_ADMIN' in user.roles|json_encode) %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+                        <td>
+                            {% if 'ROLE_ADMIN' in user.roles|json_encode %}
+                                {{ 'Admin' }}
+                            {% elseif 'ROLE_SUPER_ADMIN' in user.roles|json_encode %}
+                                {{ 'Super Admin' }}
+                            {% endif %}
+                        </td>
+                        {# <td>{{ user.password }}</td> #}
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.phoneNo }}</td>
+                        <td>{{ user.dob }}</td>
+                        <td>{{ user.gender }}</td>
+                        <td>
+                            <a href="{{ path('super_admin_show', {'id': user.id}) }}">show</a>
+                            <a href="{{ path('super_admin_edit', {'id': user.id}) }}">edit</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% else %}
+                <tr>
+                    <td colspan="10">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {# <a href="{{ path('user_new') }}">Create new</a> #}
+    </div>
+{% endblock %}

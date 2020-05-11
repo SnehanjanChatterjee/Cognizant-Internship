@@ -1,0 +1,25 @@
+{% extends 'base_super_admin.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: auto; width: 50%; font: 18px/1.5; background: white; border-radius: 10px; padding: 20px;}
+        * {
+            font-family: 'Fira Sans', sans-serif;
+        }
+        body{
+            background-color: #f1ece3;
+        }
+    </style>
+
+    <div class="container-fluid pt-1">
+        <h1 class="text-center">Create new Admin</h1>
+    </div>
+    <div class="example-wrapper shadow">
+
+        {{ include('super_admin/_form.html.twig') }}
+
+        {# <a href="{{ path('admin_index') }}">back to list</a> #}
+    </div>
+{% endblock %}

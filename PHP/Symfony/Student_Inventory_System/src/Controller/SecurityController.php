@@ -26,6 +26,9 @@ class SecurityController extends AbstractController
         if ($this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('admin_index');
         }
+        if ($this->isGranted('ROLE_SUPER_ADMIN')) {
+            return $this->redirectToRoute('super_admin_index');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -54,5 +57,7 @@ class SecurityController extends AbstractController
         if ($this->isGranted('ROLE_ADMIN'))
             // return $this->redirectToRoute('user_edit', ['id' => 1]);
             return $this->redirectToRoute('admin_index');
+        if ($this->isGranted('ROLE_SUPER_ADMIN'))
+            return $this->redirectToRoute('super_admin_index');
     }
 }

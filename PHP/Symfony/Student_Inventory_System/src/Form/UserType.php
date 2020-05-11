@@ -17,10 +17,10 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('username', TextType::class)
-            ->add('email', EmailType::class)
-            ->add('phone_no')
+            ->add('name', TextType::class, ['attr' => ['placeholder' => 'Enter your Name']])
+            ->add('username', TextType::class, ['attr' => ['placeholder' => 'Enter your Userame']])
+            ->add('email', EmailType::class, ['attr' => ['placeholder' => 'xyz@gmail.com']])
+            ->add('phone_no', null, ['attr' => ['placeholder' => 'Enter your Phone Number']])
             ->add('dob', DateType::class, [
                 'widget' => 'single_text',
                 // 'widget' => 'choice',
@@ -49,7 +49,7 @@ class UserType extends AbstractType
                     // 'Admin' => 'ROLE_ADMIN',
                 ]
             ])
-            ->add('password', PasswordType::class);
+            ->add('password', PasswordType::class, ['attr' => ['placeholder' => 'Enter your Password']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

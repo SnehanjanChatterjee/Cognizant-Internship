@@ -46,6 +46,8 @@
                             {{ 'Teacher' }}
                         {% elseif 'ROLE_ADMIN' in user.roles|json_encode %}
                             {{ 'Admin' }}
+                        {% elseif 'ROLE_SUPER_ADMIN' in user.roles|json_encode %}
+                            {{ 'Super Admin' }}
                         {% endif %}
                     </td>
                     {# <td>{{ user.password }}</td> #}
@@ -56,7 +58,9 @@
                     <td>{{ user.gender }}</td>
                     <td>
                         <a href="{{ path('admin_show', {'id': user.id}) }}">show</a>
-                        <a href="{{ path('admin_edit', {'id': user.id}) }}">edit</a>
+                        {% if ('ROLE_STUDENT' in user.roles|json_encode) or ('ROLE_TEACHER' in user.roles|json_encode) %}
+                            <a href="{{ path('admin_edit', {'id': user.id}) }}">edit</a>
+                        {%  endif %}
                     </td>
                 </tr>
             {% else %}

@@ -44,5 +44,7 @@ security:
         - { path: ^/student, roles: [ROLE_STUDENT, ROLE_ADMIN, ROLE_TEACHER] }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/teacher, roles: [ROLE_TEACHER, ROLE_ADMIN] }
+        - { path: ^/superadmin, roles: ROLE_SUPER_ADMIN }
+        # - { path: ^/admin/new, roles: ROLE_SUPER_ADMIN }
         # - { path: ^/admin/new, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         # - { path: ^/profile, roles: ROLE_USER }

@@ -591,3 +591,17 @@ U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r
 
  Next: Add fields to your form and start using it.
  Find the documentation at [33mhttps://symfony.com/doc/current/forms.html[39m
+
+PS F:\CTS Internship\PHP\Symfony\Student_Inventory_System> php bin/console make:controller
+
+ Choose a name for your controller class (e.g. FierceJellybeanController):
+ > SuperAdminController
+
+ created: src/Controller/SuperAdminController.php
+ created: templates/super_admin/index.html.twig
+
+
+  Success!
+
+
+ Next: Open your new controller class and add some pages!
