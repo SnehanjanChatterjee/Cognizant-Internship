@@ -41,10 +41,14 @@ security:
         - { path: ^/student/new, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/student/dashboard, roles: [ROLE_STUDENT, ROLE_ADMIN, ROLE_TEACHER, ROLE_SUPER_ADMIN] }
+        - { path: ^/teacher/dashboard, roles: [ROLE_ADMIN, ROLE_TEACHER, ROLE_SUPER_ADMIN] }
         - { path: ^/student, roles: [ROLE_STUDENT, ROLE_ADMIN, ROLE_TEACHER] }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/teacher, roles: [ROLE_TEACHER, ROLE_ADMIN] }
         - { path: ^/superadmin, roles: ROLE_SUPER_ADMIN }
+        # - { path: ^/student/dashboard, roles: ROLE_SUPER_ADMIN }
+        # - { path: ^/teacher/dashboard, roles: ROLE_SUPER_ADMIN }
         # - { path: ^/admin/new, roles: ROLE_SUPER_ADMIN }
         # - { path: ^/admin/new, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         # - { path: ^/profile, roles: ROLE_USER }

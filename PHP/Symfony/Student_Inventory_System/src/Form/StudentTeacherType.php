@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AdminType extends AbstractType
+class StudentTeacherType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -41,15 +41,15 @@ class AdminType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'required' => true,
-                'empty_data' => 'ROLE_ADMIN',
+                'empty_data' => 'ROLE_STUDENT',
                 'choices' => [
                     // 'Select Role' => null,
-                    // 'Student' => 'ROLE_STUDENT',
-                    'Super Admin' => 'ROLE_SUPER_ADMIN',
-                    'Admin' => 'ROLE_ADMIN',
+                    'Student' => 'ROLE_STUDENT',
+                    'Teacher' => 'ROLE_TEACHER'
+                    // 'Admin' => 'ROLE_ADMIN',
                 ]
             ])
-            ->add('password', PasswordType::class, ['attr' => ['placeholder' => 'Enter your Password']]);;
+            ->add('password', PasswordType::class, ['attr' => ['placeholder' => 'Enter your Password']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
