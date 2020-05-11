@@ -605,3 +605,21 @@ PS F:\CTS Internship\PHP\Symfony\Student_Inventory_System> php bin/console make:
 
 
  Next: Open your new controller class and add some pages!
+
+PS F:\CTS Internship\PHP\Symfony\Student_Inventory_System> php bin/console make:form
+
+ The name of the form class (e.g. FiercePizzaType):
+ > StudentTeacher
+
+ The name of Entity or fully qualified model class name that the new form will be bound to (empty for none):
+ > User
+U[K7[30;47mser[39;49m8s[K7[30;47mer[39;49m8e[K7[30;47mr[39;49m8r[K78
+
+ [34mcreated[39m: src/Form/StudentTeacherType.php
+
+ [37;42m          [39;49m
+ [37;42m Success! [39;49m
+ [37;42m          [39;49m
+
+ Next: Add fields to your form and start using it.
+ Find the documentation at [33mhttps://symfony.com/doc/current/forms.html[39m
