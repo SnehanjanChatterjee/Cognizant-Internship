@@ -1,0 +1,9 @@
+<h1>
+    {{ node.title.value|raw }}
+</h1>
+<div class="row">
+    <div class="col-12">
+        <img src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" style="width: 100%;" />
+    </div>
+    {{ node.field_price_product.value|raw }}
+</div>

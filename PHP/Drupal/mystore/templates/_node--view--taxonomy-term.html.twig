@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div>
+                <div class="row">
+                    {% for key,row in rows %}
+                        {% if key == 0 %}
+                            {% set active = "active" %}
+                        {% else %}
+                            {% set active = "" %}
+                        {% endif %}
+                        <div class="col-4 {{active}} pull-left" style="background-colour:white">
+                            <br><br>
+                            <div class="card">
+                                <center>
+                                    {{ view.style_plugin.getField(key, 'field_image') }}<br>
+                                </center>
+                                <div class="card-body">
+                                    {{ view.style_plugin.getField(key, 'title') }}<br>
+                                    {{view.style_plugin.getField(key, 'field_price_product')}}$
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{# {{ view.style_plugin.getField(key, 'parent_target_id') }} #}
+<!--Accordion wrapper-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="accordion md-accordion w-100" id="accordionEx" role="tablist" aria-multiselectable="true">
+        {% for key,row in rows %}
+          {% set card_header_id = 'heading' ~ key %}
+          {% set card_collapse = 'collapse' ~ key  %}
+          <!-- Accordion card -->
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header" role="tab" id="{{card_header_id}}">
+              <a data-toggle="collapse" data-parent="#accordionEx" href="#{{card_collapse}}" aria-expanded="true"
+                aria-controls="{{card_collapse}}">
+                <h5 class="mb-0">
+                  {# {{ view.style_plugin.getField(key, 'parent_target_id') }} {{ view.style_plugin.getField(key, 'product_category_id') }} <i class="fas fa-angle-down rotate-icon"></i> #}
+                  {# {{ view.style_plugin.getField(key, 'parent_target_id') }} {{ view.style_plugin.getField(key, 'variation_id') }} #}
+                  {{ view.style_plugin.getField(key, 'parent_target_id') }} {{ view.style_plugin.getField(key, 'nid') }}
+                </h5>
+              </a>
+            </div>
+            <!-- Card body -->
+            <div id="{{card_collapse}}" class="collapse show" role="tabpanel" aria-labelledby="{{card_header_id}}"
+              data-parent="#accordionEx">
+              <div class="card-body">
+                {{ row.content }}
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Accordion wrapper -->
+{# <div class="mb-4"></div> #}

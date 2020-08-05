@@ -1,0 +1,5 @@
+<ul>
+  {% for key,row in rows %}
+    <li>{{ view.style_plugin.getField(key, 'name') }} {{ view.style_plugin.getField(key, 'nid') }}</li>
+  {% endfor %}
+</ul>
